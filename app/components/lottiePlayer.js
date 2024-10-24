@@ -8,11 +8,6 @@ export function LottiePlayer() {
 
   const dotLottieRefCallback = (dotLottie) => {
     setDotLottie(dotLottie);
-    // dotLottie.setLayout({
-    //   ...dotLottie.layout,
-    //   fit: 'cover'
-    // })
-    console.log('LOTTIE', dotLottie);
   };
 
   React.useEffect(() => {

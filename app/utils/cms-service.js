@@ -16,3 +16,7 @@ export function urlFor(source) {
   const builder = imageUrlBuilder(client);
   return builder.image(source);
 }
+
+export function getHomeContent() {
+  // return client.fetch(`*[_type == 'homepage']{title, "backgroundImage" -> asset->url, "title", description}`);
+}

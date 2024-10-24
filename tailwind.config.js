@@ -12,6 +12,11 @@ module.exports = {
         foreground: "var(--foreground)",
       },
     },
+    fontFamily: {
+      ritma: "var(--font-ritma)",
+      signifier: "var(--font-signifier)",
+      signifierItalic: "var(--font-signifier-italic)",
+    }
   },
   plugins: [],
 };

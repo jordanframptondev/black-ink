@@ -1,5 +1,5 @@
-import { Info } from "./components/info";
-import { LottiePlayer } from "./components/lottiePlayer";
+import { Info } from "./components/Info";
+import { LottiePlayer } from "./components/LottiePlayer";
 
 const sampleSections = [
   {

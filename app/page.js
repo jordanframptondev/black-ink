@@ -1,5 +1,6 @@
 import { Info } from "./components/Info";
 import { LottiePlayer } from "./components/LottiePlayer";
+import { Testimonials } from "./components/Testimonials";
 
 const sampleSections = [
   {
@@ -27,11 +28,12 @@ export default function Home() {
       <div className="h-screen w-screen">
         <LottiePlayer />
       </div>
-      <div className="mt-screen py-12 h-screen flex flex-col justify-between">
+      <div className="bg-black mt-screen py-12 h-screen flex flex-col justify-between">
         <h3 className="text-center text-white text-3xl">There are <i>many futures,</i> Black Ink points you to <i>the right one.</i></h3>
         <h2 className="text-center text-white text-3xl">We facilitate the <i>selection, design, and implementation</i> of strategic projects.</h2>
       </div>
       <Info background="#534f3d" title="ETHOS" sections={sampleSections} />
+      <Testimonials />
     </>
   );
 }

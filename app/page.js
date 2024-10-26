@@ -1,6 +1,7 @@
 import { Info } from "./components/Info";
 import { LottiePlayer } from "./components/LottiePlayer";
 import { Testimonials } from "./components/Testimonials";
+import { FullCta } from './components/server-components/FullCta';
 
 const sampleSections = [
   {
@@ -34,6 +35,7 @@ export default function Home() {
       </div>
       <Info background="#534f3d" title="ETHOS" sections={sampleSections} />
       <Testimonials />
+      <FullCta />
     </>
   );
 }

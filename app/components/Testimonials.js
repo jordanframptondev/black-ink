@@ -18,7 +18,7 @@ function Logos() {
   return (
     <div className="py-12 flex justify-between">
       {/* 1.784 */}
-      {logos.map((logo, index) => <Image key={index} src={logo} width={100} height={30} />)}
+      {logos.map((logo, index) => <Image key={index} src={logo} width={150} height={45} />)}
     </div>
   )
 }

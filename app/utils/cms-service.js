@@ -5,7 +5,7 @@ import imageUrlBuilder from "@sanity/image-url";
 // import {createClient} from 'https://esm.sh/@sanity/client'
 
 export const client = createClient({
-    projectId: "",
+    projectId: "yl9xajmz",
     dataset: "production",
     useCdn: false, // set to `false` to bypass the edge cache
     apiVersion: "2023-05-03", // use current date (YYYY-MM-DD) to target the latest API version
@@ -19,4 +19,13 @@ export function urlFor(source) {
 
 export function getHomeContent() {
   // return client.fetch(`*[_type == 'homepage']{title, "backgroundImage" -> asset->url, "title", description}`);
+}
+
+export function getCtaData(title) {
+  let titleParam = '';
+  if (title) {
+    titleParam = ` && title=='${title}'`;
+  }
+
+  return client.fetch(`*[_type == 'fullCta'${titleParam}]{displayText,title,link,overlay,backgroundImage {asset->{url}}}`);
 }

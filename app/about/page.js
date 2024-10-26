@@ -1,6 +1,7 @@
 import Image from "next/image";
 import {Info} from "@/app/components/Info";
 import {FullCta} from "@/app/components/server-components/FullCta";
+import {Footer} from "@/app/components/Footer";
 
 export default function About() {
 
@@ -42,11 +43,13 @@ export default function About() {
                             <h1>ABOUT</h1>
                         </div>
                         <div className={"flex flex-col w-2/3"}>
-                            <p className={"text-[20px] sm:text-[36px] font-signifier mb-10"}>In the pursuit of growth and innovation,
+                            <p className={"text-[20px] sm:text-[36px] font-signifier mb-10"}>In the pursuit of growth
+                                and innovation,
                                 organizations often find themselves navigating
                                 complex
                                 challenges that demand precision, expertise, and foresight.</p>
-                            <p className={"text-[16px] sm:text-[24px] font-signifierItalic"}>At Black Ink, we’ve assembled a team of
+                            <p className={"text-[16px] sm:text-[24px] font-signifierItalic"}>At Black Ink, we’ve
+                                assembled a team of
                                 seasoned
                                 professionals who have spent decades honing
                                 their craft in the upper echelons of global industry. Our collective experience is a
@@ -70,8 +73,9 @@ export default function About() {
                     </div>
                 </div>
             </div>
-            <Info background="#534f3d" title="ETHOS" sections={sampleSections} />
-            <FullCta />
+            <Info background="#534f3d" title="ETHOS" sections={sampleSections}/>
+            <FullCta/>
+            <Footer/>
         </div>
     );
 }

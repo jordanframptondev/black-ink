@@ -1,0 +1,80 @@
+/*might use this in the future*/
+.gradient {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.07046568627450978) 14%, rgba(0, 0, 0, 0.2) 39%, rgba(0, 0, 0, 0.3981967787114846) 59%, rgba(0, 0, 0, 0.7959558823529411) 90%, rgba(0, 0, 0, 1) 100%);
+    padding-bottom: 20px;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+.circle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    background-color: #EFEEE8;
+    border-radius: 50%;
+}
+.circle.animate {
+    animation: expandCircle 3s forwards;
+}
+
+.circle.reverse {
+    animation: contractCircle 3s forwards;
+}
+
+@keyframes expandCircle {
+    0% {
+        width: 0;
+        height: 0;
+        top: 0;
+        right: 0;
+    }
+    100% {
+        width: 400vh;
+        height: 400vh;
+        top: -150vh;
+        right: -150vh;
+    }
+}
+
+@keyframes contractCircle {
+    0% {
+        width: 400vh;
+        height: 400vh;
+        top: -150vh;
+        right: -150vh;
+    }
+    100% {
+        width: 0;
+        height: 0;
+        top: 0;
+        right: 0;
+    }
+}
+
+.menu {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 1s ease;
+    transition-delay: 0s;
+}
+
+.menu.show {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 1s;
+}
+
+.menu.hide {
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: 0s;
+}

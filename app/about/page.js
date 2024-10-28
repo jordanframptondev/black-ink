@@ -2,6 +2,7 @@ import Image from "next/image";
 import {Info} from "@/app/components/Info";
 import {FullCta} from "@/app/components/server-components/FullCta";
 import {Footer} from "@/app/components/Footer";
+import {Header} from "@/app/components/Header";
 
 export default function About() {
 
@@ -25,57 +26,70 @@ export default function About() {
     ];
 
     return (
-        <div className={"text-[#EFEEE8]"}>
-            <div className={"flex justify-center w-screen h-screen bg-[#3A332E]"}>
-                <Image
-                    src="/images/about-bg.png"
-                    alt="Background Image"
-                    width={1920}
-                    height={1080}
-                    className={"mt-auto w-full min-h-[550px] object-cover object-[35%] mb-[25px] sm:mb-[150px]"}
-                    priority={true}
-                />
-            </div>
-            <div className={"flex justify-center min-w-screen min-h-screen bg-[#3A332E]"}>
-                <div className={"flex border-t border-[#EFEEE8] mx-7"}>
-                    <div className={"flex my-10"}>
-                        <div className={"flex w-1/3 text-[18px] sm:text-[24px] font-ritma"}>
-                            <h1>ABOUT</h1>
-                        </div>
-                        <div className={"flex flex-col w-2/3"}>
-                            <p className={"text-[20px] sm:text-[36px] font-signifier mb-10"}>In the pursuit of growth
-                                and innovation,
-                                organizations often find themselves navigating
-                                complex
-                                challenges that demand precision, expertise, and foresight.</p>
-                            <p className={"text-[16px] sm:text-[24px] font-signifierItalic"}>At Black Ink, we’ve
-                                assembled a team of
-                                seasoned
-                                professionals who have spent decades honing
-                                their craft in the upper echelons of global industry. Our collective experience is a
-                                testament
-                                to the power of collaboration and the impact that can be achieved when talented
-                                individuals
-                                come
-                                together with a shared vision. What drives us is a passion for empowering organizations
-                                to
-                                reach
-                                their full potential. We believe that the most effective solutions are born from a deep
-                                understanding of the intricacies of business, combined with a relentless pursuit of
-                                excellence.
-                                Our approach is built on a foundation of pragmatism, creativity, and a commitment to
-                                delivering
-                                tangible results that stand the test of time. By combining expertise, instinct, and a
-                                keen
-                                eye
-                                for opportunity, we help organizations transform their aspirations into reality.</p>
+        <div className={"relative"}>
+            <Header color="cream"/>
+            <div className={"text-[#EFEEE8]"}>
+                <div className={"flex sticky top-0 justify-center w-screen h-screen bg-[#3A332E]"}>
+                    <Image
+                        src="/images/about-bg.png"
+                        alt="Background Image"
+                        width={1920}
+                        height={1080}
+                        className={"mt-auto w-full min-h-[550px] object-cover object-[35%] mb-[25px] sm:mb-[150px]"}
+                        priority={true}
+                    />
+                </div>
+                <div className={"flex relative justify-center min-w-screen min-h-screen  bg-[#3A332E]"}>
+                    <div className={"flex border-t border-[#EFEEE8] mx-7"}>
+                        <div className={"flex my-10"}>
+                            <div className={"flex w-1/3 text-[18px] sm:text-[24px] font-ritma"}>
+                                <h1>ABOUT</h1>
+                            </div>
+                            <div className={"flex flex-col w-2/3"}>
+                                <p className={"text-[20px] sm:text-[36px] font-signifier mb-10"}>In the pursuit of
+                                    growth
+                                    and innovation,
+                                    organizations often find themselves navigating
+                                    complex
+                                    challenges that demand precision, expertise, and foresight.</p>
+                                <p className={"text-[16px] sm:text-[24px] font-signifierItalic"}>At Black Ink, we’ve
+                                    assembled a team of
+                                    seasoned
+                                    professionals who have spent decades honing
+                                    their craft in the upper echelons of global industry. Our collective experience is a
+                                    testament
+                                    to the power of collaboration and the impact that can be achieved when talented
+                                    individuals
+                                    come
+                                    together with a shared vision. What drives us is a passion for empowering
+                                    organizations
+                                    to
+                                    reach
+                                    their full potential. We believe that the most effective solutions are born from a
+                                    deep
+                                    understanding of the intricacies of business, combined with a relentless pursuit of
+                                    excellence.
+                                    Our approach is built on a foundation of pragmatism, creativity, and a commitment to
+                                    delivering
+                                    tangible results that stand the test of time. By combining expertise, instinct, and
+                                    a
+                                    keen
+                                    eye
+                                    for opportunity, we help organizations transform their aspirations into reality.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div className={"relative"}>
+                    <Info background="#534f3d" title="ETHOS" sections={sampleSections}/>
+                </div>
+                <div className={"relative"}>
+                    <FullCta/>
+                </div>
+                <div className={"relative"}>
+                    <Footer/>
+                </div>
             </div>
-            <Info background="#534f3d" title="ETHOS" sections={sampleSections}/>
-            <FullCta/>
-            <Footer/>
         </div>
     );
 }

@@ -20,13 +20,19 @@
     height: 0;
     background-color: #EFEEE8;
     border-radius: 50%;
+    opacity: 0;
 }
 .circle.animate {
+    opacity: 1;
     animation: expandCircle 3s forwards;
+    transition: opacity 1s ease
 }
 
 .circle.reverse {
-    animation: contractCircle 3s forwards;
+    opacity: 0;
+    transition: opacity 2s ease;
+    transition-delay: .5s;
+    animation: contractCircle 1.5s forwards;
 }
 
 @keyframes expandCircle {
@@ -70,7 +76,7 @@
 .menu.show {
     opacity: 1;
     visibility: visible;
-    transition-delay: 1s;
+    transition-delay: .5s;
 }
 
 .menu.hide {

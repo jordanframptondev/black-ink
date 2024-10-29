@@ -45,7 +45,7 @@ export function Header({color}) {
     return (
         <>
             <div className={"sticky top-0 z-10"}>
-                <div className={"absolute top-[40px] flex w-full z-20"}>
+                <div className={"absolute top-[30px] flex w-full z-20"}>
                     <p className={`${(color === 'black' && !showMenu) || (showMenu && windowWidth < 768) ? 'text-black' : 'text-[#EFEEE8]'} absolute left-[40px] md:left-[50%] md:-translate-x-1/2 transition-all duration-1000 ease-in`}>
                         BLACK INK
                     </p>
@@ -63,24 +63,24 @@ export function Header({color}) {
                 <div id="menu-background" className={`circle`}
                      onClick={handleMenuClick}></div>
                 <div id="menu"
-                     className={`flex z-20 items-center md:items-start w-screen h-screen menu text-[36px] font-ritma cursor-alias`}
+                     className={`flex z-20 min-h-[670px] items-center md:items-start w-screen h-screen menu text-[36px] font-ritma`}
                      onClick={handleMenuClick}
                 >
-                    <div className={"flex flex-col md:mt-10 pl-10 pr-10 md:pl-10 md:pr-0 w-screen md:w-[500px] transition-all duration-1000 ease-in"}>
+                    <div className={"flex flex-col md:mt-12 pl-10 pr-10 md:pl-10 md:pr-0 w-screen md:w-[500px] transition-all duration-1000 ease-in"}>
                         <Link href={"/"} className={"nav-link border-t border-t-black py-6 cursor-pointer"}>
-                            <span className="arrow">→</span> <span className="link-text">Home</span>
+                            <span className="arrow">→</span> <span className="link-text">HOME</span>
                         </Link>
                         <Link href={"/about"} className={"nav-link border-t border-t-black py-6 cursor-pointer"}>
-                            <span className="arrow">→</span> <span className="link-text">About</span>
+                            <span className="arrow">→</span> <span className="link-text">ABOUT</span>
                         </Link>
                         <Link href={"/services"} className={"nav-link border-t border-t-black py-6 cursor-pointer"}>
-                            <span className="arrow">→</span> <span className="link-text">Services</span>
+                            <span className="arrow">→</span> <span className="link-text">SERVICES</span>
                         </Link>
                         <Link href={"/portfolio"} className={"nav-link border-t border-t-black py-6 cursor-pointer"}>
-                            <span className="arrow">→</span> <span className="link-text">Portfolio</span>
+                            <span className="arrow">→</span> <span className="link-text">PORTFOLIO</span>
                         </Link>
                         <Link href={"/contact"} className={"nav-link border-y border-y-black py-6 cursor-pointer"}>
-                            <span className="arrow">→</span> <span className="link-text">Contact</span>
+                            <span className="arrow">→</span> <span className="link-text">CONTACT</span>
                         </Link>
                     </div>
                 </div>

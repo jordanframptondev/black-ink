@@ -14,8 +14,8 @@
 
 .circle {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 40px;
+    right: 40px;
     width: 0;
     height: 0;
     background-color: #EFEEE8;
@@ -39,8 +39,8 @@
     0% {
         width: 0;
         height: 0;
-        top: 0;
-        right: 0;
+        top: 45px;
+        right: 45px;
     }
     100% {
         width: 400vh;
@@ -60,8 +60,8 @@
     100% {
         width: 0;
         height: 0;
-        top: 0;
-        right: 0;
+        top: 47px;
+        right: 46px;
     }
 }
 

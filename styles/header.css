@@ -25,7 +25,7 @@
 .circle.animate {
     opacity: 1;
     animation: expandCircle 3s forwards;
-    transition: opacity 1s ease
+    transition: opacity 2s ease
 }
 
 .circle.reverse {
@@ -79,8 +79,50 @@
     transition-delay: .5s;
 }
 
+@media (min-width: 1024px) { /* Adjust the min-width value as needed for large screens */
+    .menu.show {
+        transition-delay: 1s; /* Delay for large screens */
+    }
+}
+
 .menu.hide {
     opacity: 0;
+    transition: opacity .5s ease, visibility .5s ease;
     visibility: hidden;
-    transition-delay: 0s;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+.nav-link {
+    position: relative;
+    display: inline-block;
+    padding-left: 0; /* Start with no padding */
+    overflow: hidden;
+    transition: padding-left 0.3s ease; /* Animate padding change */
+}
+
+.arrow, .link-text {
+    display: inline-block;
+    transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.arrow {
+    width: 0;
+    transform: translateX(-30px); /* Start off-screen to the left */
+    opacity: 0; /* Initially hidden */
+}
+
+.nav-link:hover {
+    /*padding-left: 20px; !* Add padding on hover *!*/
+}
+
+.nav-link:hover .arrow {
+    transform: translateX(3px); /* Slide in from the left */
+    opacity: 1; /* Show on hover */
+}
+
+.nav-link:hover .link-text {
+    transform: translateX(40px); /* Slide text to the right */
 }

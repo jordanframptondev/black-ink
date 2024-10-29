@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, forwardRef } from "react";
 import { Transition } from "@headlessui/react";
 
 const contactFormData = [
@@ -49,26 +49,45 @@ export default function ContactForm({}) {
             <h2>
                 You made it! -- answer some simple questions to get in touch
             </h2>
-            {openSection < contactFormData.length ? (
-                contactFormData.map((section, index) => (
-                    <ContactFormSection
-                        key={index}
-                        question={section.question}
-                        answers={section.answers}
-                        isOpen={index === openSection}
-                        selectOption={(answer) => setSelection(index, answer)}
-                    />
-                ))
-            ) : (
+            <Transition
+                show={openSection < contactFormData.length}
+                enter="transition-all duration-500 ease-in"
+                enterFrom="opacity-0 "
+                enterTo="opacity-100 "
+                leave="transition-all duration-500 ease-out"
+                leaveFrom="opacity-100 "
+                leaveTo="opacity-0"
+            >
+                <div>
+                    {contactFormData.map((section, index) => (
+                        <ContactFormSection
+                            key={index}
+                            question={section.question}
+                            answers={section.answers}
+                            isOpen={index === openSection}
+                            selectOption={(answer) =>
+                                setSelection(index, answer)
+                            }
+                        />
+                    ))}
+                </div>
+            </Transition>
+
+            <Transition
+                show={openSection >= contactFormData.length}
+                enter="transition-all duration-500 ease-in"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+            >
                 <ContactInfoSubmit onSubmit={submitContact} />
-            )}
+            </Transition>
         </div>
     );
 }
 
 function ContactFormSection({ question, answers, isOpen, selectOption }) {
     return (
-        <>
+        <div>
             <div
                 className={`border-t border-whitetransition-all delay-300 duration-500 ${
                     isOpen ? "w-full" : "w-1/3"
@@ -109,7 +128,7 @@ function ContactFormSection({ question, answers, isOpen, selectOption }) {
                     isOpen ? "w-full" : "w-1/3"
                 }`}
             ></div>
-        </>
+        </div>
     );
 }
 
@@ -129,16 +148,18 @@ function ContactFormQuestion({ question, answer, selectionOption }) {
     </div>;
 }
 
-function ContactInfoSubmit({ onSubmit }) {
+const ContactInfoSubmit = forwardRef((props, ref) => {
     return (
-        <>
-            <div className="border-t border-whitew-full"></div>
+        <div ref={ref}>
+            <div className="border-t border-white w-full"></div>
             <div className="grid grid-cols-1 lg:grid-cols-2">
                 <div>Name</div>
                 <div>Title</div>
                 <div>Email</div>
                 <div>Phone</div>
             </div>
-        </>
+        </div>
     );
-}
+});
+ContactInfoSubmit.displayName = "ContactInfoSubmit";
+// Display name needed for component in same file

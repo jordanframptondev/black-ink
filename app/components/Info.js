@@ -3,7 +3,7 @@ import { Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
-export default function Info({ background, title, sections, textLight = true }) {
+export function Info({ background, title, sections, textLight = true }) {
     return (
         <div className="h-screen w-screen px-6 py-12" style={{ background }}>
             <div>

@@ -1,10 +1,10 @@
 import Image from "next/image";
-import {Info} from "@/app/components/Info";
+import Info from "@/app/components/Info";
 import {FullCta} from "@/app/components/server-components/FullCta";
 import {Footer} from "@/app/components/Footer";
 import {Header} from "@/app/components/Header";
 
-export default function About() {
+export default async function About() {
 
     const sampleSections = [
         {

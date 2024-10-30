@@ -27,7 +27,7 @@ export function Footer() {
                             </div>
                         </div>
                         <div>
-                            <p className={"pt-10"}>© 2021 Black Ink. All rights reserved.</p>
+                            <p className={"pt-10"}>© 2024 Black Ink. All rights reserved.</p>
                         </div>
                     </div>
                 </div>

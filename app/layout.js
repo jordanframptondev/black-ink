@@ -15,7 +15,7 @@ const signifierItalic = localFont({
     src: "../public/fonts/signifier-regular-italic.woff2",
     variable: "--font-signifier-italic",
 });
-//todo: setup metadata on all pages for nice document tab titles
+//todo: setup metadata on all pages for nice document tab titles, SEO, etc.
 
 export default function RootLayout({ children }) {
   return (

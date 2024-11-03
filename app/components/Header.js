@@ -67,7 +67,7 @@ export function Header({color}) {
             <header className={`sticky top-0 z-10 ${isFooterVisible ? 'opacity-0' : 'opacity-100'} transition-all duration-1000 ease-in-out`}>
                 <div className={"absolute top-[30px] flex w-full z-[99]"}>
                     <p className={`${(color === 'black' && !showMenu) || (showMenu && windowWidth < 768) ? 'text-black' : 'text-[#EFEEE8]'} 
-                    absolute ${showMenu ? 'cursor-alias' : 'cursor-default'} text-[24px] font-ritma left-[40px] md:left-[50%] md:-translate-x-1/2 transition-all duration-1000 ease-in`}>
+                    absolute ${showMenu ? 'cursor-alias' : 'cursor-default'} text-[18px] sm:text-[24px] font-ritma left-[40px] md:left-[50%] md:-translate-x-1/2 transition-all duration-1000 ease-in`}>
                         BLACK INK
                     </p>
                     <Image
@@ -77,7 +77,7 @@ export function Header({color}) {
                         width={50}
                         height={50}
                         priority={true}
-                        className={`absolute right-[40px] h-[21px] w-fit ${showMenu ? 'cursor-alias' : 'cursor-pointer'}`}
+                        className={`absolute top-[3px] sm:top-0 right-[40px] h-[18px] sm:h-[21px] w-fit ${showMenu ? 'cursor-alias' : 'cursor-pointer'}`}
                         onClick={handleMenuClick}
                     />
                 </div>

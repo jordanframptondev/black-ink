@@ -3,6 +3,7 @@ import {Info} from "@/app/components/Info";
 import {FullCta} from "@/app/components/server-components/FullCta";
 import {Footer} from "@/app/components/Footer";
 import {Header} from "@/app/components/Header";
+import {Team} from "@/app/components/Team";
 
 export default async function About() {
 
@@ -28,7 +29,7 @@ export default async function About() {
     return (
         <div className={"relative"}>
             <Header color="cream"/>
-            <div className={"text-[#EFEEE8]"}>
+            <div className={"text-[#EFEEE8] select-none"}>
                 <div className={"flex sticky top-0 justify-center w-screen h-screen bg-[#3A332E]"}>
                     <Image
                         src="/images/about-bg.png"
@@ -81,7 +82,10 @@ export default async function About() {
                     </div>
                 </div>
                 <div className={"relative"}>
-                    <Info background="#534f3d" title="ETHOS" sections={sampleSections}/>
+                    <Info background="#000000" textLight={true} title="ETHOS" sections={sampleSections}/>
+                </div>
+                <div className={"relative"}>
+                    <Team/>
                 </div>
                 <div className={"relative"}>
                     <FullCta/>

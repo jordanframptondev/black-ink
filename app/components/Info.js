@@ -5,9 +5,9 @@ import { useState } from "react";
 
 export function Info({ background, title, sections, textLight = true }) {
     return (
-        <div className="h-screen w-screen px-6 py-12" style={{ background }}>
+        <div className="h-screen w-screen p-10" style={{ background }}>
             <div>
-                <h2 className={`text-3xl mb-12 ${textLight ? 'text-white' : 'text-black'}`}>{title}</h2>
+                <h2 className={`text-[24px] mb-12 ${textLight ? 'text-white' : 'text-black'}`}>{title}</h2>
                 <div className="">
                     {sections.map((section, index) => (
                         <Section

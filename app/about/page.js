@@ -30,7 +30,7 @@ export default async function About() {
         <div className={"relative"}>
             <Header color="cream"/>
             <div className={"text-[#EFEEE8] select-none"}>
-                <div className={"flex sticky top-0 justify-center w-screen h-screen bg-[#3A332E]"}>
+                <div className={"flex relative top-0 justify-center w-screen h-screen bg-[#3A332E]"}>
                     <Image
                         src="/images/about-bg.png"
                         alt="Background Image"

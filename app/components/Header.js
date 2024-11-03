@@ -28,9 +28,9 @@ export function Header({color}) {
         const footer = document.getElementById("footer");
         const observer = new IntersectionObserver(
             ([entry]) => {
-                setIsFooterVisible(entry.isIntersecting && entry.intersectionRatio >= 0.4);
+                setIsFooterVisible(entry.isIntersecting && entry.intersectionRatio >= 0.5);
             },
-            {threshold: [0.4]}
+            {threshold: [0.5]}
         );
 
         if (footer) {

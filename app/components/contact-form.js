@@ -42,7 +42,16 @@ export default function ContactForm({}) {
         setOpenSection(index + 1);
     };
 
-    const submitContact = () => {};
+    const submitContact = () => {
+        /**
+         * Add logic here once we get mailchimp or other service
+         */
+    };
+
+    const resetForm = () => {
+        setOpenSection(0);
+        setFormData(initialFormData);
+    };
 
     return (
         <div className="w-full">
@@ -80,7 +89,10 @@ export default function ContactForm({}) {
                 enterFrom="opacity-0"
                 enterTo="opacity-100"
             >
-                <ContactInfoSubmit onSubmit={submitContact} />
+                <ContactInfoSubmit
+                    onSubmit={submitContact}
+                    resetForm={resetForm}
+                />
             </Transition>
         </div>
     );
@@ -139,34 +151,88 @@ function ContactFormSection({ question, answers, isOpen, selectOption }) {
     );
 }
 
-function ContactFormQuestion({ question, answer, selectionOption }) {
-    <div>
-        {answers.map((answer, index) => (
-            <div
-                onClick={() => selectOption(answer)}
-                key={index}
-                className="relative cursor-pointer hover:text-white transition-colors duration-300"
-            >
-                <span className="hover:before:content-['\2192'] hover:before:text-white hover:before:mr-2">
-                    {answer}
-                </span>
-            </div>
-        ))}
-    </div>;
+function StyledTextInput({ label, onChange, required = false, value }) {
+    return (
+        <div className="w-full mt-8 border-b border-[#EFEEE8] font-signifier">
+            <label htmlFor={label}>
+                {label}
+                {required ? "*" : ""}
+            </label>
+            <input
+                type="text"
+                id={label}
+                name={label}
+                className="w-full p-2 bg-transparent text-[#EFEEE8] focus:outline-none"
+                required={required}
+                value={value}
+                onChange={(e) => onChange(e.target.value)}
+            />
+        </div>
+    );
 }
 
 const ContactInfoSubmit = forwardRef((props, ref) => {
+    const [name, setName] = useState("");
+    const [title, setTitle] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        props.onSubmit({ name, title, email, phone });
+    };
+
+    const back = (e) => {
+        setName("");
+        setTitle("");
+        setEmail("");
+        setPhone("");
+        props.resetForm();
+    };
+
     return (
         <div ref={ref}>
-            <div className="border-t border-white w-full"></div>
-            <div className="grid grid-cols-1 lg:grid-cols-2">
-                <div>Name</div>
-                <div>Title</div>
-                <div>Email</div>
-                <div>Phone</div>
-            </div>
+            <div className="border-t border-white w-full mt-8"></div>
+            <form
+                className="grid grid-cols-1 lg:grid-cols-2 gap-4"
+                onSubmit={handleSubmit}
+            >
+                <StyledTextInput
+                    label="Name"
+                    required={true}
+                    value={name}
+                    onChange={setName}
+                />
+                <StyledTextInput
+                    label="Title"
+                    value={title}
+                    onChange={setTitle}
+                />
+                <StyledTextInput
+                    label="Email"
+                    required={true}
+                    value={email}
+                    onChange={setEmail}
+                />
+                <StyledTextInput
+                    label="Phone"
+                    value={phone}
+                    onChange={setPhone}
+                />
+                <div
+                    className="font-ritma uppercase cursor-pointer"
+                    onClick={back}
+                >
+                    &#8592; Go Back
+                </div>
+                <div
+                    className="text-right font-ritma uppercase cursor-pointer"
+                    onClick={handleSubmit}
+                >
+                    Send &#8594;
+                </div>
+            </form>
         </div>
     );
 });
 ContactInfoSubmit.displayName = "ContactInfoSubmit";
-// Display name needed for component in same file

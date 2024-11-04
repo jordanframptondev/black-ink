@@ -14,7 +14,7 @@ export function Team() {
             const relativeY = event.clientY - containerRect.top;
 
             imageRefs.current[index].style.transform = 'translate(-50%, -50%)';
-            imageRefs.current[index].style.left = `${relativeX + 125}px`;
+            imageRefs.current[index].style.left = `${relativeX + 105}px`;
             imageRefs.current[index].style.top = `${relativeY}px`;
         }
     };
@@ -32,7 +32,7 @@ export function Team() {
             <div ref={containerRef}
                  className={'bg-[#EFEEE8] text-black w-screen h-screen p-10 transition-all duration-300 ease-linear'}>
                 <h2 className={`text-[24px] mb-16 font-ritma`}>OUR TEAM</h2>
-                <div className={'grid grid-cols-3 gap-x-4 cursor-none'}>
+                <div className={'grid grid-cols-3 gap-x-4 cursor-nw-resize'}>
                     {employees.map((employee, index) => (
                         <div
                             key={index}
@@ -43,18 +43,18 @@ export function Team() {
                             onMouseEnter={() => handleMouseEnter(index)}
                             onMouseLeave={() => handleMouseLeave(index)}
                         >
-                            <img
-                                ref={(el) => (imageRefs.current[index] = el)}
-                                src={employee.image}
-                                alt={employee.name}
-                                className={'w-[200px] rounded-full'}
-                            />
                             <div className={'flex items-center employee-name-text'}>
                                 <span className="arrow">→</span>
                                 <p className={'text-[20px] font-signifier'}>{employee.name}</p>
                                 <span>&nbsp;&mdash;&nbsp;</span>
                                 <p className={'text-[20px] font-signifierItalic'}>{employee.title}</p>
                             </div>
+                            <img
+                                ref={(el) => (imageRefs.current[index] = el)}
+                                src={employee.image}
+                                alt={employee.name}
+                                className={'w-[200px] rounded-full'}
+                            />
                         </div>
                     ))}
                 </div>

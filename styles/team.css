@@ -1,12 +1,11 @@
 .image-container img {
     background-color: black;
     opacity: 0;
-    transition: opacity 0.3s ease;
     position: absolute;
 }
 
 .image-container:hover img {
-    opacity: 0.5;
+    opacity: 0.9;
     cursor: none;
 }
 

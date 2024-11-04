@@ -1,6 +1,7 @@
 "use client";
 import { useState, forwardRef } from "react";
 import { Transition } from "@headlessui/react";
+import "@/styles/footer.css";
 
 const contactFormData = [
     {
@@ -131,9 +132,10 @@ function ContactFormSection({ question, answers, isOpen, selectOption }) {
                                 <div
                                     onClick={() => selectOption(answer)}
                                     key={index}
-                                    className="relative cursor-pointer  transition-colors duration-300"
+                                    className="relative cursor-pointer signup-link  transition-all duration-500"
                                 >
-                                    <span className="hover:before:content-['\2192']  hover:before:mr-2 font-signifier hover:font-signifierItalic">
+                                    <span className="arrow">→</span>
+                                    <span className="font-signifier link-text">
                                         {answer}
                                     </span>
                                 </div>

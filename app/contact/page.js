@@ -28,7 +28,7 @@ export default function Contact() {
                         <ContactForm />
                     </div>
                 </div>
-                <div className="relative">
+                <div className="relative text-white">
                     <Footer />
                 </div>
             </div>

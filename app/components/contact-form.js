@@ -46,8 +46,9 @@ export default function ContactForm({}) {
 
     return (
         <div className="w-full">
-            <h2>
-                You made it! -- answer some simple questions to get in touch
+            <h2 className="font-signifierItalic text-4xl font-extralight mb-8">
+                You made it! &mdash; answer some simple questions to get in
+                touch
             </h2>
             <Transition
                 show={openSection < contactFormData.length}
@@ -89,13 +90,19 @@ function ContactFormSection({ question, answers, isOpen, selectOption }) {
     return (
         <div>
             <div
-                className={`border-t border-whitetransition-all delay-300 duration-500 ${
+                className={`border-t border-white transition-all delay-300 duration-500 ${
                     isOpen ? "w-full" : "w-1/3"
                 }`}
             ></div>
             <div className="grid grid-cols-3 w-full py-6">
                 <div>
-                    <h3>{question}</h3>
+                    <h3
+                        className={`${
+                            isOpen ? "font-signifierItalic" : "font-signifier"
+                        }`}
+                    >
+                        {question}
+                    </h3>
                 </div>
                 <div className="col-span-2">
                     <Transition
@@ -112,9 +119,9 @@ function ContactFormSection({ question, answers, isOpen, selectOption }) {
                                 <div
                                     onClick={() => selectOption(answer)}
                                     key={index}
-                                    className="relative cursor-pointer hover:text-white transition-colors duration-300"
+                                    className="relative cursor-pointer  transition-colors duration-300"
                                 >
-                                    <span className="hover:before:content-['\2192'] hover:before:text-white hover:before:mr-2">
+                                    <span className="hover:before:content-['\2192']  hover:before:mr-2 font-signifier hover:font-signifierItalic">
                                         {answer}
                                     </span>
                                 </div>

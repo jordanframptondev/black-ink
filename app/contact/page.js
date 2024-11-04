@@ -5,12 +5,14 @@ import ContactForm from "../components/contact-form";
 
 export default function Contact() {
     return (
-        <div className="relatve h-screen w-screen bg-[#3A332E]">
+        <div className="relatve h-screen w-screen bg-[#544F3D]">
             <Header color="cream" />
             <div>
-                <div className="max-w-7xl mx-auto py-20 px-8 text-white">
-                    <h2 className="text-white text-3xl mb-12">Contact</h2>
-                    <div className="">
+                <div className="max-w-7xl mx-auto grid grid-cols-4 py-20 px-8 text-[#EFEEE8]">
+                    <h2 className="text-white font-ritma uppercase text-2xl mb-12">
+                        Contact
+                    </h2>
+                    <div className="col-span-3">
                         <ContactForm />
                     </div>
                 </div>

@@ -4,6 +4,8 @@ import {FullCta} from "@/app/components/server-components/FullCta";
 import {Footer} from "@/app/components/Footer";
 import {Header} from "@/app/components/Header";
 import {Team} from "@/app/components/Team";
+import Careers from "@/app/components/Careers";
+import React from "react";
 
 export default async function About() {
 
@@ -86,6 +88,9 @@ export default async function About() {
                 </div>
                 <div className={"relative"}>
                     <Team/>
+                </div>
+                <div>
+                    <Careers/>
                 </div>
                 <div className={"relative"}>
                     <FullCta/>

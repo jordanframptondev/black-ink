@@ -94,7 +94,7 @@ export function Header({color}) {
     return (
         <>
             <header
-                className={`sticky top-0 z-10 ${isFooterVisible ? 'opacity-0' : 'opacity-100'} transition-all duration-1000 ease-in-out`}>
+                className={`sticky top-0 z-10 ${isFooterVisible ? 'opacity-0' : 'opacity-100'} transition-all duration-1000 ease-in-out select-none`}>
                 <div className={"absolute top-[30px] flex w-full z-[99]"}>
                     <h1 id="black-ink-header-text"
                         className={`${(color === 'black' && !showMenu) || (showMenu && windowWidth < 768) ? 'text-black' : 'text-[#EFEEE8]'}

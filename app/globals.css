@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Testimonials.css */
+body {
+  background-color: black
+}
+
+/*!* Testimonials.css *! todo: move these styles to the separate component css file*/
 
 .testimonial-container {
   overflow: hidden;

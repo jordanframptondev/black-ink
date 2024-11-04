@@ -9,3 +9,33 @@
     opacity: 0.5;
     cursor: none;
 }
+
+.employee-name-div {
+    overflow: hidden;
+    transition: padding-left 0.3s ease; /* Animate padding change */
+}
+
+.arrow, .employee-name-text {
+    transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.arrow {
+    position: relative;
+    top: 2px;
+    width: 0;
+    transform: translateX(-30px); /* Start off-screen to the left */
+    opacity: 0; /* Initially hidden */
+}
+
+.employee-name-div:hover {
+    /*padding-left: 20px; !* Add padding on hover *!*/
+}
+
+.employee-name-div:hover .arrow {
+    transform: translateX(-20px); /* Slide in from the left */
+    opacity: 1; /* Show on hover */
+}
+
+.employee-name-div:hover .employee-name-text {
+    transform: translateX(30px); /* Slide text to the right */
+}

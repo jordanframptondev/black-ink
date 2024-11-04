@@ -1,7 +1,7 @@
 "use client";
 
 import "@/styles/team.css";
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useRef} from 'react';
 
 export function Team() {
     const imageRefs = useRef([]);
@@ -28,32 +28,38 @@ export function Team() {
     };
 
     return (
-        <div ref={containerRef} className={'bg-[#EFEEE8] text-black w-screen h-screen p-10'}>
-            <h2 className={`text-[24px] mb-16 font-ritma`}>OUR TEAM</h2>
-            <div className={'grid grid-cols-3 gap-x-4'}>
-                {employees.map((employee, index) => (
-                    <div
-                        key={index}
-                        className={`flex items-center image-container cursor-nw-resize py-10 
+        <>
+            <div ref={containerRef}
+                 className={'bg-[#EFEEE8] text-black w-screen h-screen p-10 transition-all duration-300 ease-linear'}>
+                <h2 className={`text-[24px] mb-16 font-ritma`}>OUR TEAM</h2>
+                <div className={'grid grid-cols-3 gap-x-4 cursor-none'}>
+                    {employees.map((employee, index) => (
+                        <div
+                            key={index}
+                            className={`flex items-center image-container py-10 employee-name-div 
                         ${index < 3 ? 'border-y border-y-black' : ''}
                         ${index >= 3 ? 'border-b border-b-black' : ''}`}
-                        onMouseMove={(event) => handleMouseMove(event, index)}
-                        onMouseEnter={() => handleMouseEnter(index)}
-                        onMouseLeave={() => handleMouseLeave(index)}
-                    >
-                        <img
-                            ref={(el) => (imageRefs.current[index] = el)}
-                            src={employee.image}
-                            alt={employee.name}
-                            className={'w-[200px] rounded-full'}
-                        />
-                        <p className={'text-[24px] font-signifier'}>{employee.name}</p>
-                        <span>&nbsp;&mdash;&nbsp;</span>
-                        <p className={'text-[24px] font-signifierItalic'}>{employee.title}</p>
-                    </div>
-                ))}
+                            onMouseMove={(event) => handleMouseMove(event, index)}
+                            onMouseEnter={() => handleMouseEnter(index)}
+                            onMouseLeave={() => handleMouseLeave(index)}
+                        >
+                            <img
+                                ref={(el) => (imageRefs.current[index] = el)}
+                                src={employee.image}
+                                alt={employee.name}
+                                className={'w-[200px] rounded-full'}
+                            />
+                            <div className={'flex items-center employee-name-text'}>
+                                <span className="arrow">→</span>
+                                <p className={'text-[20px] font-signifier'}>{employee.name}</p>
+                                <span>&nbsp;&mdash;&nbsp;</span>
+                                <p className={'text-[20px] font-signifierItalic'}>{employee.title}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 

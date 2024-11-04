@@ -1,11 +1,11 @@
-import Image from "next/image";
-import {Info} from "@/app/components/Info";
-import {FullCta} from "@/app/components/server-components/FullCta";
-import {Footer} from "@/app/components/Footer";
-import {Header} from "@/app/components/Header";
-import {Team} from "@/app/components/Team";
 import Careers from "@/app/components/Careers";
-import React from "react";
+import { Footer } from "@/app/components/Footer";
+import { Header } from "@/app/components/Header";
+import { Info } from "@/app/components/Info";
+import { FullCta } from "@/app/components/server-components/FullCta";
+import { Team } from "@/app/components/Team";
+import Image from "next/image";
+import AboutPageCTA from '../../public/images/home-cta.png';
 
 export default async function About() {
 
@@ -93,7 +93,7 @@ export default async function About() {
                     <Careers/>
                 </div>
                 <div className={"relative"}>
-                    <FullCta/>
+                    <FullCta backgroundImageSrc={AboutPageCTA} link="/contact" displayText="→ FIND THE PATH TO FUTURE PROOF" overlay="#534f3c" />
                 </div>
                 <div className={"relative"}>
                     <Footer/>

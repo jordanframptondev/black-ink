@@ -1,3 +1,6 @@
+import HomeCta from '../public/images/home-cta.png';
+import { Footer } from "./components/Footer";
+import { Header } from "./components/Header";
 import { HomeHeroAnimation } from "./components/HomeHeroAnimation";
 import { Info } from "./components/Info";
 import { FullCta } from "./components/server-components/FullCta";
@@ -66,23 +69,22 @@ const partnerSections = [
 
 export default function Home() {
   return (
-    <>
+    <div className="relative">
+      <Header color="cream"/>
       <HomeHeroAnimation />
       <div className="mt-screen bg-black h-screen py-12 px-8 h-screen flex flex-col justify-between">
-        <div className="border-top border-white">
-          <h3 className="text-center text-white text-3xl">
-            There are <i>many futures,</i> Black Ink points you to{" "}
-            <i>the right one.</i>
-          </h3>
-          <h2 className="text-center text-white text-3xl">
-            We facilitate the <i>selection, design, and implementation</i> of
-            strategic projects.
-          </h2>
-        </div>
+        <h3 className="text-center text-white text-3xl border-t border-white pt-12">
+          There are <i>many futures,</i> Black Ink points you to{" "}
+          <i>the right one.</i>
+        </h3>
+        <h2 className="text-center text-white text-3xl">
+          We facilitate the <i>selection, design, and implementation</i> of
+          strategic projects.
+        </h2>
       </div>
       <Info background="#534f3d" title="ETHOS" sections={sampleSections} />
       <Testimonials />
-      <FullCta />
+      <FullCta overlay="#3A332E" link="/contact" displayText="→ FIND THE PATH TO FUTURE PROOF" backgroundImageSrc={HomeCta} />
       <Info
         background="#efeee8"
         title="SERVICES"
@@ -96,6 +98,9 @@ export default function Home() {
         sections={partnerSections}
         textLight={false}
       />
-    </>
+      <div className="text-[#EFEEE8]">
+        <Footer />
+      </div>
+    </div>
   );
 }

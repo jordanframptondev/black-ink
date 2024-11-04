@@ -1,3 +1,7 @@
+.invert-text {
+    filter: invert(1);
+}
+
 .circle {
     position: absolute;
     top: 40px;

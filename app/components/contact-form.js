@@ -1,11 +1,12 @@
 "use client";
 import { useState, forwardRef } from "react";
 import { Transition } from "@headlessui/react";
+import { PlusIcon } from "@heroicons/react/24/outline";
 import "@/styles/contact.css";
 
 const contactFormData = [
     {
-        question: "We need:",
+        question: "We need",
         answers: [
             "Product Life Cycle Management (PLM)",
             "Planning",
@@ -56,7 +57,7 @@ export default function ContactForm({}) {
 
     return (
         <div className="w-full">
-            <h2 className="font-signifierItalic text-4xl font-extralight mb-8">
+            <h2 className="font-signifierItalic text-xl lg:text-4xl font-extralight mb-8">
                 You made it! &mdash; answer some simple questions to get in
                 touch
             </h2>
@@ -76,6 +77,7 @@ export default function ContactForm({}) {
                             question={section.question}
                             answers={section.answers}
                             isOpen={index === openSection}
+                            isLast={index === contactFormData.length - 1}
                             selectOption={(answer) =>
                                 setSelection(index, answer)
                             }
@@ -99,25 +101,45 @@ export default function ContactForm({}) {
     );
 }
 
-function ContactFormSection({ question, answers, isOpen, selectOption }) {
+function ContactFormSection({
+    question,
+    answers,
+    isOpen,
+    isLast,
+    selectOption,
+}) {
     return (
         <div>
             <div
-                className={`border-t border-white transition-all delay-300 duration-500 ${
+                className={`hidden lg:block border-t border-black lg:border-white transition-all delay-300 duration-500 ${
                     isOpen ? "w-full" : "w-1/3"
                 }`}
             ></div>
-            <div className="grid grid-cols-3 w-full py-6">
-                <div>
+            <div
+                className={`grid grid-cols-3 w-full py-6 ${
+                    isLast ? "border-y" : "border-t"
+                } border-black lg:border-0`}
+            >
+                <div className="flex justify-between col-span-3 lg:col-span-1">
                     <h3
                         className={`${
-                            isOpen ? "font-signifierItalic" : "font-signifier"
-                        }`}
+                            isOpen
+                                ? "font-signifier lg:font-signifierItalic"
+                                : "font-signifier"
+                        } text-xl mb-4 lg:mb-2 `}
                     >
                         {question}
                     </h3>
+                    <span className="block lg:hidden">
+                        <PlusIcon
+                            aria-hidden="true"
+                            className={`h-4 w-4 transition-transform duration-200 ${
+                                isOpen ? "transform rotate-45" : ""
+                            }`}
+                        />
+                    </span>
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-3 lg:col-span-2">
                     <Transition
                         show={isOpen}
                         enter="transition-all duration-500 ease-in"
@@ -145,7 +167,7 @@ function ContactFormSection({ question, answers, isOpen, selectOption }) {
                 </div>
             </div>
             <div
-                className={`border-t border-white transition-all duration-500 delay-300 -mb-[1px] ${
+                className={`hidden lg:block border-t border-black lg:border-white transition-all duration-500 delay-300 -mb-[1px] ${
                     isOpen ? "w-full" : "w-1/3"
                 }`}
             ></div>

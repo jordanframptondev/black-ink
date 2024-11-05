@@ -1,7 +1,7 @@
 "use client";
 import { useState, forwardRef } from "react";
 import { Transition } from "@headlessui/react";
-import "@/styles/footer.css";
+import "@/styles/contact.css";
 
 const contactFormData = [
     {
@@ -132,10 +132,10 @@ function ContactFormSection({ question, answers, isOpen, selectOption }) {
                                 <div
                                     onClick={() => selectOption(answer)}
                                     key={index}
-                                    className="relative cursor-pointer signup-link  transition-all duration-500"
+                                    className="relative cursor-pointer contact-option transition-all duration-500"
                                 >
                                     <span className="arrow">→</span>
-                                    <span className="font-signifier link-text">
+                                    <span className="font-signifier option-text">
                                         {answer}
                                     </span>
                                 </div>
@@ -154,6 +154,29 @@ function ContactFormSection({ question, answers, isOpen, selectOption }) {
 }
 
 function StyledTextInput({ label, onChange, required = false, value }) {
+    const handleInputChange = (e) => {
+        let inputValue = e.target.value;
+
+        if (label === "Phone") {
+            // Remove all non-numeric characters
+            inputValue = inputValue.replace(/\D/g, "");
+
+            // Format the input as a phone number
+            if (inputValue.length > 3 && inputValue.length <= 6) {
+                inputValue = `(${inputValue.slice(0, 3)}) ${inputValue.slice(
+                    3
+                )}`;
+            } else if (inputValue.length > 6) {
+                inputValue = `(${inputValue.slice(0, 3)}) ${inputValue.slice(
+                    3,
+                    6
+                )}-${inputValue.slice(6, 10)}`;
+            }
+        }
+
+        onChange(inputValue);
+    };
+
     return (
         <div className="w-full mt-8 border-b border-[#EFEEE8] font-signifier">
             <label htmlFor={label}>
@@ -167,7 +190,7 @@ function StyledTextInput({ label, onChange, required = false, value }) {
                 className="w-full p-2 bg-transparent text-[#EFEEE8] focus:outline-none"
                 required={required}
                 value={value}
-                onChange={(e) => onChange(e.target.value)}
+                onChange={handleInputChange}
             />
         </div>
     );

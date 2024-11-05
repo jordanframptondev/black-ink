@@ -14,6 +14,7 @@ export default function Contact() {
                 placeholder="blur"
                 sizes="100vw"
                 alt="Black Ink"
+                className="-z-10"
                 style={{
                     objectFit: "cover",
                 }}

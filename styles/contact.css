@@ -1,0 +1,31 @@
+.contact-option {
+    position: relative;
+    padding-left: 0; /* Start with no padding */
+    overflow: hidden;
+    transition: padding-left 0.3s ease; /* Animate padding change */
+}
+
+.arrow,
+.option-text {
+    display: inline-block;
+    transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.arrow {
+    width: 0;
+    transform: translateX(-30px); /* Start off-screen to the left */
+    opacity: 0; /* Initially hidden */
+}
+
+.contact-option:hover {
+    /*padding-left: 20px; !* Add padding on hover *!*/
+}
+
+.contact-option:hover .arrow {
+    transform: translateX(3px); /* Slide in from the left */
+    opacity: 1; /* Show on hover */
+}
+
+.contact-option:hover .option-text {
+    transform: translateX(40px); /* Slide text to the right */
+}

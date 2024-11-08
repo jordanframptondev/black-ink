@@ -7,10 +7,10 @@ import { FadeIn } from "../components/FadeIn";
 export function Resource() {
   return (
     <>
-      <div className="bg-[#544F3D]">
-        <div className="flex lg:pt-40 lg:pb-10">
-          <div className="w-1/3"></div>
-          <div className="w-2/3">
+      <div className="h-screen md:h-auto bg-[#544F3D]">
+        <div className="flex flex-col h-full md:h-auto md:flex-row justify-center lg:pt-40 lg:pb-10">
+          <div className="hidden md:block md:w-1/3"></div>
+          <div className="w-full h-full md:h-auto md:w-2/3">
             <PostHeader
               title={"5 Things Before You Say Yes to PLM"}
               image={HomeCta}
@@ -21,11 +21,11 @@ export function Resource() {
       </div>
 
       <div className="bg-[#efeee8]">
-        <div className="flex">
-          <div className="w-1/3 lg:p-10">
+        <div className="md:flex">
+          <div className="w-full md:w-1/3 pt-5 px-10 lg:p-10">
             <h2 className="font-ritma uppercase text-black">Resources</h2>
           </div>
-          <div className="w-2/3 lg:p-10">
+          <div className="w-full md:w-2/3 pt-10 px-10 lg:p-10">
             <PostBody />
           </div>
         </div>
@@ -44,21 +44,27 @@ function PostHeader({ title, image, author }) {
   };
 
   return (
-    <div className="pr-10 text-[#EFEEE8]">
-      <FadeIn>
-        <h1 className={"font-signifier text-4xl text-light"}>{title}</h1>
+    <div className="px-10 h-full flex flex-col justify-between md:block md:h-auto md:px-0 md:pr-10 text-[#EFEEE8]">
+      <div>{" "}</div>
+      <div>
+        <FadeIn>
+        <h1 className={"font-signifier text-lg md:text-4xl text-light"}>{title}</h1>
       </FadeIn>
       <FadeIn>
-        <div className="relative mt-10">
+        <div className="relative mt-5 md:mt-10">
           <div className="absolute left-0 top-0 right-0 bottom-0 bg-[#38311f] opacity-80"></div>
           <div className="bg-white">
+            {/* TODO: Change to use these sizes */}
+            {/* mobile w: 350; h: 228 */}
+            {/* desktop w: 1220; h: 610 */}
             <Image src={image} alt={title} width={1220} height={610} />
           </div>
         </div>
       </FadeIn>
+      </div>
       <FadeIn>
-        <div className="flex justify-between items-center lg:mt-40">
-          <p className="text-cream">{author}</p>
+        <div className="mt-auto flex justify-between items-center pb-10 lg:mt-40">
+          <p className="font-signifier">{author}</p>
           <button onClick={handleScroll} id="scroll-btn" className="uppercase">
             → Next
           </button>
@@ -71,7 +77,7 @@ function PostHeader({ title, image, author }) {
 function PostBody() {
   return (
     <FadeIn>
-      <div className="post-body">
+      <div className="post-body pt-5">
         <p className="mb-6 font-signifier">
           In the rapidly evolving landscape of digital transformation,
           organizations must navigate complex challenges while maintaining their

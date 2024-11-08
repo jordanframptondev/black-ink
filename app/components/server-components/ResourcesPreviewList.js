@@ -1,3 +1,5 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
 import { FadeIn, FadeInStagger } from "../FadeIn";
@@ -17,9 +19,12 @@ const blogs = [
   },
 ];
 
-export function ResourcesPreviewList() {
+export function ResourcesPreviewList({background}) {
   return (
-    <div className="bg-black py-6 lg:py-12 px-4 lg:px-12 flex flex-col justify-between">
+    <div 
+      style={{ backgroundColor: background || 'black' }}
+      className="py-6 lg:py-12 px-4 lg:px-12 flex flex-col justify-between"
+    >
       <div>
         <h2 className="text-white text-xl uppercase font-ritma">resources</h2>
         <FadeInStagger>
@@ -36,9 +41,9 @@ export function ResourcesPreviewList() {
                   />
                 </FadeIn>
                 <FadeIn>
-                  <h2 className="text-[#efeee8] font-light font-signifier mt-6">
+                  <Link href="/resources" className="text-[#efeee8] font-light font-signifier mt-6">
                     {blog.title}
-                  </h2>
+                  </Link>
                 </FadeIn>
               </div>
             ))}
@@ -46,7 +51,7 @@ export function ResourcesPreviewList() {
         </FadeInStagger>
       </div>
       <div className="text-right lg:mt-48">
-        <Link href="/" className="text-white uppercase">
+        <Link href="/resources" className="text-white uppercase">
           &rarr; MORE
         </Link>
       </div>

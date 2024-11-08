@@ -6,11 +6,37 @@ import React from "react";
 
 export function HomeHeroAnimation() {
   const [playing, setPlaying] = React.useState(true);
+
+  React.useEffect(() => {
+    // Add/remove no-scroll class on body when animation is playing
+    if (playing) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [playing]);
+
   return (
-    <div className={`h-screen w-screen`}>
-      {playing
-      ? <div className="z-50 fixed top-0 left-0"><LottiePlayer setPlaying={setPlaying} /></div>
-      : <Hero />}
+    <div className="h-screen w-screen">
+      <div 
+        className={`z-50 fixed top-0 left-0 right-0 bottom-0 transition-opacity duration-1000 ${
+          playing ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        <LottiePlayer setPlaying={setPlaying} />
+      </div>
+      <div 
+        className={`transition-opacity duration-1000 ${
+          playing ? 'opacity-0' : 'opacity-100'
+        }`}
+      >
+        <Hero />
+      </div>
     </div>
   );
 }
@@ -53,7 +79,6 @@ function LottiePlayer({ setPlaying }) {
     }
 
     function onComplete() {
-      console.log("SHES DONE");
       setPlaying(false);
     }
 

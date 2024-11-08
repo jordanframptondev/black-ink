@@ -1,4 +1,6 @@
-import HomeCta from '../public/images/home-cta.png';
+import HeadShot from "../public/images/Employee Headshots/headshot-01.png";
+import HomeCta from "../public/images/home-cta.png";
+import { FadeIn } from "./components/FadeIn";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { HomeHeroAnimation } from "./components/HomeHeroAnimation";
@@ -64,27 +66,35 @@ const partnerSections = [
   {
     title: "Walter Wilhelm",
     description: `Walter has years of executive experience working with the apparel, footwear, and retail industries. In addition, Walter spent 7 years as President of a leading consulting firm. Before work he logs crazy miles running on the trails with his dog...`,
+    image: HeadShot,
   },
 ];
 
 export default function Home() {
   return (
     <div className="relative">
-      <Header color="cream"/>
+      <Header color="cream" />
       <HomeHeroAnimation />
       <div className="mt-screen bg-black h-screen py-12 px-8 h-screen flex flex-col justify-between">
-        <h3 className="text-center text-white text-3xl border-t border-white pt-12">
-          There are <i>many futures,</i> Black Ink points you to{" "}
-          <i>the right one.</i>
-        </h3>
+        <FadeIn>
+          <h3 className="text-center text-white text-3xl border-t border-white pt-12">
+            There are <i>many futures,</i> Black Ink points you to{" "}
+            <i>the right one.</i>
+          </h3>
+        </FadeIn>
         <h2 className="text-center text-white text-3xl">
           We facilitate the <i>selection, design, and implementation</i> of
           strategic projects.
         </h2>
       </div>
-      <Info background="#534f3d" title="ETHOS" sections={sampleSections} />
+      <Info background="#544F3D" title="ETHOS" sections={sampleSections} />
       <Testimonials />
-      <FullCta overlay="#3A332E" link="/contact" displayText="→ FIND THE PATH TO FUTURE PROOF" backgroundImageSrc={HomeCta} />
+      <FullCta
+        overlay="#3A332E"
+        link="/contact"
+        displayText="→ FIND THE PATH TO FUTURE PROOF"
+        backgroundImageSrc={HomeCta}
+      />
       <Info
         background="#efeee8"
         title="SERVICES"

@@ -129,9 +129,9 @@ function ContactFormSection({
                     <h3
                         className={`${
                             isOpen
-                                ? "font-signifier lg:font-signifierItalic"
+                                ? "font-signifier lg:font-signifierItalic mb-8"
                                 : "font-signifier"
-                        } text-xl mb-8 lg:mb-2 `}
+                        } text-xl lg:mb-2 `}
                     >
                         {question}
                     </h3>

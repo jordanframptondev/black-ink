@@ -202,8 +202,8 @@ function StyledTextInput({ label, onChange, required = false, value }) {
     };
 
     return (
-        <div className="w-full mt-8 border-b border-black lg:border-[#EFEEE8] font-signifier flex items-center lg:block">
-            <label htmlFor={label} className="mr-2">
+        <div className="w-full mt-8 border-b border-black lg:border-[#EFEEE8] font-signifier flex items-center lg:flex-col lg:items-start">
+            <label htmlFor={label} className="mr-2 w-24">
                 {label}
                 {required ? "*" : ""}
             </label>

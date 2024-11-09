@@ -200,7 +200,7 @@ function StyledTextInput({ label, onChange, required = false, value }) {
     };
 
     return (
-        <div className="w-full mt-8 border-b border-[#EFEEE8] font-signifier">
+        <div className="w-full mt-8 border-b border-black lg:border-[#EFEEE8] font-signifier">
             <label htmlFor={label}>
                 {label}
                 {required ? "*" : ""}
@@ -209,7 +209,7 @@ function StyledTextInput({ label, onChange, required = false, value }) {
                 type="text"
                 id={label}
                 name={label}
-                className="w-full p-2 bg-transparent text-[#EFEEE8] focus:outline-none"
+                className="w-full p-2 bg-transparent text-black lg:text-[#EFEEE8] focus:outline-none"
                 required={required}
                 value={value}
                 onChange={handleInputChange}
@@ -239,7 +239,7 @@ const ContactInfoSubmit = forwardRef((props, ref) => {
 
     return (
         <div ref={ref}>
-            <div className="border-t border-white w-full mt-8"></div>
+            <div className="border-t border-black lg:border-white w-full mt-8"></div>
             <form
                 className="grid grid-cols-1 lg:grid-cols-2 gap-4"
                 onSubmit={handleSubmit}
@@ -267,16 +267,16 @@ const ContactInfoSubmit = forwardRef((props, ref) => {
                     onChange={setPhone}
                 />
                 <div
-                    className="font-ritma uppercase cursor-pointer"
+                    className="hidden lg:block font-ritma uppercase cursor-pointer"
                     onClick={back}
                 >
                     &#8592; Go Back
                 </div>
                 <div
-                    className="text-right font-ritma uppercase cursor-pointer"
+                    className="mt-8 lg:mt-0 lg:text-right font-ritma uppercase cursor-pointer"
                     onClick={handleSubmit}
                 >
-                    Send &#8594;
+                    &#8594; &nbsp; Send
                 </div>
             </form>
         </div>

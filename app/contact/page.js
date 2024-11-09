@@ -21,7 +21,7 @@ export default function Contact() {
             />
             <Header color="cream" />
             <div>
-                <div className="max-w-7xl mx-auto grid grid-cols-4 py-20 px-8 text-black lg:text-[#EFEEE8]">
+                <div className="max-w-7xl h-[100dvh] mx-auto grid grid-cols-4 py-20 px-8 text-black lg:text-[#EFEEE8]">
                     <h2 className="text-white font-ritma uppercase text-2xl mb-12 hidden lg:block">
                         Contact
                     </h2>

@@ -177,7 +177,13 @@ function ContactFormSection({
     );
 }
 
-function StyledTextInput({ label, onChange, required = false, value }) {
+function StyledTextInput({
+    label,
+    onChange,
+    showError = false,
+    required = false,
+    value,
+}) {
     const handleInputChange = (e) => {
         let inputValue = e.target.value;
 
@@ -202,8 +208,17 @@ function StyledTextInput({ label, onChange, required = false, value }) {
     };
 
     return (
-        <div className="w-full mt-8 border-b border-black lg:border-[#EFEEE8] font-signifier flex items-center lg:flex-col lg:items-start">
-            <label htmlFor={label} className="mr-2 w-24">
+        <div
+            className={`w-full mt-8 border-b ${
+                showError
+                    ? "border-red-500"
+                    : "border-black lg:border-[#EFEEE8]"
+            } font-signifier flex items-center lg:flex-col lg:items-start`}
+        >
+            <label
+                htmlFor={label}
+                className={`mr-2 w-24 ${showError ? "text-red-500" : ""}`}
+            >
                 {label}
                 {required ? "*" : ""}
             </label>
@@ -211,7 +226,9 @@ function StyledTextInput({ label, onChange, required = false, value }) {
                 type="text"
                 id={label}
                 name={label}
-                className="p-2 bg-transparent text-black lg:text-[#EFEEE8] focus:outline-none flex-grow lg:w-full"
+                className={`p-2 bg-transparent text-black lg:text-[#EFEEE8] focus:outline-none flex-grow lg:w-full ${
+                    showError ? "border-red-500" : ""
+                }`}
                 required={required}
                 value={value}
                 onChange={handleInputChange}
@@ -226,16 +243,56 @@ const ContactInfoSubmit = forwardRef((props, ref) => {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        props.onSubmit({ name, title, email, phone });
-    };
+    const [nameError, setNameError] = useState(false);
+    const [emailError, setEmailError] = useState(false);
+    const [titleError, setTitleError] = useState(false);
+    const [phoneError, setPhoneError] = useState(false);
 
-    const back = (e) => {
+    const [sent, setSent] = useState(false);
+
+    const resetInputs = () => {
         setName("");
         setTitle("");
         setEmail("");
         setPhone("");
+        setNameError(false);
+        setEmailError(false);
+        setTitleError(false);
+        setPhoneError(false);
+    };
+
+    const validateInputs = () => {
+        let isValid = true;
+        if (name === "" || !name) {
+            setNameError(true);
+            isValid = false;
+        } else {
+            setNameError(false);
+        }
+        if (email === "" || !/\S+@\S+\.\S+/.test(email) || !name) {
+            setEmailError(true);
+            isValid = false;
+        } else {
+            setEmailError(false);
+        }
+        return isValid;
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const canSubmit = validateInputs();
+
+        if (canSubmit) {
+            props.onSubmit({ name, title, email, phone });
+            setSent(true);
+            resetInputs();
+        }
+    };
+
+    const back = (e) => {
+        resetInputs();
+        setSent(false);
         props.resetForm();
     };
 
@@ -250,6 +307,7 @@ const ContactInfoSubmit = forwardRef((props, ref) => {
                     label="Name"
                     required={true}
                     value={name}
+                    showError={nameError}
                     onChange={setName}
                 />
                 <StyledTextInput
@@ -261,6 +319,7 @@ const ContactInfoSubmit = forwardRef((props, ref) => {
                     label="Email"
                     required={true}
                     value={email}
+                    showError={emailError}
                     onChange={setEmail}
                 />
                 <StyledTextInput
@@ -277,8 +336,9 @@ const ContactInfoSubmit = forwardRef((props, ref) => {
                 <div
                     className="mt-8 lg:mt-0 lg:text-right font-ritma uppercase cursor-pointer"
                     onClick={handleSubmit}
+                    disabled={sent}
                 >
-                    &#8594; &nbsp; Send
+                    {sent ? "Sent!" : <>&#8594; &nbsp; Send</>}
                 </div>
             </form>
         </div>

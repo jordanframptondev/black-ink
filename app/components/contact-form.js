@@ -57,9 +57,11 @@ export default function ContactForm({}) {
 
     return (
         <div className="w-full">
-            <h2 className="font-signifierItalic text-xl lg:text-4xl font-extralight mb-8">
-                You made it! &mdash; answer some simple questions to get in
-                touch
+            <h2 className="text-xl lg:text-4xl font-extralight mb-8">
+                <span className="font-signifierItalic">You made it!</span>
+                <span className="font-signifier">
+                    &mdash; answer some simple questions to get in touch
+                </span>
             </h2>
             <Transition
                 show={openSection < contactFormData.length}
@@ -126,7 +128,7 @@ function ContactFormSection({
                             isOpen
                                 ? "font-signifier lg:font-signifierItalic"
                                 : "font-signifier"
-                        } text-xl mb-4 lg:mb-2 `}
+                        } text-xl mb-8 lg:mb-2 `}
                     >
                         {question}
                     </h3>
@@ -154,7 +156,7 @@ function ContactFormSection({
                                 <div
                                     onClick={() => selectOption(answer)}
                                     key={index}
-                                    className="relative cursor-pointer contact-option transition-all duration-500"
+                                    className="relative cursor-pointer py-2 lg:py-0 contact-option transition-all duration-500"
                                 >
                                     <span className="arrow">→</span>
                                     <span className="font-signifier option-text">

@@ -103,6 +103,9 @@ export default function ContactForm({}) {
     );
 }
 
+/**
+ * The Question/Answer section,
+ */
 function ContactFormSection({
     question,
     answers,
@@ -177,6 +180,9 @@ function ContactFormSection({
     );
 }
 
+/**
+ * Text input for final step of contact form
+ */
 function StyledTextInput({
     label,
     onChange,
@@ -237,6 +243,9 @@ function StyledTextInput({
     );
 }
 
+/**
+ * Entire component for the user input of contact information
+ */
 const ContactInfoSubmit = forwardRef((props, ref) => {
     const [name, setName] = useState("");
     const [title, setTitle] = useState("");

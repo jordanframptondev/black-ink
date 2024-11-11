@@ -155,8 +155,8 @@ function ContactFormSection({
                 </div>
                 <div className="col-span-3 lg:col-span-2">
                     <div
-                        className={`transition-all duration-500 ${
-                            isOpen ? "h-[200px]" : "h-[2rem]"
+                        className={`transition-all duration-500 overflow-hidden ${
+                            isOpen ? "max-h-[500px]" : "max-h-[2rem]"
                         }`}
                     >
                         <div className="relative h-full">

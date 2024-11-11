@@ -78,6 +78,7 @@ export default function ContactForm({}) {
                             key={index}
                             question={section.question}
                             answers={section.answers}
+                            selectedAnswer={formData[index]}
                             isOpen={index === openSection}
                             isLast={index === contactFormData.length - 1}
                             selectOption={(answer) =>
@@ -111,6 +112,7 @@ function ContactFormSection({
     answers,
     isOpen,
     isLast,
+    selectedAnswer,
     selectOption,
 }) {
     return (
@@ -145,30 +147,52 @@ function ContactFormSection({
                     </span>
                 </div>
                 <div className="col-span-3 lg:col-span-2">
-                    <Transition
-                        show={isOpen}
-                        enter="transition-all duration-500 ease-in"
-                        enterFrom="opacity-0 max-h-0"
-                        enterTo="opacity-100 max-h-[500px]"
-                        leave="transition-all duration-500 ease-out"
-                        leaveFrom="opacity-100 max-h-[500px]"
-                        leaveTo="opacity-0 max-h-0"
+                    <div
+                        className={`transition-all duration-500 ${
+                            isOpen ? "h-[200px]" : "h-[2rem]"
+                        }`}
                     >
-                        <div>
-                            {answers.map((answer, index) => (
-                                <div
-                                    onClick={() => selectOption(answer)}
-                                    key={index}
-                                    className="relative cursor-pointer py-2 lg:py-0 contact-option transition-all duration-500"
-                                >
-                                    <span className="arrow">→</span>
-                                    <span className="font-signifier option-text">
-                                        {answer}
-                                    </span>
+                        <div className="relative h-full">
+                            <Transition
+                                show={!isOpen && selectedAnswer}
+                                enter="transition-all duration-500 ease-in delay-300"
+                                enterFrom="opacity-0 translate-y-4"
+                                enterTo="opacity-100 translate-y-0"
+                                leave="transition-all duration-500 ease-out"
+                                leaveFrom="opacity-100 translate-y-0"
+                                leaveTo="opacity-0 translate-y-4"
+                            >
+                                <div className="font-signifier text-right">
+                                    {selectedAnswer}
                                 </div>
-                            ))}
+                            </Transition>
+
+                            <Transition
+                                show={isOpen}
+                                enter="transition-all duration-500 ease-in"
+                                enterFrom="opacity-0 translate-y-4"
+                                enterTo="opacity-100 translate-y-0"
+                                leave="transition-all duration-500 ease-out"
+                                leaveFrom="opacity-100 translate-y-0"
+                                leaveTo="opacity-0 translate-y-4"
+                            >
+                                <div>
+                                    {answers.map((answer, index) => (
+                                        <div
+                                            onClick={() => selectOption(answer)}
+                                            key={index}
+                                            className="relative cursor-pointer py-2 lg:py-0 contact-option transition-all duration-500"
+                                        >
+                                            <span className="arrow">→</span>
+                                            <span className="font-signifier option-text">
+                                                {answer}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </Transition>
                         </div>
-                    </Transition>
+                    </div>
                 </div>
             </div>
             <div

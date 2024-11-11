@@ -79,6 +79,7 @@ export default function ContactForm({}) {
                             question={section.question}
                             answers={section.answers}
                             selectedAnswer={formData[index]}
+                            openSection={() => setOpenSection(index)}
                             isOpen={index === openSection}
                             isLast={index === contactFormData.length - 1}
                             selectOption={(answer) =>
@@ -110,6 +111,7 @@ export default function ContactForm({}) {
 function ContactFormSection({
     question,
     answers,
+    openSection,
     isOpen,
     isLast,
     selectedAnswer,
@@ -137,8 +139,13 @@ function ContactFormSection({
                     >
                         {question}
                     </h3>
-                    <span className="block lg:hidden">
+                    <span
+                        className={`block transition-all ${
+                            isOpen ? "opacity-0" : "opacity-100"
+                        }`}
+                    >
                         <PlusIcon
+                            onClick={openSection}
                             aria-hidden="true"
                             className={`h-4 w-4 transition-transform duration-200 ${
                                 isOpen ? "transform rotate-45" : ""

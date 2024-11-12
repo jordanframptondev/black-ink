@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${ritma.variable} ${signifier.variable} ${signifierItalic.variable}`}
+        className={`${ritma.variable} ${signifier.variable} ${signifierItalic.variable} !overflow-x-hidden`}
       >
         {children}
       </body>

@@ -107,7 +107,7 @@ export default async function About() {
                 <Careers/>
             </div>
             <div className={"relative"}>
-                <FullCta backgroundImageSrc={AboutPageCTA} link="/contact" displayText="→ FIND THE PATH TO FUTURE PROOF"
+                <FullCta backgroundImageSrc={AboutPageCTA} link="/contact" displayText="FIND THE PATH TO FUTURE PROOF"
                          overlay="#534f3c"/>
             </div>
             <div className={"relative"}>

@@ -8,7 +8,7 @@ export default function Employee({name, title, image, index, children}) {
 
     const [cursorPosition, setCursorPosition] = useState({x: 0, y: 0});
     const [isHovering, setIsHovering] = useState(false);
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [windowWidth, setWindowWidth] = useState(0);
 
     const handleMouseMove = (e) => {
         setCursorPosition({x: e.clientX - 135, y: e.clientY - 135});
@@ -22,7 +22,20 @@ export default function Employee({name, title, image, index, children}) {
         setIsHovering(false);
     };
 
-    //when a user scrolls, the image should disappear
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        // Set initial window width
+        setWindowWidth(window.innerWidth);
+
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     useEffect(() => {
         const handleScroll = () => {
             setIsHovering(false);
@@ -31,17 +44,6 @@ export default function Employee({name, title, image, index, children}) {
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setWindowWidth(window.innerWidth);
-        };
-
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
         };
     }, []);
 

@@ -45,13 +45,13 @@ export default async function About() {
             <div className={"relative pt-[100dvh]"}>
                 <div className={"flex justify-center min-w-screen min-h-[100dvh] bg-[#3A332E]"}>
                     <div className={"flex border-t border-[#EFEEE8] mx-7"}>
-                        <div className={"flex my-10"}>
-                            <div className={"flex w-1/3 text-[18px] sm:text-[24px] font-ritma"}>
+                        <div className={"flex flex-col sm:flex-row my-10"}>
+                            <div className={"flex w-full mb-[80px] sm:mb-0 sm:w-1/3 text-[18px] sm:text-[24px] font-ritma"}>
                                 <FadeIn>
                                     <h1>ABOUT</h1>
                                 </FadeIn>
                             </div>
-                            <div className={"flex flex-col w-2/3"}>
+                            <div className={"flex flex-col w-full sm:w-2/3"}>
                                 <FadeIn>
                                     <p className={"text-[20px] sm:text-[36px] font-signifier mb-10"}>In the pursuit of
                                         growth

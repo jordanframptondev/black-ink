@@ -8,6 +8,7 @@ export default function Employee({name, title, image, index, children}) {
 
     const [cursorPosition, setCursorPosition] = useState({x: 0, y: 0});
     const [isHovering, setIsHovering] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     const handleMouseMove = (e) => {
         setCursorPosition({x: e.clientX - 135, y: e.clientY - 135});
@@ -33,6 +34,27 @@ export default function Employee({name, title, image, index, children}) {
         };
     }, []);
 
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    const getBorderClass = () => {
+        if (windowWidth >= 1024) {
+            return index < 3 ? 'border-y border-y-black' : 'border-b border-b-black';
+        } else if (windowWidth >= 768) {
+            return index < 2 ? 'border-y border-y-black' : 'border-b border-b-black';
+        } else {
+            return index < 1 ? 'border-y border-y-black' : 'border-b border-b-black';
+        }
+    };
+
     return (
         <div
             onMouseMove={handleMouseMove}
@@ -42,16 +64,14 @@ export default function Employee({name, title, image, index, children}) {
         >
             <FadeIn>
                 <div key={index}
-                     className={`flex items-center image-container py-10 employee-name-div 
-                        ${index < 3 ? 'border-y border-y-black' : ''}
-                        ${index >= 3 ? 'border-b border-b-black' : ''}`}>
+                     className={`flex items-center image-container py-10 employee-name-div ${getBorderClass()}`}>
                     <div className={'flex items-center employee-name-text'}>
                         <span className="arrow">→</span>
-                        <p className={'text-[20px] font-signifier'}>{name}</p>
+                        <p className={'text-[16px] sm:text-[20px] font-signifier'}>{name}</p>
                         {title && (
                             <>
                                 <span>&nbsp;&mdash;&nbsp;</span>
-                                <p className={'text-[20px] font-signifierItalic'}>{title}</p>
+                                <p className={'text-[16px] sm:text-[20px] font-signifierItalic'}>{title}</p>
                             </>
                         )}
                     </div>

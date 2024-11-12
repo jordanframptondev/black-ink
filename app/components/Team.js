@@ -5,11 +5,11 @@ import {FadeIn} from "@/app/components/FadeIn";
 export function Team() {
     return (
         <>
-            <div className={'bg-[#EFEEE8] text-black w-screen h-screen p-10 transition-all duration-300 ease-linear'}>
+            <div className={'bg-[#EFEEE8] text-black w-[100dvw] min-h-dvh p-10 transition-all duration-300 ease-linear'}>
                 <FadeIn>
-                    <h2 className={`text-[24px] mb-16 font-ritma`}>OUR TEAM</h2>
+                    <h2 className={`text-[24px] sm:text-[24px] mb-16 font-ritma`}>OUR TEAM</h2>
                 </FadeIn>
-                <div className={'grid grid-cols-3 gap-x-4 cursor-none'}>
+                <div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-0 md:gap-x-4 cursor-none'}>
                     {employees.map((employee, index) => (
                         <Employee key={index} name={employee.name} title={employee.title} image={employee.image}
                                   index={index}>

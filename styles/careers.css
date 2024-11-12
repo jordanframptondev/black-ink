@@ -22,10 +22,10 @@
 }
 
 .careers-link:hover .arrow {
-    transform: translateX(3px); /* Slide in from the left */
+    transform: translateX(0px); /* Slide in from the left */
     opacity: 1; /* Show on hover */
 }
 
 .careers-link:hover .careers-link-text {
-    transform: translateX(28px); /* Slide text to the right */
+    transform: translateX(16px); /* Slide text to the right */
 }

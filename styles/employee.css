@@ -9,7 +9,6 @@
 
 .arrow {
     position: relative;
-    top: 2px;
     width: 0;
     transform: translateX(-30px); /* Start off-screen to the left */
     opacity: 0; /* Initially hidden */

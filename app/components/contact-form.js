@@ -129,7 +129,10 @@ function ContactFormSection({
                     isLast ? "border-y" : "border-t"
                 } border-black lg:border-0`}
             >
-                <div className="flex justify-between col-span-3 lg:col-span-1">
+                <div
+                    onClick={openSection}
+                    className="flex justify-between col-span-3 lg:col-span-1 cursor-pointer"
+                >
                     <h3
                         className={`${
                             isOpen
@@ -145,7 +148,6 @@ function ContactFormSection({
                         }`}
                     >
                         <PlusIcon
-                            onClick={openSection}
                             aria-hidden="true"
                             className={`h-4 w-4 transition-transform duration-200 ${
                                 isOpen ? "transform rotate-45" : ""

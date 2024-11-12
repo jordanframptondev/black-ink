@@ -1,7 +1,7 @@
 "use client";
 
 import "@/styles/employee.css";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {FadeIn} from "@/app/components/FadeIn";
 
 export default function Employee({name, title, image, index, children}) {
@@ -20,6 +20,18 @@ export default function Employee({name, title, image, index, children}) {
     const handleMouseLeave = () => {
         setIsHovering(false);
     };
+
+    //when a user scrolls, the image should disappear
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsHovering(false);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
         <div

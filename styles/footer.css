@@ -30,5 +30,11 @@ footer * {
 }
 
 .signup-link:hover .link-text {
-    transform: translateX(40px); /* Slide text to the right */
+    transform: translateX(10px); /* Slide text to the right */
+}
+
+@media (max-width: 768px) {
+    .signup-link:hover .link-text {
+        transform: translateX(40px); /* Slide text to the right on small screens */
+    }
 }

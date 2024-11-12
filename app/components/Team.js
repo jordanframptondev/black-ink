@@ -1,61 +1,19 @@
-"use client";
-
-import "@/styles/team.css";
-import React, {useRef} from 'react';
+import React from 'react';
+import Employee from "@/app/components/Employee";
+import {FadeIn} from "@/app/components/FadeIn";
 
 export function Team() {
-    const imageRefs = useRef([]);
-    const containerRef = useRef(null);
-
-    const handleMouseMove = (event, index) => {
-        if (imageRefs.current[index]) {
-            const containerRect = containerRef.current.getBoundingClientRect();
-            const relativeX = event.clientX - containerRect.left;
-            const relativeY = event.clientY - containerRect.top;
-
-            imageRefs.current[index].style.transform = 'translate(-50%, -50%)';
-            imageRefs.current[index].style.left = `${relativeX + 105}px`;
-            imageRefs.current[index].style.top = `${relativeY}px`;
-        }
-    };
-
-    const handleMouseEnter = (index) => {
-        imageRefs.current[index].style.opacity = '0.7';
-    };
-
-    const handleMouseLeave = (index) => {
-        imageRefs.current[index].style.opacity = '0';
-    };
-
     return (
         <>
-            <div ref={containerRef}
-                 className={'bg-[#EFEEE8] text-black w-screen h-screen p-10 transition-all duration-300 ease-linear'}>
-                <h2 className={`text-[24px] mb-16 font-ritma`}>OUR TEAM</h2>
-                <div className={'grid grid-cols-3 gap-x-4 cursor-nw-resize'}>
+            <div className={'bg-[#EFEEE8] text-black w-screen h-screen p-10 transition-all duration-300 ease-linear'}>
+                <FadeIn>
+                    <h2 className={`text-[24px] mb-16 font-ritma`}>OUR TEAM</h2>
+                </FadeIn>
+                <div className={'grid grid-cols-3 gap-x-4 cursor-none'}>
                     {employees.map((employee, index) => (
-                        <div
-                            key={index}
-                            className={`flex items-center image-container py-10 employee-name-div 
-                        ${index < 3 ? 'border-y border-y-black' : ''}
-                        ${index >= 3 ? 'border-b border-b-black' : ''}`}
-                            onMouseMove={(event) => handleMouseMove(event, index)}
-                            onMouseEnter={() => handleMouseEnter(index)}
-                            onMouseLeave={() => handleMouseLeave(index)}
-                        >
-                            <div className={'flex items-center employee-name-text'}>
-                                <span className="arrow">→</span>
-                                <p className={'text-[20px] font-signifier'}>{employee.name}</p>
-                                <span>&nbsp;&mdash;&nbsp;</span>
-                                <p className={'text-[20px] font-signifierItalic'}>{employee.title}</p>
-                            </div>
-                            <img
-                                ref={(el) => (imageRefs.current[index] = el)}
-                                src={employee.image}
-                                alt={employee.name}
-                                className={'w-[200px] rounded-full'}
-                            />
-                        </div>
+                        <Employee key={index} name={employee.name} title={employee.title} image={employee.image}
+                                  index={index}>
+                        </Employee>
                     ))}
                 </div>
             </div>
@@ -65,73 +23,78 @@ export function Team() {
 
 export const employees = [
     {
-        name: 'Alice Johnson',
-        title: 'Senior Business Consultant',
-        image: '/images/Employee Headshots/headshot-01.png'
+        name: 'Alex Hanna',
+        title: '',
+        image: '/images/employees/Alex-Hanna-Black-Ink-Headshots.png'
     },
     {
-        name: 'Bob Smith',
-        title: 'Strategy Consultant',
-        image: '/images/Employee Headshots/headshot-02.png'
+        name: 'Walter Wilhelm',
+        title: '',
+        image: '/images/employees/Walter Wilhelm Black Ink Headshots-01.png'
     },
     {
-        name: 'Carol Williams',
-        title: 'Financial Analyst',
-        image: '/images/Employee Headshots/headshot-03.png'
+        name: 'Vandra Lochridge',
+        title: '',
+        image: '/images/employees/Vandra Lochridge Black Ink Headshots-02.png'
     },
     {
-        name: 'David Brown',
-        title: 'Operations Manager',
-        image: '/images/Employee Headshots/headshot-04.png'
+        name: 'Shelley Crawford',
+        title: '',
+        image: '/images/employees/Shelley Crawford Black Ink Headshots-03.png'
     },
     {
-        name: 'Eve Davis',
-        title: 'Marketing Specialist',
-        image: '/images/Employee Headshots/headshot-05.png'
+        name: 'Niccole Emery',
+        title: '',
+        image: '/images/employees/Niccole Emery Black Ink Headshots-04.png'
     },
     {
-        name: 'Frank Miller',
-        title: 'IT Consultant',
-        image: '/images/Employee Headshots/headshot-06.png'
+        name: 'Janet Ramirez',
+        title: '',
+        image: '/images/employees/Janet Ramirez Black Ink Headshots-05.png'
     },
     {
-        name: 'Grace Wilson',
-        title: 'Human Resources Consultant',
-        image: '/images/Employee Headshots/headshot-07.png'
+        name: 'Sarah Nagley',
+        title: '',
+        image: '/images/employees/Sarah Nagley Black Ink Headshots-06.png'
     },
     {
-        name: 'Henry Moore',
-        title: 'Project Manager',
-        image: '/images/Employee Headshots/headshot-08.png'
+        name: 'Sam Svedlund',
+        title: '',
+        image: '/images/employees/Sam Svedlund Black Ink Headshots-07.png'
     },
     {
-        name: 'Ivy Taylor',
-        title: 'Risk Management Consultant',
-        image: '/images/Employee Headshots/headshot-09.png'
+        name: 'Rachel Nee',
+        title: '',
+        image: '/images/employees/Rachel Nee Black Ink Headshots-08.png'
     },
     {
-        name: 'Jack Anderson',
-        title: 'Compliance Officer',
-        image: '/images/Employee Headshots/headshot-10.png'
+        name: 'Clark Bailey',
+        title: '',
+        image: '/images/employees/Clark Bailey Black Ink Headshots-09.png'
     },
     {
-        name: 'Karen Thomas',
-        title: 'Business Analyst',
-        image: '/images/Employee Headshots/headshot-11.png'
+        name: 'Shannan Kisiel',
+        title: '',
+        image: '/images/employees/Shannan Kisiel Black Ink Headshots-10.png'
     },
     {
-        name: 'Larry White',
-        title: 'Supply Chain Consultant',
-        image: '/images/Employee Headshots/headshot-12.png'
+        name: 'Megan Malveaux',
+        title: '',
+        image: '/images/employees/Megan Malveaux Black Ink Headshots-11.png'
     },
     {
-        name: 'Megan Harris',
-        title: 'Change Management Consultant',
-        image: '/images/Employee Headshots/headshot-13.png'
+        name: 'Colin Israel',
+        title: '',
+        image: '/images/employees/Colin Israel Black Ink Headshots-12.png'
     },
     {
-        name: 'Nathan Clark',
-        title: 'Data Analyst',
-        image: '/images/Employee Headshots/headshot-14.png'
+        name: 'Camille Palmer',
+        title: '',
+        image: '/images/employees/Camille Palmer Black Ink Headshots-13.png'
+    },
+    {
+        name: 'Brandon Gray',
+        title: '',
+        image: '/images/employees/Brandon Gray Black Ink Headshots-14.png'
     }
 ];

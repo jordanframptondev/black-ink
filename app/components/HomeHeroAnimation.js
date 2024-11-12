@@ -45,7 +45,7 @@ function Hero() {
   return (
   <div className="-z-50 w-full h-full fixed top-0 left-0 bg-black flex flex-col justify-between items-center p-[40px]">
     <div className="flex justify-between w-full">{" "}</div>
-    <Image src={BlackInkLogo} width={150} height={150} alt="Black Ink" />
+    <Image src={BlackInkLogo} width={150} height={150} alt="Black Ink" className={"opacity-10"}/>
     <h1 className="text-white text-2xl white font-ritma uppercase">into the black</h1>
   </div>);
 }

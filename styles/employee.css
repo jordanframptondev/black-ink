@@ -1,14 +1,3 @@
-.image-container img {
-    background-color: black;
-    opacity: 0;
-    position: absolute;
-}
-
-.image-container:hover img {
-    opacity: 0.9;
-    cursor: none;
-}
-
 .employee-name-div {
     overflow: hidden;
     transition: padding-left 0.3s ease; /* Animate padding change */

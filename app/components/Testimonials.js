@@ -83,7 +83,7 @@ export function Testimonials() {
   const { quote, author } = testimonials[currentIndex];
 
   return (
-    <div className="bg-[#efeee9] py-12 px-6">
+    <div className="bg-[#EFEEE8] py-12 px-6">
       <div className="w-full py-6 border-y border-black grid grid-cols-3 min-h-80">
         <div className="col-span-1">
           <FadeIn>

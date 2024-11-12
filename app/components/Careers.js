@@ -14,7 +14,8 @@ export default function Careers() {
                     </div>
                     <div className={"w-2/3"}>
                         <FadeIn>
-                            <p className={"text-[20px] sm:text-[32px] font-signifier"}>“At Black Ink, we’re building a community of
+                            <p className={"text-[20px] sm:text-[32px] font-signifier"}>“At Black Ink, we’re building a
+                                community of
                                 seasoned experts and
                                 passionate innovators who are
                                 redefining the art of transformation, and we’re looking for talented individuals who
@@ -27,8 +28,8 @@ export default function Careers() {
                 <div className={"w-full text-end mt-[150px] text-[18px] sm:text-[24px] font-ritma"}>
                     <Link href={"/"} className={"careers-link cursor-pointer w-fit pr-[30px]"}>
                         <FadeIn>
-                            <span className="arrow">→</span> <span
-                            className="careers-link-text">SEE OPEN POSITIONS</span>
+                            <span className="arrow">→</span>
+                            <span className="careers-link-text">SEE OPEN POSITIONS</span>
                         </FadeIn>
                     </Link>
                 </div>

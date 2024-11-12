@@ -27,7 +27,7 @@ const contactFormData = [
     },
 ];
 export default function ContactForm({}) {
-    const [openSection, setOpenSection] = useState(0);
+    const [openSection, setOpenSection] = useState(-1);
 
     const initialFormData = Array.from(
         { length: contactFormData.length },

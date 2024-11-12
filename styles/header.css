@@ -12,10 +12,11 @@
     border-radius: 50%;
     opacity: 0;
 }
+
 .circle.animate {
     opacity: 1;
-    animation: expandCircle 3s forwards;
-    transition: opacity 2s ease
+    animation: expandCircle 2s forwards;
+    transition: opacity 1s ease
 }
 
 .circle.reverse {
@@ -55,12 +56,21 @@
     }
 }
 
+#logo:not(.show) {
+    cursor: pointer;
+}
+
+#logo.show {
+    cursor: url('/cursor-x-small.png'), auto;
+}
+
 .menu {
     position: absolute;
     opacity: 0;
     visibility: hidden;
     transition: opacity 1s ease, visibility 1s ease;
     transition-delay: 0s;
+    cursor: url('/cursor-x-small.png'), auto;
 }
 
 .menu.show {
@@ -69,9 +79,9 @@
     transition-delay: .5s;
 }
 
-@media (min-width: 1024px) { /* Adjust the min-width value as needed for large screens */
+@media (min-width: 1024px) {
     .menu.show {
-        transition-delay: 1s; /* Delay for large screens */
+        transition-delay: 700ms; /* Delay for large screens */
     }
 }
 

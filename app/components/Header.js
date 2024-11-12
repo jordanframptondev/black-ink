@@ -74,18 +74,20 @@ export function Header({color}) {
     }, []);
 
     const handleMenuClick = () => {
-        const newMenuState = !showMenu;
-        setShowMenu(newMenuState);
-        if (newMenuState) {
+        const menuState = !showMenu;
+        setShowMenu(menuState);
+        if (menuState) {
             document.body.classList.add("no-scroll");
             document.getElementById("menu-background").classList.remove("reverse");
             document.getElementById("menu-background").classList.add("animate");
             document.getElementById("menu").classList.remove("hide");
+            document.getElementById("logo").classList.add("show");
             document.getElementById("menu").classList.add("show");
         } else {
             document.body.classList.remove("no-scroll");
             document.getElementById("menu-background").classList.remove("animate");
             document.getElementById("menu-background").classList.add("reverse");
+            document.getElementById("logo").classList.remove("show");
             document.getElementById("menu").classList.remove("show");
             document.getElementById("menu").classList.add("hide");
         }
@@ -94,11 +96,11 @@ export function Header({color}) {
     return (
         <>
             <header
-                className={`sticky top-0 z-20 ${isFooterVisible ? 'opacity-0' : 'opacity-100'} transition-all duration-1000 ease-in-out select-none`}>
+                className={`sticky top-0 z-20 ${isFooterVisible ? 'opacity-0' : 'opacity-100'} transition-all duration-1000 ease-in-out select-none text-black`}>
                 <div className={"absolute top-[30px] flex w-full z-[99]"}>
                     <h1 id="black-ink-header-text"
                         className={`${(color === 'black' && !showMenu) || (showMenu && windowWidth < 768) ? 'text-black' : 'text-[#EFEEE8]'}
-                    absolute ${showMenu ? 'cursor-alias' : 'cursor-default'} text-[18px] sm:text-[24px] font-ritma left-[40px] md:left-[50%] md:-translate-x-1/2 transition-all duration-500 ease-in`}>
+                    absolute text-[18px] sm:text-[24px] font-ritma left-[40px] md:left-[50%] md:-translate-x-1/2 transition-all duration-500 ease-in`}>
                         BLACK INK
                     </h1>
                     <Image
@@ -108,14 +110,14 @@ export function Header({color}) {
                         width={50}
                         height={50}
                         priority={true}
-                        className={`absolute top-[3px] sm:top-[6px] right-[40px] h-[18px] sm:h-[21px] w-fit ${showMenu ? 'cursor-alias' : 'cursor-pointer'}`}
+                        className={`absolute top-[3px] sm:top-[6px] right-[40px] h-[18px] sm:h-[21px] w-fit`}
                         onClick={handleMenuClick}
                     />
                 </div>
                 <div id="menu-background" className={`circle`}
                      onClick={handleMenuClick}></div>
                 <div id="menu"
-                     className={`flex z-20 min-h-[670px] items-center md:items-start w-screen h-screen menu text-[28px] md:text-[36px] font-ritma cursor-alias`}
+                     className={`menu flex z-20 min-h-[670px] items-center md:items-start w-screen h-screen text-[28px] md:text-[36px] font-ritma`}
                      onClick={handleMenuClick}
                 >
                     <div

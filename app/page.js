@@ -1,4 +1,4 @@
-import HeadShot from "../public/images/Employee Headshots/headshot-01.png";
+import HeadShot from "@/public/images/employees/Walter Wilhelm Black Ink Headshots-01.png";
 import HomeCta from "../public/images/home-cta.png";
 import { FadeIn } from "./components/FadeIn";
 import { Footer } from "./components/Footer";
@@ -87,7 +87,9 @@ export default function Home() {
           strategic projects.
         </h2>
       </div>
-      <Info background="#544F3D" title="ETHOS" sections={sampleSections} />
+        <div className={"min-w-[100dvh]"}>
+      <Info backgroundColor="#544F3D" title="ETHOS" sections={sampleSections} />
+        </div>
       <Testimonials />
       <FullCta
         overlay="#3A332E"
@@ -96,14 +98,15 @@ export default function Home() {
         backgroundImageSrc={HomeCta}
       />
       <Info
-        background="#efeee8"
+        backgroundColor="#efeee8"
+        backgroundImage="/images/services-background.png"
         title="SERVICES"
         sections={servicesSection}
         textLight={false}
       />
       <ResourcesPreviewList />
       <Info
-        background="#efeee8"
+        backgroundColor="#efeee8"
         title="PARTNERS"
         sections={partnerSections}
         textLight={false}

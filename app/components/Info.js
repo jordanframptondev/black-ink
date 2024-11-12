@@ -5,12 +5,26 @@ import Image from "next/image";
 import { useState } from "react";
 import { FadeIn, FadeInStagger } from "./FadeIn";
 
-export function Info({ background, title, sections, textLight = true }) {
+export function Info({
+  backgroundColor,
+  backgroundImage,
+  title,
+  sections,
+  textLight = true,
+}) {
   return (
-    <div className="flex flex-col justify-center h-screen w-screen p-10 lg:py-24 lg:px-10" style={{ background }}>
+    <div
+      className="h-screen w-screen min-h-dvh py-24 px-10"
+      style={{
+        background: backgroundColor,
+        backgroundImage: backgroundImage ? `url(${backgroundImage})` : "none",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <div>
         <h2
-          className={`text-lg lg:text-[24px] mb-12 ${
+          className={`text-[24px] mb-12 ${
             textLight ? "text-white" : "text-black"
           }`}
         >
@@ -41,7 +55,9 @@ function Section({ title, description, image = null, textLight = true }) {
       <div
         className={`border-t ${
           textLight ? "border-white" : "border-black"
-        } transition-all delay-300 duration-500 ${isOpen ? "w-full" : "lg:w-1/3"}`}
+        } transition-all delay-300 duration-500 ${
+          isOpen ? "w-full" : "lg:w-1/3"
+        }`}
       ></div>
       <div className="grid lg:grid-cols-3 w-full py-10 lg:py-6">
         <div className="">

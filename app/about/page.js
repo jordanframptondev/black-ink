@@ -1,11 +1,12 @@
 import Careers from "@/app/components/Careers";
-import { Footer } from "@/app/components/Footer";
-import { Header } from "@/app/components/Header";
-import { Info } from "@/app/components/Info";
-import { FullCta } from "@/app/components/server-components/FullCta";
-import { Team } from "@/app/components/Team";
+import {Footer} from "@/app/components/Footer";
+import {Header} from "@/app/components/Header";
+import {Info} from "@/app/components/Info";
+import {FullCta} from "@/app/components/server-components/FullCta";
+import {Team} from "@/app/components/Team";
 import Image from "next/image";
 import AboutPageCTA from '../../public/images/home-cta.png';
+import {FadeIn} from "@/app/components/FadeIn";
 
 export default async function About() {
 
@@ -29,75 +30,88 @@ export default async function About() {
     ];
 
     return (
-        <div className={"relative"}>
+        <div className={"text-[#EFEEE8] select-none bg-[#3A332E]"}>
             <Header color="cream"/>
-            <div className={"text-[#EFEEE8] select-none"}>
-                <div className={"flex relative top-0 justify-center w-screen h-screen bg-[#3A332E]"}>
-                    <Image
-                        src="/images/about-bg.png"
-                        alt="Background Image"
-                        width={1920}
-                        height={1080}
-                        className={"mt-auto w-full min-h-[550px] object-cover object-[35%] mb-[25px] sm:mb-[150px]"}
-                        priority={true}
-                    />
-                </div>
-                <div className={"flex relative justify-center min-w-screen min-h-screen bg-[#3A332E]"}>
+            <div className={"fixed flex w-full min-h-dvh"}>
+                <Image
+                    src="/images/about-bg.png"
+                    alt="Background Image"
+                    width={1920}
+                    height={1080}
+                    className={"mt-auto w-full min-h-[550px] object-cover object-[35%] mb-[25px] sm:mb-[150px]"}
+                    priority={true}
+                />
+            </div>
+            <div className={"relative pt-[100dvh]"}>
+                <div className={"flex justify-center min-w-screen min-h-[100dvh] bg-[#3A332E]"}>
                     <div className={"flex border-t border-[#EFEEE8] mx-7"}>
-                        <div className={"flex my-10"}>
-                            <div className={"flex w-1/3 text-[18px] sm:text-[24px] font-ritma"}>
-                                <h1>ABOUT</h1>
+                        <div className={"flex flex-col sm:flex-row my-10"}>
+                            <div className={"flex w-full mb-[80px] sm:mb-0 sm:w-1/3 text-[18px] sm:text-[24px] font-ritma"}>
+                                <FadeIn>
+                                    <h1>ABOUT</h1>
+                                </FadeIn>
                             </div>
-                            <div className={"flex flex-col w-2/3"}>
-                                <p className={"text-[20px] sm:text-[36px] font-signifier mb-10"}>In the pursuit of
-                                    growth
-                                    and innovation,
-                                    organizations often find themselves navigating
-                                    complex
-                                    challenges that demand precision, expertise, and foresight.</p>
-                                <p className={"text-[16px] sm:text-[24px] font-signifierItalic"}>At Black Ink, we’ve
-                                    assembled a team of
-                                    seasoned
-                                    professionals who have spent decades honing
-                                    their craft in the upper echelons of global industry. Our collective experience is a
-                                    testament
-                                    to the power of collaboration and the impact that can be achieved when talented
-                                    individuals
-                                    come
-                                    together with a shared vision. What drives us is a passion for empowering
-                                    organizations
-                                    to
-                                    reach
-                                    their full potential. We believe that the most effective solutions are born from a
-                                    deep
-                                    understanding of the intricacies of business, combined with a relentless pursuit of
-                                    excellence.
-                                    Our approach is built on a foundation of pragmatism, creativity, and a commitment to
-                                    delivering
-                                    tangible results that stand the test of time. By combining expertise, instinct, and
-                                    a
-                                    keen
-                                    eye
-                                    for opportunity, we help organizations transform their aspirations into reality.</p>
+                            <div className={"flex flex-col w-full sm:w-2/3"}>
+                                <FadeIn>
+                                    <p className={"text-[20px] sm:text-[36px] font-signifier mb-10"}>In the pursuit of
+                                        growth
+                                        and innovation,
+                                        organizations often find themselves navigating
+                                        complex
+                                        challenges that demand precision, expertise, and foresight.</p>
+                                </FadeIn>
+                                <FadeIn>
+                                    <p className={"text-[16px] sm:text-[24px] font-signifierItalic"}>At Black Ink, we’ve
+                                        assembled a team of
+                                        seasoned
+                                        professionals who have spent decades honing
+                                        their craft in the upper echelons of global industry. Our collective experience
+                                        is a
+                                        testament
+                                        to the power of collaboration and the impact that can be achieved when talented
+                                        individuals
+                                        come
+                                        together with a shared vision. What drives us is a passion for empowering
+                                        organizations
+                                        to
+                                        reach
+                                        their full potential. We believe that the most effective solutions are born from
+                                        a
+                                        deep
+                                        understanding of the intricacies of business, combined with a relentless pursuit
+                                        of
+                                        excellence.
+                                        Our approach is built on a foundation of pragmatism, creativity, and a
+                                        commitment to
+                                        delivering
+                                        tangible results that stand the test of time. By combining expertise, instinct,
+                                        and
+                                        a
+                                        keen
+                                        eye
+                                        for opportunity, we help organizations transform their aspirations into
+                                        reality.</p>
+                                </FadeIn>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className={"relative"}>
-                    <Info background="#000000" textLight={true} title="ETHOS" sections={sampleSections}/>
-                </div>
-                <div className={"relative"}>
-                    <Team/>
-                </div>
-                <div>
-                    <Careers/>
-                </div>
-                <div className={"relative"}>
-                    <FullCta backgroundImageSrc={AboutPageCTA} link="/contact" displayText="→ FIND THE PATH TO FUTURE PROOF" overlay="#534f3c" />
-                </div>
-                <div className={"relative"}>
-                    <Footer/>
-                </div>
+            </div>
+            <div className={"relative"}>
+                <Info backgroundColor="#000000" textLight={true} title="ETHOS" sections={sampleSections}/>
+            </div>
+            <div className={"relative"}>
+                <Team/>
+            </div>
+            <div className={"relative bg-[#EFEEE8]"}>
+                <Careers/>
+            </div>
+            <div className={"relative"}>
+                <FullCta backgroundImageSrc={AboutPageCTA} link="/contact" displayText="→ FIND THE PATH TO FUTURE PROOF"
+                         overlay="#534f3c"/>
+            </div>
+            <div className={"relative"}>
+                <Footer/>
             </div>
         </div>
     );

@@ -21,6 +21,15 @@ export function getHomeContent() {
   // return client.fetch(`*[_type == 'homepage']{title, "backgroundImage" -> asset->url, "title", description}`);
 }
 
+export function getInfoData(title) {
+  let titleParam = '';
+  if (title) {
+    titleParam = ` && title=='${title}'`;
+  }
+
+  return client.fetch(`*[_type == 'expandContentList'${titleParam}]{title,description}`);
+}
+
 export function getCtaData(title) {
   let titleParam = '';
   if (title) {

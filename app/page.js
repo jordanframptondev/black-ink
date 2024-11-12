@@ -77,12 +77,12 @@ export default function Home() {
       <HomeHeroAnimation />
       <div className="mt-screen bg-black h-screen py-12 px-8 h-screen flex flex-col justify-between">
         <FadeIn>
-          <h3 className="text-center text-white text-3xl border-t border-white pt-12">
+          <h3 className="text-center text-white text-xl lg:text-3xl border-t border-white pt-12">
             There are <i>many futures,</i> Black Ink points you to{" "}
             <i>the right one.</i>
           </h3>
         </FadeIn>
-        <h2 className="text-center text-white text-3xl">
+        <h2 className="text-center text-white text-xl lg:text-3xl">
           We facilitate the <i>selection, design, and implementation</i> of
           strategic projects.
         </h2>

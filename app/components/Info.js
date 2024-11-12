@@ -7,10 +7,10 @@ import { FadeIn, FadeInStagger } from "./FadeIn";
 
 export function Info({ background, title, sections, textLight = true }) {
   return (
-    <div className="w-screen py-24 px-10" style={{ background }}>
+    <div className="flex flex-col justify-center h-screen w-screen p-10 lg:py-24 lg:px-10" style={{ background }}>
       <div>
         <h2
-          className={`text-[24px] mb-12 ${
+          className={`text-lg lg:text-[24px] mb-12 ${
             textLight ? "text-white" : "text-black"
           }`}
         >
@@ -41,9 +41,9 @@ function Section({ title, description, image = null, textLight = true }) {
       <div
         className={`border-t ${
           textLight ? "border-white" : "border-black"
-        } transition-all delay-300 duration-500 ${isOpen ? "w-full" : "w-1/3"}`}
+        } transition-all delay-300 duration-500 ${isOpen ? "w-full" : "lg:w-1/3"}`}
       ></div>
-      <div className="grid grid-cols-3 w-full py-6">
+      <div className="grid lg:grid-cols-3 w-full py-10 lg:py-6">
         <div className="">
           {/* Left Side: Title and Icon */}
           <div
@@ -51,8 +51,8 @@ function Section({ title, description, image = null, textLight = true }) {
             onClick={() => setIsOpen(!isOpen)}
           >
             <span
-              className={`text-base leading-7 font-serif ${
-                textLight ? "text-white" : "text-black"
+              className={`text-xl lg:text-base leading-7 font-signifier ${
+                textLight ? "text-[#EFEEE8]" : "text-black"
               }`}
             >
               {title}
@@ -78,7 +78,7 @@ function Section({ title, description, image = null, textLight = true }) {
             leaveTo="opacity-0 max-h-0"
           >
             <div className="flex justify-between pl-4">
-              <div className="w-1/2">
+              <div className={`${image ? "w-1/2" : "w-full"}`}>
                 <p
                   className={`text-base leading-7 font-serif ${
                     textLight ? "text-white" : "text-black"

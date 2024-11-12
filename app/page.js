@@ -8,6 +8,7 @@ import { Info } from "./components/Info";
 import { FullCta } from "./components/server-components/FullCta";
 import { ResourcesPreviewList } from "./components/server-components/ResourcesPreviewList";
 import { Testimonials } from "./components/Testimonials";
+import { getInfoData } from "./utils/cms-service";
 
 const sampleSections = [
   {
@@ -70,7 +71,13 @@ const partnerSections = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const ethosData = await getInfoData('Ethos');
+  // const servicesData = await getInfoData('Services');
+  // const partnersData = await getInfoData('Partners');
+  console.log("ethosData", ethosData);
+  // console.log("servicesData", servicesData);
+  // console.log("partnersData", partnersData);
   return (
     <div className="relative">
       <Header color="cream" />
@@ -88,13 +95,13 @@ export default function Home() {
         </h2>
       </div>
         <div className={"min-w-[100dvh]"}>
-      <Info backgroundColor="#544F3D" title="ETHOS" sections={sampleSections} />
+      {ethosData && <Info backgroundColor="#544F3D" title="ETHOS" sections={sampleSections} />}
         </div>
       <Testimonials />
       <FullCta
         overlay="#3A332E"
         link="/contact"
-        displayText="→ FIND THE PATH TO FUTURE PROOF"
+        displayText="FIND THE PATH TO FUTURE PROOF"
         backgroundImageSrc={HomeCta}
       />
       <Info

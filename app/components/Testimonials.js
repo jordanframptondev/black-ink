@@ -17,25 +17,25 @@ const logos = [Logo1, Logo2, Logo3, Logo4, Logo5, Logo6, Logo7, Logo8];
 function Logos() {
   return (
     <FadeIn>
-      <div className="relative w-full overflow-hidden py-12">
+      <div className="relative w-full overflow-hidden pt-20 pb-20">
         <FadeInStagger>
-          <div className="animate-marquee flex whitespace-nowrap">
+          <div className="lg:animate-marquee lg:flex lg:whitespace-nowrap">
             {/* First set of logos */}
-            <div className="flex items-center shrink-0">
+            <div className="grid grid-cols-2 gap-x-10 gap-y-20 lg:flex justify-center items-center lg:shrink-0 lg:gap-16">
               {logos.map((logo, index) => (
                 <FadeIn key={`logo1-${index}`}>
-                  <div className="mx-8">
+                  <div className="flex items-center justify-center">
                     <Image src={logo} width={'auto'} height={'auto'} alt="Logo" />
                   </div>
                 </FadeIn>
               ))}
             </div>
             {/* Duplicate set of logos for seamless loop */}
-            <div className="flex items-center shrink-0">
+            <div className="hidden lg:flex justify-center items-center lg:shrink-0 lg:gap-16 lg:ml-16">
               {logos.map((logo, index) => (
                 <FadeIn key={`logo2-${index}`}>
-                  <div className="mx-8">
-                    <Image src={logo} width={'auto'} height={'auto'} alt="Logo" />
+                  <div className="flex items-center justify-center">
+                    <Image src={logo} width={'auto'} height={'auto'} alt="Logo" className="" />
                   </div>
                 </FadeIn>
               ))}
@@ -48,6 +48,18 @@ function Logos() {
 }
 
 const testimonials = [
+  {
+    quote:
+      "The Black Ink team understands how businesses work in Centric and has already created the tools that make projects efficient and successful. They are not afraid of hard work and go the extra mile to ensure customer success.",
+    author:
+      "Joe Groves - Senior Vice President of Global Sales Centric Software",
+  },
+  {
+    quote:
+      "The Black Ink team understands how businesses work in Centric and has already created the tools that make projects efficient and successful. They are not afraid of hard work and go the extra mile to ensure customer success.",
+    author:
+      "Joe Groves - Senior Vice President of Global Sales Centric Software",
+  },
   {
     quote:
       "The Black Ink team understands how businesses work in Centric and has already created the tools that make projects efficient and successful. They are not afraid of hard work and go the extra mile to ensure customer success.",
@@ -83,27 +95,27 @@ export function Testimonials() {
   const { quote, author } = testimonials[currentIndex];
 
   return (
-    <div className="bg-[#EFEEE8] py-12 px-6">
-      <div className="w-full py-6 border-y border-black grid grid-cols-3 min-h-80">
+    <div className="bg-[#EFEEE8] pt-10 px-10">
+      <div className="w-full lg:py-6 border-b lg:border-y border-black grid grid-cols-1 lg:grid-cols-3 min-h-80">
         <div className="col-span-1">
           <FadeIn>
             <h2 className="text-lg uppercase font-ritma">testimonials</h2>
           </FadeIn>
         </div>
-        <div className="col-span-2">
+        <div className="lg:col-span-2 mt-20">
           <FadeIn>
             <div
               className={`transition-opacity duration-1000 ${
                 isTransitioning ? "opacity-0" : "opacity-100"
               }`}
             >
-              <p className="text-2xl font-signifier">&quot;{quote}&quot;</p>
-              <div className="mt-24 flex justify-between">
-                <p className="text-md font-signifierItalic max-w-48">
+              <p className="text-xl lg:text-2xl font-signifier">&quot;{quote}&quot;</p>
+              <div className="mt-20 lg:flex justify-between">
+                <p className="text-md font-signifierItalic lg:max-w-48">
                   {author}
                 </p>
                 {testimonials?.length > 1 && (
-                  <div className="flex items-center font-ritma">
+                  <div className="mt-20 pb-[47px] flex items-center font-ritma">
                     <button onClick={handlePrevious}>&larr;</button>
                     <p className="mx-4">
                       {currentIndex + 1}/{testimonials?.length}

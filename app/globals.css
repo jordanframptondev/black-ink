@@ -5,38 +5,3 @@
 body {
   background-color: black
 }
-
-/*!* Testimonials.css *! todo: move these styles to the separate component css file*/
-
-.testimonial-container {
-  overflow: hidden;
-  position: relative;
-}
-
-.testimonial-slide {
-  position: absolute;
-  width: 100%;
-  transition: transform 0.5s ease;
-  opacity: 1;
-}
-
-/* Sliding animations */
-.testimonial-slide.right {
-  transform: translateX(100%);
-  animation: slide-in-right 0.5s forwards;
-}
-
-.testimonial-slide.left {
-  transform: translateX(-100%);
-  animation: slide-in-left 0.5s forwards;
-}
-
-@keyframes slide-in-right {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
-}
-
-@keyframes slide-in-left {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
-}

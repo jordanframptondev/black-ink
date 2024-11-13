@@ -6,15 +6,15 @@ import { FadeIn, FadeInStagger } from "../FadeIn";
 
 const blogs = [
   {
-    title: "Some sample title about this blog",
+    title: "Finding Org Flow: Lessons from Surfing",
     imgUrl: "blog-1.png",
   },
   {
-    title: "Some sample title about this other blog: Super Cool!",
+    title: "5 Things Before you Say Yes to PLM",
     imgUrl: "blog-2.png",
   },
   {
-    title: "Snowboarding is a great place to learn about this blog",
+    title: "Finding Your Why and Your Decision Makers",
     imgUrl: "blog-3.png",
   },
 ];
@@ -55,19 +55,19 @@ export function ResourcesPreviewList({ background }) {
       </div>
       <div className="md:text-right mt-32 md:mt-10 mb-20 lg:mt-48 text-[#EFEEE8]">
         <Link href="/resources" className="">
-        <div
-          className={
-            "flex items-center flex-nowrap signup-link w-full py-10 md:py-0 font-ritma cursor-pointer border-white transition-all duration-1000 ease-in"
-          }
-        >
+          <div
+            className={
+              "flex items-center flex-nowrap signup-link w-full py-10 md:py-0 font-ritma cursor-pointer border-white transition-all duration-1000 ease-in"
+            }
+          >
             <div className={"md:ml-auto"}>
               <span className="arrow">→</span>
             </div>
-            <div className="w-1/2 md:w-auto min-w-fit pr-[50px] whitespace-nowrap link-text">
+            <div className="w-1/2 lg:ml-4 md:w-auto min-w-fit pr-[50px] whitespace-nowrap link-text">
               <span>MORE</span>
             </div>
-        </div>
-          </Link>
+          </div>
+        </Link>
       </div>
     </div>
   );

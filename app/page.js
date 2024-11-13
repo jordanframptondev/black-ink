@@ -8,7 +8,6 @@ import { Info } from "./components/Info";
 import { FullCta } from "./components/server-components/FullCta";
 import { ResourcesPreviewList } from "./components/server-components/ResourcesPreviewList";
 import { Testimonials } from "./components/Testimonials";
-import { getInfoData } from "./utils/cms-service";
 
 const sampleSections = [
   {
@@ -61,42 +60,46 @@ const servicesSection = [
 
 const partnerSections = [
   {
-    title: "Colin Israel",
-    description: `Colin has held diverse executive positions in the apparel and footwear industry, including roles as CEO, CFO, COO, CIO and GM of Asia. He brings a global perspective following Expat assignments in Europe and Asia. Colin spent nine years at Deloitte in Strategy & Operations Consulting and Enterprise Risk Services, he also Skis a lot…`,
-  },
-  {
     title: "Walter Wilhelm",
     description: `Walter has years of executive experience working with the apparel, footwear, and retail industries. In addition, Walter spent 7 years as President of a leading consulting firm. Before work he logs crazy miles running on the trails with his dog...`,
     image: HeadShot,
   },
+  {
+    title: "Colin Israel",
+    description: `Colin has held diverse executive positions in the apparel and footwear industry, including roles as CEO, CFO, COO, CIO and GM of Asia. He brings a global perspective following Expat assignments in Europe and Asia. Colin spent nine years at Deloitte in Strategy & Operations Consulting and Enterprise Risk Services, he also Skis a lot…`,
+  },
 ];
 
 export default async function Home() {
-  const ethosData = await getInfoData('Ethos');
+  // TODO: Finish cms setup
+  // const ethosData = await getInfoData('Ethos');
   // const servicesData = await getInfoData('Services');
   // const partnersData = await getInfoData('Partners');
-  console.log("ethosData", ethosData);
-  // console.log("servicesData", servicesData);
-  // console.log("partnersData", partnersData);
   return (
     <div className="relative">
       <Header color="cream" />
       <HomeHeroAnimation />
-      <div className="mt-screen bg-black h-screen py-12 px-8 h-screen flex flex-col justify-between">
-        <FadeIn>
-          <h3 className="text-center text-white text-xl lg:text-3xl border-t border-white pt-12">
-            There are <i>many futures,</i> Black Ink points you to{" "}
+      <div className="mt-screen bg-black h-screen px-[42px] py-12 px-8 h-screen flex flex-col justify-between">
+          <h3 className="text-center text-[#EFEEE8] text-xl lg:text-3xl border-t border-[#EFEEE8] pt-12 font-signifier">
+            There are <i>many futures,</i>
+            <br />
+            Black Ink points you to{" "}
             <i>the right one.</i>
           </h3>
-        </FadeIn>
-        <h2 className="text-center text-white text-xl lg:text-3xl">
+        <FadeIn>
+        <h2 className="text-center text-[#EFEEE8] text-xl lg:text-3xl font-signifier">
           We facilitate the <i>selection, design, and implementation</i> of
           strategic projects.
         </h2>
+        </FadeIn>
       </div>
-        <div className={"min-w-[100dvh]"}>
-      {ethosData && <Info backgroundColor="#544F3D" title="ETHOS" sections={sampleSections} />}
-        </div>
+      <div className={"min-w-[100dvh]"}>
+        <Info
+          backgroundColor="#544F3D"
+          title="ETHOS"
+          sections={sampleSections}
+        />
+      </div>
       <Testimonials />
       <FullCta
         overlay="#3A332E"

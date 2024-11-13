@@ -14,7 +14,7 @@ export function Info({
 }) {
   return (
     <div
-      className="h-screen w-screen min-h-dvh py-24 px-10"
+      className="min-h-screen w-screen min-h-dvh pt-10 px-10 pb-20"
       style={{
         background: backgroundColor,
         backgroundImage: backgroundImage ? `url(${backgroundImage})` : "none",
@@ -24,7 +24,7 @@ export function Info({
     >
       <div>
         <h2
-          className={`text-[24px] mb-12 ${
+          className={`text-[24px] mb-20 lg:mb-12 ${
             textLight ? "text-white" : "text-black"
           }`}
         >
@@ -59,7 +59,7 @@ function Section({ title, description, image = null, textLight = true }) {
           isOpen ? "w-full" : "lg:w-1/3"
         }`}
       ></div>
-      <div className="grid lg:grid-cols-3 w-full py-10 lg:py-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 w-full py-10 lg:py-6">
         <div className="">
           {/* Left Side: Title and Icon */}
           <div
@@ -75,8 +75,8 @@ function Section({ title, description, image = null, textLight = true }) {
             </span>
             <PlusIcon
               aria-hidden="true"
-              className={`h-4 w-4 transition-transform duration-200 ${
-                textLight ? "text-white" : "text-black"
+              className={`h-5 w-5 transition-transform duration-200 ${
+                textLight ? "text-[#EFEEE8]" : "text-black"
               } ${isOpen ? "transform rotate-45" : ""}`}
             />
           </div>
@@ -93,25 +93,25 @@ function Section({ title, description, image = null, textLight = true }) {
             leaveFrom="opacity-100 max-h-[500px]"
             leaveTo="opacity-0 max-h-0"
           >
-            <div className="flex justify-between pl-4">
-              <div className={`${image ? "w-1/2" : "w-full"}`}>
+            <div className="lg:flex justify-between pt-10 lg:pl-4">
+              <div className={`${image ? "lg:w-1/2" : "w-full"}`}>
                 <p
-                  className={`text-base leading-7 font-serif ${
-                    textLight ? "text-white" : "text-black"
+                  className={`text-base leading-7 font-signifier ${
+                    textLight ? "text-[#EFEEE8]" : "text-black"
                   }`}
                 >
                   {description}
                 </p>
               </div>
               {image ? (
-                <div className="w-1/2">
+                <div className="lg:w-1/2 pt-5">
                   <Image
                     src={image}
                     alt={description}
                     width={0}
                     height={0}
                     sizes="100%"
-                    className="ml-4 w-full h-auto"
+                    className="lg:ml-4 w-full h-auto"
                   />
                 </div>
               ) : null}
@@ -121,9 +121,9 @@ function Section({ title, description, image = null, textLight = true }) {
       </div>
       <div
         className={`border-t ${
-          textLight ? "border-white" : "border-black"
+          textLight ? "border-[#EFEEE8]" : "border-black"
         } transition-all duration-500 delay-300 -mb-[1px] ${
-          isOpen ? "w-full" : "w-1/3"
+          isOpen ? "w-full" : "lg:w-1/3"
         }`}
       ></div>
     </>

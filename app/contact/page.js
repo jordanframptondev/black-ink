@@ -49,7 +49,7 @@ export default function Contact() {
 
             <div className="h-dvh px-10 pb-10 text-black md:text-[#EFEEE8]">
                 <div className="flex flex-col md:flex-row pt-[140px]">
-                    <div className="hidden md:block md:w-1/3 md:max-w-[475px]">
+                    <div className="hidden md:block md:w-1/3 md:max-w-[400px]">
                         <h2 className="text-white font-ritma text-2xl">
                             CONTACT
                         </h2>

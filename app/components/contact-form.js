@@ -64,7 +64,7 @@ export default function ContactForm({}) {
 
     return (
         <div className="w-full">
-            <h2 className="text-xl lg:text-4xl font-extralight mb-8">
+            <h2 className="text-xl md:text-4xl font-extralight mb-8">
                 <span className="font-signifierItalic">You made it!</span>
                 <span className="font-signifier">
                     &mdash; answer some simple questions to get in touch
@@ -129,23 +129,23 @@ function ContactFormSection({
     return (
         <div>
             <div
-                className={`hidden lg:block border-t border-black lg:border-white transition-all delay-300 duration-500 ${
+                className={`hidden md:block border-t border-black md:border-white transition-all delay-300 duration-500 ${
                     isOpen ? "w-full" : "w-1/3"
                 }`}
             ></div>
             <div
                 className={`grid grid-cols-3 w-full py-6 ${
                     isLast ? "border-y" : "border-t"
-                } border-black lg:border-0`}
+                } border-black md:border-0`}
             >
                 <div
                     onClick={openSection}
-                    className="flex justify-between col-span-3 lg:col-span-1 cursor-pointer"
+                    className="flex justify-between col-span-3 md:col-span-1 cursor-pointer"
                 >
                     <h3
                         className={`${
                             isOpen
-                                ? "font-signifier lg:font-signifierItalic mb-8"
+                                ? "font-signifier md:font-signifierItalic mb-8"
                                 : "font-signifier"
                         } text-xl `}
                     >
@@ -164,7 +164,7 @@ function ContactFormSection({
                         />
                     </span>
                 </div>
-                <div className="col-span-3 lg:col-span-2">
+                <div className="col-span-3 md:col-span-2">
                     <div
                         className={`transition-all duration-500 overflow-hidden ${
                             isOpen ? "max-h-[500px]" : "max-h-[2rem]"
@@ -199,7 +199,7 @@ function ContactFormSection({
                                         <div
                                             onClick={() => selectOption(answer)}
                                             key={index}
-                                            className="relative cursor-pointer py-2 lg:py-0 contact-option transition-all duration-500"
+                                            className="relative cursor-pointer py-2 md:py-0 contact-option transition-all duration-500"
                                         >
                                             <span className="arrow">→</span>
                                             <span className="font-signifier option-text">
@@ -214,7 +214,7 @@ function ContactFormSection({
                 </div>
             </div>
             <div
-                className={`hidden lg:block border-t border-black lg:border-white transition-all duration-500 delay-300 -mb-[1px] ${
+                className={`hidden md:block border-t border-black md:border-white transition-all duration-500 delay-300 -mb-[1px] ${
                     isOpen ? "w-full" : "w-1/3"
                 }`}
             ></div>
@@ -260,8 +260,8 @@ function StyledTextInput({
             className={`w-full mt-8 border-b ${
                 showError
                     ? "border-red-500"
-                    : "border-black lg:border-[#EFEEE8]"
-            } font-signifier flex items-center lg:flex-col lg:items-start`}
+                    : "border-black md:border-[#EFEEE8]"
+            } font-signifier flex items-center md:flex-col md:items-start`}
         >
             <label
                 htmlFor={label}
@@ -274,7 +274,7 @@ function StyledTextInput({
                 type="text"
                 id={label}
                 name={label}
-                className={`p-2 bg-transparent text-black lg:text-[#EFEEE8] focus:outline-none flex-grow lg:w-full ${
+                className={`p-2 bg-transparent text-black md:text-[#EFEEE8] focus:outline-none flex-grow md:w-full ${
                     showError ? "border-red-500" : ""
                 }`}
                 required={required}
@@ -349,9 +349,9 @@ const ContactInfoSubmit = forwardRef((props, ref) => {
 
     return (
         <div ref={ref}>
-            <div className="border-t border-black lg:border-white w-full mt-8"></div>
+            <div className="border-t border-black md:border-white w-full mt-8"></div>
             <form
-                className="grid grid-cols-1 lg:grid-cols-2 gap-4"
+                className="grid grid-cols-1 md:grid-cols-2 gap-4"
                 onSubmit={handleSubmit}
             >
                 <StyledTextInput
@@ -379,13 +379,13 @@ const ContactInfoSubmit = forwardRef((props, ref) => {
                     onChange={setPhone}
                 />
                 <div
-                    className="hidden lg:block font-ritma uppercase cursor-pointer"
+                    className="hidden md:block font-ritma uppercase cursor-pointer"
                     onClick={back}
                 >
                     &#8592; Go Back
                 </div>
                 <div
-                    className="mt-8 lg:mt-0 lg:text-right font-ritma uppercase cursor-pointer"
+                    className="mt-8 md:mt-0 md:text-right font-ritma uppercase cursor-pointer"
                     onClick={handleSubmit}
                     disabled={sent}
                 >

@@ -79,15 +79,15 @@ export default async function Home() {
     <div className="relative">
       <Header color="cream" />
       <HomeHeroAnimation />
-      <div className="mt-screen bg-black h-screen px-[42px] py-12 px-8 h-screen flex flex-col justify-between">
-          <h3 className="text-center text-[#EFEEE8] text-xl lg:text-3xl border-t border-[#EFEEE8] pt-12 font-signifier">
-            There are <i>many futures,</i>
-            <br />
+      <div className="mt-screen bg-black px-10 pb-10 h-dvh flex flex-col justify-between">
+          <h3 className="text-center text-[#EFEEE8] text-[20px] md:text-[36px] border-t border-[#EFEEE8] pt-10 font-signifier">
+            There are <i>many futures,{" "}</i>
+            <br className="block md:hidden" />
             Black Ink points you to{" "}
             <i>the right one.</i>
           </h3>
         <FadeIn>
-        <h2 className="text-center text-[#EFEEE8] text-xl lg:text-3xl font-signifier">
+        <h2 className="text-center text-[#EFEEE8] text-[20px] md:text-[36px] font-signifier">
           We facilitate the <i>selection, design, and implementation</i> of
           strategic projects.
         </h2>

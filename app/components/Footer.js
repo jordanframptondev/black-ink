@@ -1,5 +1,6 @@
 import "@/styles/footer.css";
 import {FadeIn} from "@/app/components/FadeIn";
+import Link from "next/link";
 
 export function Footer() {
     //todo: Implement links to other pages
@@ -13,17 +14,20 @@ export function Footer() {
                         </FadeIn>
                     </div>
                     <div className={"flex flex-col w-full h-full md:w-2/3"}>
-                        <div
+                        <Link href={"/contact"}
                             className={"flex flex-nowrap signup-link w-full py-10 text-[20px] md:text-[30px] lg:text-[36px] font-signifier border-b cursor-pointer border-white transition-all duration-1000 ease-in"}>
                             <div className={"md:mr-auto"}>
                                 <span className="arrow">→</span>
                             </div>
                             <div className="w-1/2 min-w-fit pr-[50px] whitespace-nowrap link-text">
                                 <FadeIn>
-                                <span>Sign up for strategic insights</span>
+                                <span>
+                                          Sign up for strategic insights
+
+                                </span>
                                 </FadeIn>
                             </div>
-                        </div>
+                        </Link>
                         <div
                             className={"flex flex-col md:flex-row mt-auto text-[18px] md:text-[24px] border-y border-white py-[40px] md:py-[60px] justify-end md:justify-start"}>
                             <div className={"flex flex-col w-full md:w-1/2 items-end md:items-start"}>
@@ -52,5 +56,6 @@ export function Footer() {
                 </div>
             </div>
         </footer>
-    );
+    )
+        ;
 }

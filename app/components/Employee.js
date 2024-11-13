@@ -69,11 +69,11 @@ export default function Employee({name, title, image, index, children}) {
                      className={`flex items-center image-container py-10 employee-name-div ${getBorderClass()}`}>
                     <div className={'flex items-center employee-name-text'}>
                         <span className="arrow">→</span>
-                        <p className={'text-[16px] sm:text-[20px] font-signifier'}>{name}</p>
+                        <p className={'text-[16px] md:text-[20px] font-signifier'}>{name}</p>
                         {title && (
                             <>
                                 <span>&nbsp;&mdash;&nbsp;</span>
-                                <p className={'text-[16px] sm:text-[20px] font-signifierItalic'}>{title}</p>
+                                <p className={'text-[16px] md:text-[20px] font-signifierItalic'}>{title}</p>
                             </>
                         )}
                     </div>

@@ -13,7 +13,7 @@ export async function FullCta({backgroundImageSrc, overlay, displayText, link}) 
                  style={{background: overlay}}></div>
             <div className="flex text-center w-full">
                 <Link href={link}
-                      className="relative px-10 sm:px-0 z-50 text-[18px] sm:text-[22px] text-white font-ritma cta-link w-full active:text-[19px] sm:active:text-[23px]">
+                      className="relative px-10 md:px-0 z-50 text-[18px] md:text-[22px] text-white font-ritma cta-link w-full active:text-neutral-400">
                     <FadeIn>
                         <span className="arrow">→</span>
                         <span className="cta-link-text">{displayText}</span>

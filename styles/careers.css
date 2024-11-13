@@ -13,7 +13,7 @@
 
 .arrow {
     width: 0;
-    transform: translateX(-10px); /* Start off-screen to the left */
+    transform: translateX(-20px); /* Start off-screen to the left */
     opacity: 0; /* Initially hidden */
 }
 
@@ -27,5 +27,5 @@
 }
 
 .careers-link:hover .careers-link-text {
-    transform: translateX(16px); /* Slide text to the right */
+    transform: translateX(20px); /* Slide text to the right */
 }

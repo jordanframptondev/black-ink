@@ -6,15 +6,13 @@ export default function Careers() {
     return (
         <div className={"flex flex-col bg-[#EFEEE8] text-black w-full transition-all duration-1000 ease-in"}>
             <div className={"py-10 mx-10 mb-[75px] border-y border-y-black"}>
-                <div className={"flex flex-col sm:flex-row"}>
-                    <div className={"mb-[80px] sm:mb-0 w-full sm:w-1/3 transition-all duration-1000 ease-in"}>
-                        <FadeIn>
-                            <h1 className={"text-[18px] sm:text-[24px] font-ritma"}>CAREERS</h1>
-                        </FadeIn>
+                <div className={"flex flex-col md:flex-row"}>
+                    <div className={"mb-[80px] md:mb-0 w-full md:w-1/3 transition-all duration-1000 ease-in"}>
+                        <h1 className={"text-[18px] md:text-[24px] font-ritma"}>CAREERS</h1>
                     </div>
-                    <div className={"w-full sm:w-2/3"}>
+                    <div className={"w-full md:w-2/3"}>
                         <FadeIn>
-                            <p className={"text-[20px] sm:text-[32px] font-signifier"}>“At Black Ink, we’re building a
+                            <p className={"text-[20px] md:text-[32px] font-signifier"}>“At Black Ink, we’re building a
                                 community of
                                 seasoned experts and
                                 passionate innovators who are
@@ -25,7 +23,8 @@ export default function Careers() {
                         </FadeIn>
                     </div>
                 </div>
-                <div className={"w-full text-end mt-[100px] sm:mt-[150px] text-[18px] sm:text-[24px] font-ritma transition-all duration-1000 ease-in"}>
+                <div
+                    className={"w-full text-end mt-[100px] md:mt-[150px] text-[18px] md:text-[24px] font-ritma transition-all duration-1000 ease-in"}>
                     <Link href={"/"} className={"careers-link cursor-pointer w-fit pr-[30px]"}>
                         <FadeIn>
                             <span className="arrow">→</span>

@@ -100,7 +100,7 @@ export function Header({color}) {
                 <div className={"absolute top-[30px] flex w-full z-[99]"}>
                     <h1 id="black-ink-header-text"
                         className={`${(color === 'black' && !showMenu) || (showMenu && windowWidth < 768) ? 'text-black' : 'text-[#EFEEE8]'}
-                    absolute text-[18px] sm:text-[24px] font-ritma left-[40px] md:left-[50%] md:-translate-x-1/2 transition-all duration-500 ease-in`}>
+                    absolute text-[18px] md:text-[24px] font-ritma left-[40px] md:left-[50%] md:-translate-x-1/2 transition-all duration-500 ease-in`}>
                         BLACK INK
                     </h1>
                     <Image
@@ -110,7 +110,7 @@ export function Header({color}) {
                         width={50}
                         height={50}
                         priority={true}
-                        className={`absolute top-[3px] sm:top-[6px] right-[40px] h-[18px] sm:h-[21px] w-fit`}
+                        className={`absolute top-[5px] md:top-[8px] right-[40px] h-[18px] md:h-[21px] w-fit`}
                         onClick={handleMenuClick}
                     />
                 </div>

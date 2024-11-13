@@ -38,22 +38,20 @@ export default async function About() {
                     alt="Background Image"
                     width={1920}
                     height={1080}
-                    className={"mt-auto w-full min-h-[550px] object-cover object-[35%] mb-[25px] sm:mb-[150px]"}
+                    className={"mt-auto w-full min-h-[550px] object-cover object-[35%] mb-[25px] md:mb-[150px]"}
                     priority={true}
                 />
             </div>
             <div className={"relative pt-[100dvh]"}>
                 <div className={"flex justify-center min-w-screen min-h-[100dvh] bg-[#3A332E]"}>
-                    <div className={"flex border-t border-[#EFEEE8] mx-7"}>
-                        <div className={"flex flex-col sm:flex-row my-10"}>
-                            <div className={"flex w-full mb-[80px] sm:mb-0 sm:w-1/3 text-[18px] sm:text-[24px] font-ritma"}>
-                                <FadeIn>
+                    <div className={"flex border-t border-[#EFEEE8] mx-10"}>
+                        <div className={"flex flex-col md:flex-row my-10"}>
+                            <div className={"flex w-full mb-[80px] md:mb-0 md:w-1/3 text-[18px] md:text-[24px] font-ritma"}>
                                     <h1>ABOUT</h1>
-                                </FadeIn>
                             </div>
-                            <div className={"flex flex-col w-full sm:w-2/3"}>
+                            <div className={"flex flex-col w-full md:w-2/3"}>
                                 <FadeIn>
-                                    <p className={"text-[20px] sm:text-[36px] font-signifier mb-10"}>In the pursuit of
+                                    <p className={"text-[20px] md:text-[36px] font-signifier mb-10"}>In the pursuit of
                                         growth
                                         and innovation,
                                         organizations often find themselves navigating
@@ -61,7 +59,7 @@ export default async function About() {
                                         challenges that demand precision, expertise, and foresight.</p>
                                 </FadeIn>
                                 <FadeIn>
-                                    <p className={"text-[16px] sm:text-[24px] font-signifierItalic"}>At Black Ink, we’ve
+                                    <p className={"text-[16px] md:text-[24px] font-signifierItalic"}>At Black Ink, we’ve
                                         assembled a team of
                                         seasoned
                                         professionals who have spent decades honing

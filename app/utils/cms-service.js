@@ -1,6 +1,5 @@
 // sanity.js
 import { createClient } from "@sanity/client";
-import imageUrlBuilder from "@sanity/image-url";
 // Import using ESM URL imports in environments that supports it:
 // import {createClient} from 'https://esm.sh/@sanity/client'
 
@@ -12,20 +11,15 @@ export const client = createClient({
     // token: process.env.SANITY_SECRET_TOKEN // Only if you want to update content with the client
 });
 
-export function urlFor(source) {
-  const builder = imageUrlBuilder(client);
-  return builder.image(source);
-}
-
-export function getHomeContent() {
-  // return client.fetch(`*[_type == 'homepage']{title, "backgroundImage" -> asset->url, "title", description}`);
-}
-
-export function getCtaData(title) {
+export function getInfoData(title) {
   let titleParam = '';
   if (title) {
     titleParam = ` && title=='${title}'`;
   }
 
-  return client.fetch(`*[_type == 'fullCta'${titleParam}]{displayText,title,link,overlay,backgroundImage {asset->{url}}}`);
+  return client.fetch(`*[_type == 'expandContentList'${titleParam}]{title, contentList[]{title, content, image{asset->}}}`);
+}
+
+export function getLastThreePosts() {
+  return client.fetch(`*[_type == "post"][0..3] | order(_createdAt asc)`);
 }

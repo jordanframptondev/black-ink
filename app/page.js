@@ -8,6 +8,7 @@ import { Info } from "./components/Info";
 import { FullCta } from "./components/server-components/FullCta";
 import { ResourcesPreviewList } from "./components/server-components/ResourcesPreviewList";
 import { Testimonials } from "./components/Testimonials";
+import { getInfoData } from "./utils/cms-service";
 
 const sampleSections = [
   {
@@ -70,31 +71,37 @@ const partnerSections = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const ethosData = await getInfoData('Ethos');
+  // const servicesData = await getInfoData('Services');
+  // const partnersData = await getInfoData('Partners');
+  console.log("ethosData", ethosData);
+  // console.log("servicesData", servicesData);
+  // console.log("partnersData", partnersData);
   return (
     <div className="relative">
       <Header color="cream" />
       <HomeHeroAnimation />
       <div className="mt-screen bg-black h-screen py-12 px-8 h-screen flex flex-col justify-between">
         <FadeIn>
-          <h3 className="text-center text-white text-3xl border-t border-white pt-12">
+          <h3 className="text-center text-white text-xl lg:text-3xl border-t border-white pt-12">
             There are <i>many futures,</i> Black Ink points you to{" "}
             <i>the right one.</i>
           </h3>
         </FadeIn>
-        <h2 className="text-center text-white text-3xl">
+        <h2 className="text-center text-white text-xl lg:text-3xl">
           We facilitate the <i>selection, design, and implementation</i> of
           strategic projects.
         </h2>
       </div>
         <div className={"min-w-[100dvh]"}>
-      <Info backgroundColor="#544F3D" title="ETHOS" sections={sampleSections} />
+      {ethosData && <Info backgroundColor="#544F3D" title="ETHOS" sections={sampleSections} />}
         </div>
       <Testimonials />
       <FullCta
         overlay="#3A332E"
         link="/contact"
-        displayText="→ FIND THE PATH TO FUTURE PROOF"
+        displayText="FIND THE PATH TO FUTURE PROOF"
         backgroundImageSrc={HomeCta}
       />
       <Info

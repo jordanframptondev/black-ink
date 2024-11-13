@@ -1,7 +1,7 @@
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { Resource } from "../components/Resource";
-import { ResourcesPreviewList } from "../components/server-components/ResourcesPreviewList";
+import { ResourcesPreviewList } from "../components/ResourcesPreviewList";
 export default function Resources() {
   return (
     <div className={"relative"}>

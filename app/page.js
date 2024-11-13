@@ -5,8 +5,8 @@ import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { HomeHeroAnimation } from "./components/HomeHeroAnimation";
 import { Info } from "./components/Info";
+import { ResourcesPreviewList } from "./components/ResourcesPreviewList";
 import { FullCta } from "./components/server-components/FullCta";
-import { ResourcesPreviewList } from "./components/server-components/ResourcesPreviewList";
 import { Testimonials } from "./components/Testimonials";
 
 const sampleSections = [

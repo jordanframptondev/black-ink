@@ -138,12 +138,12 @@ function ContactFormSection({
                             isOpen
                                 ? "font-signifier lg:font-signifierItalic mb-8"
                                 : "font-signifier"
-                        } text-xl lg:mb-2 `}
+                        } text-xl `}
                     >
                         {question}
                     </h3>
                     <span
-                        className={`block transition-all ${
+                        className={`flex items-center align-middle transition-all h-full ${
                             isOpen ? "opacity-0" : "opacity-100"
                         }`}
                     >

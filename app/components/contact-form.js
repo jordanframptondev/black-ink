@@ -44,6 +44,13 @@ export default function ContactForm({}) {
         setOpenSection(index + 1);
     };
 
+    const shouldShowContactForm = () => {
+        const allQuestionsHaveAnswers = Object.values(formData).every(
+            (answer) => answer
+        );
+        return allQuestionsHaveAnswers;
+    };
+
     const submitContact = () => {
         /**
          * Add logic here once we get mailchimp or other service
@@ -51,7 +58,7 @@ export default function ContactForm({}) {
     };
 
     const resetForm = () => {
-        setOpenSection(0);
+        setOpenSection(-1);
         setFormData(initialFormData);
     };
 
@@ -64,7 +71,8 @@ export default function ContactForm({}) {
                 </span>
             </h2>
             <Transition
-                show={openSection < contactFormData.length}
+                // show={openSection < contactFormData.length}
+                show={!shouldShowContactForm()}
                 enter="transition-all duration-500 ease-in"
                 enterFrom="opacity-0 "
                 enterTo="opacity-100 "
@@ -91,7 +99,8 @@ export default function ContactForm({}) {
             </Transition>
 
             <Transition
-                show={openSection >= contactFormData.length}
+                // show={openSection >= contactFormData.length}
+                show={shouldShowContactForm()}
                 enter="transition-all duration-500 ease-in"
                 enterFrom="opacity-0"
                 enterTo="opacity-100"

@@ -11,15 +11,17 @@ export const client = createClient({
     // token: process.env.SANITY_SECRET_TOKEN // Only if you want to update content with the client
 });
 
-export function getInfoData(title) {
+export async function getInfoData(title) {
     let titleParam = "";
     if (title) {
         titleParam = ` && title=='${title}'`;
     }
 
-    return client.fetch(
+    const data = await client.fetch(
         `*[_type == 'expandContentList'${titleParam}]{title, contentList[]{title, content, image{asset->}}}`
     );
+
+    return data[0].contentList;
 }
 
 export function getLastThreePosts() {

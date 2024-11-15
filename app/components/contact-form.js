@@ -4,33 +4,33 @@ import { Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import "@/styles/contact.css";
 
-const contactFormData = [
-    {
-        question: "We need",
-        answers: [
-            "Product Life Cycle Management (PLM)",
-            "Planning",
-            "Digital Product Creation",
-            "Business Analytics",
-            "Change Management & Organizational Readiness",
-            "General Consultation",
-            "Other",
-        ],
-    },
-    {
-        question: "Our timeline",
-        answers: ["Immediate", "Next Quarter", "In the Future", "Other"],
-    },
-    {
-        question: "Organization Size",
-        answers: ["1-50", "51-100", "101-500", "501-1000", "1001+"],
-    },
-];
-export default function ContactForm({}) {
+// const contactFormData = [
+//     {
+//         question: "We need",
+//         answers: [
+//             "Product Life Cycle Management (PLM)",
+//             "Planning",
+//             "Digital Product Creation",
+//             "Business Analytics",
+//             "Change Management & Organizational Readiness",
+//             "General Consultation",
+//             "Other",
+//         ],
+//     },
+//     {
+//         question: "Our timeline",
+//         answers: ["Immediate", "Next Quarter", "In the Future", "Other"],
+//     },
+//     {
+//         question: "Organization Size",
+//         answers: ["1-50", "51-100", "101-500", "501-1000", "1001+"],
+//     },
+// ];
+export default function ContactForm({ questions }) {
     const [openSection, setOpenSection] = useState(-1);
 
     const initialFormData = Array.from(
-        { length: contactFormData.length },
+        { length: questions.length },
         (_, index) => ({
             [index]: undefined,
         })
@@ -71,7 +71,6 @@ export default function ContactForm({}) {
                 </span>
             </h2>
             <Transition
-                // show={openSection < contactFormData.length}
                 show={!shouldShowContactForm()}
                 enter="transition-all duration-500 ease-in"
                 enterFrom="opacity-0 "
@@ -81,7 +80,7 @@ export default function ContactForm({}) {
                 leaveTo="opacity-0"
             >
                 <div>
-                    {contactFormData.map((section, index) => (
+                    {questions.map((section, index) => (
                         <ContactFormSection
                             key={index}
                             question={section.question}
@@ -89,7 +88,7 @@ export default function ContactForm({}) {
                             selectedAnswer={formData[index]}
                             openSection={() => setOpenSection(index)}
                             isOpen={index === openSection}
-                            isLast={index === contactFormData.length - 1}
+                            isLast={index === questions.length - 1}
                             selectOption={(answer) =>
                                 setSelection(index, answer)
                             }
@@ -99,7 +98,6 @@ export default function ContactForm({}) {
             </Transition>
 
             <Transition
-                // show={openSection >= contactFormData.length}
                 show={shouldShowContactForm()}
                 enter="transition-all duration-500 ease-in"
                 enterFrom="opacity-0"

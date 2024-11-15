@@ -12,14 +12,20 @@ export const client = createClient({
 });
 
 export function getInfoData(title) {
-  let titleParam = '';
-  if (title) {
-    titleParam = ` && title=='${title}'`;
-  }
+    let titleParam = "";
+    if (title) {
+        titleParam = ` && title=='${title}'`;
+    }
 
-  return client.fetch(`*[_type == 'expandContentList'${titleParam}]{title, contentList[]{title, content, image{asset->}}}`);
+    return client.fetch(
+        `*[_type == 'expandContentList'${titleParam}]{title, contentList[]{title, content, image{asset->}}}`
+    );
 }
 
 export function getLastThreePosts() {
-  return client.fetch(`*[_type == "post"][0..3] | order(_createdAt asc)`);
+    return client.fetch(`*[_type == "post"][0..3] | order(_createdAt asc)`);
+}
+
+export function getContactQuestions() {
+    return client.fetch(`*[_type == 'contactQuestion']`);
 }

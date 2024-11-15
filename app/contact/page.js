@@ -1,32 +1,46 @@
 "use client";
 
 import Image from "next/image";
-import {Footer} from "../components/Footer";
-import {Header} from "../components/Header";
+import { Footer } from "../components/Footer";
+import { Header } from "../components/Header";
 import ContactForm from "../components/contact-form";
 import ContactBackground from "../../public/images/group-4530.png";
 import ContactBackgroundLight from "../../public/images/Group-4530-Light.png";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
+import { getContactQuestions } from "../utils/cms-service";
 
 export default function Contact() {
-    const [headerColor, setHeaderColor] = useState('cream');
-
+    const [headerColor, setHeaderColor] = useState("cream");
+    const [contactQuestions, setContactQuestions] = useState([]);
     useEffect(() => {
         const handleResize = () => {
-            setHeaderColor(window.innerWidth >= 768 ? 'cream' : 'black');
+            setHeaderColor(window.innerWidth >= 768 ? "cream" : "black");
         };
 
+        getContactQuestions().then((questions) => {
+            const orderedQuestions = questions
+                .map((q) => {
+                    return {
+                        question: q.question,
+                        answers: q.answerOptions,
+                        order: q.order,
+                    };
+                })
+                .sort((a, b) => a.order - b.order);
+            setContactQuestions(orderedQuestions);
+        });
+
         handleResize(); // Set initial color
-        window.addEventListener('resize', handleResize);
+        window.addEventListener("resize", handleResize);
 
         return () => {
-            window.removeEventListener('resize', handleResize);
+            window.removeEventListener("resize", handleResize);
         };
     }, []);
 
     return (
         <div className="h-dvh">
-            <Header color={headerColor}/>
+            <Header color={headerColor} />
 
             <div className="absolute h-dvh w-dvw top-0 left-0 bg-[#EFEEE8] md:bg-[#544F3D] -z-50">
                 <Image
@@ -55,13 +69,13 @@ export default function Contact() {
                         </h2>
                     </div>
                     <div className="w-full md:w-2/3">
-                        <ContactForm/>
+                        <ContactForm questions={contactQuestions} />
                     </div>
                 </div>
             </div>
 
             <div className="relative text-white">
-                <Footer/>
+                <Footer />
             </div>
         </div>
     );

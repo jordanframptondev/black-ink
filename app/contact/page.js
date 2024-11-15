@@ -3,12 +3,11 @@
 import Image from "next/image";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
-import ContactForm from "../components/contact-form";
+import ContactForm from "../components/contact/ContactForm";
 import ContactBackground from "../../public/images/group-4530.png";
 import ContactBackgroundLight from "../../public/images/Group-4530-Light.png";
 import { useEffect, useState } from "react";
 import { getContactQuestions } from "../utils/cms-service";
-import { Transition } from "@headlessui/react";
 
 export default function Contact() {
     const [headerColor, setHeaderColor] = useState("cream");

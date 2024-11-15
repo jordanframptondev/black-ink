@@ -4,6 +4,7 @@ import { PlusIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { useState } from "react";
 import { FadeIn, FadeInStagger } from "./FadeIn";
+import { urlFor } from "../utils/cms-service";
 
 export function Info({
     backgroundColor,
@@ -112,7 +113,7 @@ function Section({ title, description, image = null, textLight = true }) {
                             {image ? (
                                 <div className="lg:w-1/2 pt-5">
                                     <Image
-                                        src={image}
+                                        src={urlFor(image).url()}
                                         alt={description}
                                         width={0}
                                         height={0}

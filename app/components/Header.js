@@ -98,11 +98,11 @@ export function Header({color}) {
             <header
                 className={`sticky top-0 z-20 ${isFooterVisible ? 'opacity-0' : 'opacity-100'} transition-all duration-1000 ease-in-out select-none text-black`}>
                 <div className={"absolute top-[30px] flex w-full z-[99]"}>
-                    <h1 id="black-ink-header-text"
+                    <Link href={"/"} id="black-ink-header-text"
                         className={`${(color === 'black' && !showMenu) || (showMenu && windowWidth < 768) ? 'text-black' : 'text-[#EFEEE8]'}
                     absolute text-[18px] md:text-[24px] font-ritma left-[40px] md:left-[50%] md:-translate-x-1/2 transition-all duration-500 ease-in`}>
                         BLACK INK
-                    </h1>
+                    </Link>
                     <Image
                         id="logo"
                         src={`${color === 'black' || showMenu || inverseMenuIcon ? '/images/black-ink-logo-black.png' : '/images/black-ink-logo-cream.png'}`}

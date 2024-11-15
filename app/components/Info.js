@@ -14,7 +14,7 @@ export function Info({
 }) {
   return (
     <div
-      className="min-h-screen w-screen min-h-dvh pt-10 px-10 pb-20"
+      className="w-screen pt-10 px-10 pb-20"
       style={{
         background: backgroundColor,
         backgroundImage: backgroundImage ? `url(${backgroundImage})` : "none",

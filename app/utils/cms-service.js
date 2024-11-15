@@ -28,6 +28,10 @@ export function getLastThreePosts() {
     return client.fetch(`*[_type == "post"][0..3] | order(_createdAt asc)`);
 }
 
+export function getTestimonials() {
+    return client.fetch(`*[_type == 'testimonial']`);
+}
+
 export function getContactQuestions() {
     return client.fetch(`*[_type == 'contactQuestion']`);
 }

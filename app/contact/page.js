@@ -8,6 +8,7 @@ import ContactBackground from "../../public/images/group-4530.png";
 import ContactBackgroundLight from "../../public/images/Group-4530-Light.png";
 import { useEffect, useState } from "react";
 import { getContactQuestions } from "../utils/cms-service";
+import { Transition } from "@headlessui/react";
 
 export default function Contact() {
     const [headerColor, setHeaderColor] = useState("cream");
@@ -69,7 +70,17 @@ export default function Contact() {
                         </h2>
                     </div>
                     <div className="w-full md:w-2/3">
-                        <ContactForm questions={contactQuestions} />
+                        <div
+                            className={`transition-all duration-500 ease-in ${
+                                contactQuestions.length > 0
+                                    ? "opacity-100 translate-y-0"
+                                    : "opacity-0 translate-y-4"
+                            }`}
+                        >
+                            {contactQuestions.length > 0 && (
+                                <ContactForm questions={contactQuestions} />
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

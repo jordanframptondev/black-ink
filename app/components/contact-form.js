@@ -1,31 +1,9 @@
 "use client";
-import { useState, forwardRef } from "react";
+import { useState, forwardRef, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import "@/styles/contact.css";
 
-// const contactFormData = [
-//     {
-//         question: "We need",
-//         answers: [
-//             "Product Life Cycle Management (PLM)",
-//             "Planning",
-//             "Digital Product Creation",
-//             "Business Analytics",
-//             "Change Management & Organizational Readiness",
-//             "General Consultation",
-//             "Other",
-//         ],
-//     },
-//     {
-//         question: "Our timeline",
-//         answers: ["Immediate", "Next Quarter", "In the Future", "Other"],
-//     },
-//     {
-//         question: "Organization Size",
-//         answers: ["1-50", "51-100", "101-500", "501-1000", "1001+"],
-//     },
-// ];
 export default function ContactForm({ questions }) {
     const [openSection, setOpenSection] = useState(-1);
 
@@ -37,6 +15,16 @@ export default function ContactForm({ questions }) {
     ).reduce((acc, curr) => ({ ...acc, ...curr }), {});
 
     const [formData, setFormData] = useState(initialFormData);
+
+    useEffect(() => {
+        const initialFormData = Array.from(
+            { length: questions.length },
+            (_, index) => ({
+                [index]: undefined,
+            })
+        ).reduce((acc, curr) => ({ ...acc, ...curr }), {});
+        setFormData(initialFormData);
+    }, [questions]);
 
     const setSelection = (index, answer) => {
         formData[index] = answer;

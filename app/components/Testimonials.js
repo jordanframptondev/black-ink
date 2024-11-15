@@ -16,10 +16,10 @@ const logos = [Logo1, Logo2, Logo3, Logo4, Logo5, Logo6, Logo7, Logo8];
 
 function Logos() {
   return (
-    <FadeIn>
-      <div className="relative w-full overflow-hidden pt-20 pb-20">
+    <FadeIn viewportMargin={'0px 0px -75px'}>
+      <div className="relative w-full overflow-hidden py-20">
         <FadeInStagger>
-          <div className="lg:animate-marquee lg:flex lg:whitespace-nowrap">
+          <div className="lg:animate-marquee hover:animate-marquee-pause lg:flex lg:whitespace-nowrap">
             {/* First set of logos */}
             <div className="grid grid-cols-2 gap-x-10 gap-y-20 lg:flex justify-center items-center lg:shrink-0 lg:gap-16">
               {logos.map((logo, index) => (

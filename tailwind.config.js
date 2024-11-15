@@ -13,6 +13,7 @@ module.exports = {
       },
       animation: {
         marquee: 'marquee 25s linear infinite',
+        'marquee-pause': 'marquee 25s linear infinite paused',
       },
       keyframes: {
         marquee: {

@@ -66,7 +66,8 @@ export function Testimonials() {
 
     useEffect(() => {
         getTestimonials().then((data) => {
-            setTestimonials(data);
+            const orderedData = data.sort((a, b) => a.order - b.order);
+            setTestimonials(orderedData);
         });
     }, []);
 

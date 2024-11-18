@@ -106,7 +106,7 @@ export function ResourcesPreviewList({ background }) {
       className="py-6 lg:py-12 px-10 lg:px-12 flex flex-col justify-between"
     >
       <div>
-        <h2 className="text-white text-xl uppercase font-ritma">resources</h2>
+        <h2 className="text-white text-xl font-ritma">RESOURCES</h2>
         <FadeInStagger>
           <div 
             className="relative overflow-hidden"

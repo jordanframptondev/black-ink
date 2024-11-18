@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getTestimonials } from "../utils/cms-service";
 import { FadeIn, FadeInStagger } from "./FadeIn";
 
 function Logos({ logos }) {
   return (
-    <FadeIn viewportMargin={'0px 0px -75px'}>
+    <FadeIn viewportMargin={"0px 0px -75px"}>
       <div className="relative w-full overflow-hidden py-20">
         <FadeInStagger>
           <div className="lg:animate-marquee hover:animate-marquee-pause lg:flex lg:whitespace-nowrap">
@@ -15,7 +16,13 @@ function Logos({ logos }) {
               {logos.map((logo) => (
                 <FadeIn key={logo.id}>
                   <div className="flex items-center justify-center">
-                    <Image src={logo.url} width={100} height={75} alt="Logo" blurDataURL={logo.lqip} />
+                    <Image
+                      src={logo.url}
+                      width={100}
+                      height={75}
+                      alt="Logo"
+                      blurDataURL={logo.lqip}
+                    />
                   </div>
                 </FadeIn>
               ))}
@@ -25,7 +32,14 @@ function Logos({ logos }) {
               {logos.map((logo) => (
                 <FadeIn key={logo.id}>
                   <div className="flex items-center justify-center">
-                    <Image src={logo.url} width={100} height={75} alt="Logo" className="" blurDataURL={logo.lqip} />
+                    <Image
+                      src={logo.url}
+                      width={100}
+                      height={75}
+                      alt="Logo"
+                      className=""
+                      blurDataURL={logo.lqip}
+                    />
                   </div>
                 </FadeIn>
               ))}
@@ -55,12 +69,20 @@ const testimonials = [
       "The Black Ink team understands how businesses work in Centric and has already created the tools that make projects efficient and successful. They are not afraid of hard work and go the extra mile to ensure customer success.",
     author:
       "Joe Groves - Senior Vice President of Global Sales Centric Software",
-  }
+  },
 ];
 
 export function Testimonials({ logos }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [testimonials, setTestimonials] = useState([]);
+
+  useEffect(() => {
+    getTestimonials().then((data) => {
+      const orderedData = data.sort((a, b) => a.order - b.order);
+      setTestimonials(orderedData);
+    });
+  }, []);
 
   const handleNext = () => {
     setIsTransitioning(true);
@@ -82,8 +104,6 @@ export function Testimonials({ logos }) {
     }, 500); // Half of our transition duration
   };
 
-  const { quote, author } = testimonials[currentIndex];
-
   return (
     <div className="bg-[#EFEEE8] pt-10 px-10">
       <div className="w-full lg:py-6 border-b lg:border-y border-black grid grid-cols-1 lg:grid-cols-3 min-h-80">
@@ -99,10 +119,12 @@ export function Testimonials({ logos }) {
                 isTransitioning ? "opacity-0" : "opacity-100"
               }`}
             >
-              <p className="text-xl lg:text-2xl font-signifier">&quot;{quote}&quot;</p>
+              <p className="text-xl lg:text-2xl font-signifier">
+                &quot;{testimonials[currentIndex]?.text}&quot;
+              </p>
               <div className="mt-20 lg:flex justify-between">
                 <p className="text-md font-signifierItalic lg:max-w-48">
-                  {author}
+                  {testimonials[currentIndex]?.author}
                 </p>
                 {testimonials?.length > 1 && (
                   <div className="mt-20 pb-[47px] flex items-center font-ritma">

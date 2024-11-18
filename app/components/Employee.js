@@ -66,47 +66,49 @@ export default function Employee({displayText, image, lqip, index}) {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             style={{position: 'relative', display: 'inline-block'}}
+            className={isHovering ? 'cursor-none' : ''}
         >
             <FadeIn>
-                <div key={index}
-                     className={`flex items-center image-container py-10 employee-name-div ${getBorderClass()}`}>
+                <div key={index} className={`flex items-center image-container py-10 employee-name-div ${getBorderClass()}`}>
                     <div className={'flex items-center employee-name-text'}>
                         <span className="arrow">→</span>
                         <div className={'text-[16px] md:text-[20px] font-signifier'}>
-                        <PortableText value={displayText} /></div>
+                            <PortableText value={displayText} />
+                        </div>
                     </div>
                 </div>
-                {isHovering && (
-                    <div
-                        style={{
-                            position: 'fixed',
-                            left: cursorPosition.x + 10,
-                            top: cursorPosition.y + 10,
-                            pointerEvents: 'none',
-                            width: '255px', // Adjust size as needed
-                            height: '250px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            zIndex: 99,
-                        }}
-                    >
-                        <Image
-                            src={image}
-                            alt="Cursor Follow"
-                            className="absolute w-full h-full pointer-events-none opacity-80"
-                            blurDataURL={lqip}
-                            priority={true}
-                            fill={true}
-                        />
-                        <Image
-                            src={HeadShotBg}
-                            alt="Cursor Follow Background"
-                            className="absolute w-full h-full pointer-events-none opacity-20"
-                            fill={true}
-                        />
-                    </div>
-                )}
+                <div
+                    style={{
+                        position: 'fixed',
+                        left: cursorPosition.x + 10,
+                        top: cursorPosition.y + 10,
+                        pointerEvents: 'none',
+                        width: '255px', // Adjust size as needed
+                        height: '255px',
+                        borderRadius: '255px',
+                        display: isHovering ? 'flex' : 'none',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        zIndex: 99,
+                    }}
+                >
+                    <div className="absolute w-full h-full opacity-10 z-10 bg-[#f7cb02] rounded-full"></div>
+                    <Image
+                        src={image}
+                        alt="Cursor Follow"
+                        className="relative w-full h-full opacity-90"
+                        blurDataURL={lqip}
+                        priority={true}
+                        fill={true}
+                        loading="eager"
+                    />
+                    <Image
+                        src={HeadShotBg}
+                        alt="Cursor Follow Background"
+                        className="absolute w-full h-full opacity-20"
+                        fill={true}
+                    />
+                </div>
             </FadeIn>
         </div>
     );

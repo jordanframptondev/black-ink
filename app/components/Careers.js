@@ -1,8 +1,9 @@
+import { FadeIn } from "@/app/components/FadeIn";
+import "@/styles/careers.css";
+import { PortableText } from '@portabletext/react';
 import Link from "next/link";
-import "@/styles/careers.css"
-import {FadeIn} from "@/app/components/FadeIn";
 
-export default function Careers() {
+export default function Careers({quote}) {
     return (
         <div className={"flex flex-col bg-[#EFEEE8] text-black w-full transition-all duration-1000 ease-in"}>
             <div className={"py-10 mx-10 mb-[75px] border-y border-y-black"}>
@@ -12,14 +13,9 @@ export default function Careers() {
                     </div>
                     <div className={"w-full md:w-2/3"}>
                         <FadeIn>
-                            <p className={"text-[20px] md:text-[32px] font-signifier"}>“At Black Ink, we’re building a
-                                community of
-                                seasoned experts and
-                                passionate innovators who are
-                                redefining the art of transformation, and we’re looking for talented individuals who
-                                share
-                                our
-                                passion for empowering organizations to thrive in a rapidly changing world.”</p>
+                            <div className={"text-[20px] md:text-[32px] font-signifier"}>
+                                <PortableText value={quote} />
+                            </div>
                         </FadeIn>
                     </div>
                 </div>

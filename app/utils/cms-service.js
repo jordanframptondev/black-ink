@@ -53,3 +53,7 @@ export function getCtaList(title) {
 export function getTeam() {
     return client.fetch(`*[_type == 'employeeList'].employees[]{_key, displayText, image{asset->}}`);
 }
+
+export function getQuotes() {
+    return client.fetch(`*[_type == 'quote']`);
+}

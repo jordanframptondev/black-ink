@@ -7,7 +7,7 @@ import { FullCta } from "@/app/components/server-components/FullCta";
 import { Team } from "@/app/components/Team";
 import Image from "next/image";
 import AboutPageCTA from '../../public/images/home-cta.png';
-import { getTeam } from "../utils/cms-service";
+import { getQuotes, getTeam } from "../utils/cms-service";
 
 export default async function About() {
 
@@ -37,6 +37,8 @@ export default async function About() {
         image: employee?.image?.asset?.url,
         lqip: employee?.image?.asset?.metadata?.lqip
     }));
+    const getQuotesResponse = await getQuotes();
+    const quote = getQuotesResponse[0].quote;
 
     return (
         <div className={"text-[#EFEEE8] select-none bg-[#3A332E]"}>
@@ -111,7 +113,7 @@ export default async function About() {
                 <Team team={team} />
             </div>
             <div className={"relative bg-[#EFEEE8]"}>
-                <Careers/>
+                <Careers quote={quote} />
             </div>
             <div className={"relative"}>
                 <FullCta backgroundImageSrc={AboutPageCTA} link="/contact" displayText="FIND THE PATH TO FUTURE PROOF"

@@ -5,6 +5,7 @@ import { Header } from "@/app/components/Header";
 import { Info } from "@/app/components/Info";
 import { FullCta } from "@/app/components/server-components/FullCta";
 import { Team } from "@/app/components/Team";
+import { PortableText } from '@portabletext/react';
 import Image from "next/image";
 import AboutPageCTA from '../../public/images/home-cta.png';
 import { getQuotes, getTeam } from "../utils/cms-service";
@@ -38,7 +39,17 @@ export default async function About() {
         lqip: employee?.image?.asset?.metadata?.lqip
     }));
     const getQuotesResponse = await getQuotes();
-    const quote = getQuotesResponse[0].quote;
+    const careersQuote = getQuotesResponse.find(quote => quote.title.includes('quote')).quote;
+    const introQuote = getQuotesResponse.find(quote => quote.title.includes('intro')).quote;
+    const introQuoteComponents = {
+        block: {
+            h1: ({children}) => <h1 className="text-[20px] md:text-[36px] font-signifier mb-10">{children}</h1>,
+            h2: ({children}) => <h2 className="text-[20px] md:text-[36px] font-signifier mb-10">{children}</h2>,
+            h3: ({children}) => <h3 className="text-[16px] md:text-[24px] font-signifier">{children}</h3>,
+            h4: ({children}) => <h4 className="text-[16px] md:text-[24px] font-signifier">{children}</h4>,
+            normal: ({children}) => <p className="text-[16px] md:text-[24px] font-signifier">{children}</p>,
+        }
+    }
 
     return (
         <div className={"text-[#EFEEE8] select-none bg-[#3A332E]"}>
@@ -58,48 +69,11 @@ export default async function About() {
                     <div className={"flex border-t border-[#EFEEE8] mx-10"}>
                         <div className={"flex flex-col md:flex-row my-10"}>
                             <div className={"flex w-full mb-[80px] md:mb-0 md:w-1/3 text-[18px] md:text-[24px] font-ritma"}>
-                                    <h1>ABOUT</h1>
+                                <h1>ABOUT</h1>
                             </div>
                             <div className={"flex flex-col w-full md:w-2/3"}>
                                 <FadeIn>
-                                    <p className={"text-[20px] md:text-[36px] font-signifier mb-10"}>In the pursuit of
-                                        growth
-                                        and innovation,
-                                        organizations often find themselves navigating
-                                        complex
-                                        challenges that demand precision, expertise, and foresight.</p>
-                                </FadeIn>
-                                <FadeIn>
-                                    <p className={"text-[16px] md:text-[24px] font-signifierItalic"}>At Black Ink, we’ve
-                                        assembled a team of
-                                        seasoned
-                                        professionals who have spent decades honing
-                                        their craft in the upper echelons of global industry. Our collective experience
-                                        is a
-                                        testament
-                                        to the power of collaboration and the impact that can be achieved when talented
-                                        individuals
-                                        come
-                                        together with a shared vision. What drives us is a passion for empowering
-                                        organizations
-                                        to
-                                        reach
-                                        their full potential. We believe that the most effective solutions are born from
-                                        a
-                                        deep
-                                        understanding of the intricacies of business, combined with a relentless pursuit
-                                        of
-                                        excellence.
-                                        Our approach is built on a foundation of pragmatism, creativity, and a
-                                        commitment to
-                                        delivering
-                                        tangible results that stand the test of time. By combining expertise, instinct,
-                                        and
-                                        a
-                                        keen
-                                        eye
-                                        for opportunity, we help organizations transform their aspirations into
-                                        reality.</p>
+                                    <PortableText value={introQuote} components={introQuoteComponents} />
                                 </FadeIn>
                             </div>
                         </div>
@@ -113,7 +87,7 @@ export default async function About() {
                 <Team team={team} />
             </div>
             <div className={"relative bg-[#EFEEE8]"}>
-                <Careers quote={quote} />
+                <Careers quote={careersQuote} />
             </div>
             <div className={"relative"}>
                 <FullCta backgroundImageSrc={AboutPageCTA} link="/contact" displayText="FIND THE PATH TO FUTURE PROOF"

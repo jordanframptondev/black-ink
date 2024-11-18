@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'brandslogos.com',
+        hostname: 'cdn.sanity.io',
         pathname: '**',
       },
     ],

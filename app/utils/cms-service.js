@@ -23,3 +23,11 @@ export function getInfoData(title) {
 export function getLastThreePosts() {
   return client.fetch(`*[_type == "post"][0..3] | order(_createdAt asc)`);
 }
+
+export function getCtaList(title) {
+  let titleParam = '';
+  if (title) {
+    titleParam = ` && title=='${title}'`;
+  }
+  return client.fetch(`*[_type == 'logoList'${titleParam}]{ title, logos[]{asset->}}`);
+}

@@ -1,14 +1,14 @@
 import HeadShot from "@/public/images/employees/Walter Wilhelm Black Ink Headshots-01.png";
 import HomeCta from "../public/images/home-cta.png";
-import {FadeIn} from "./components/FadeIn";
-import {Footer} from "./components/Footer";
-import {Header} from "./components/Header";
-import {HomeHeroAnimation} from "./components/HomeHeroAnimation";
-import {Info} from "./components/Info";
-import {ResourcesPreviewList} from "./components/ResourcesPreviewList";
-import {FullCta} from "./components/server-components/FullCta";
-import {Testimonials} from "./components/Testimonials";
-
+import { FadeIn } from "./components/FadeIn";
+import { Footer } from "./components/Footer";
+import { Header } from "./components/Header";
+import { HomeHeroAnimation } from "./components/HomeHeroAnimation";
+import { Info } from "./components/Info";
+import { ResourcesPreviewList } from "./components/ResourcesPreviewList";
+import { FullCta } from "./components/server-components/FullCta";
+import { Testimonials } from "./components/Testimonials";
+import { getCtaList } from "./utils/cms-service";
 const sampleSections = [
     {
         title: "People First- Always",
@@ -75,6 +75,9 @@ export default async function Home() {
     // const ethosData = await getInfoData('Ethos');
     // const servicesData = await getInfoData('Services');
     // const partnersData = await getInfoData('Partners');
+    const cmsLogosResponse = await getCtaList('Home Page Logos');
+    const logos = cmsLogosResponse[0]?.logos.map(logo => ({url: logo.asset.url, id: logo.asset.assetId, lqip: logo.asset.metadata.lqip}));
+
     return (
         <div className="relative">
             <Header color="cream"/>
@@ -102,7 +105,7 @@ export default async function Home() {
                     sections={sampleSections}
                 />
             </div>
-            <Testimonials/>
+            <Testimonials logos={logos} />
             <FullCta
                 overlay="#3A332E"
                 link="/contact"

@@ -1,10 +1,13 @@
 "use client";
 
+import { FadeIn } from "@/app/components/FadeIn";
+import HeadShotBg from "@/public/images/employees/headshots-bg.png";
 import "@/styles/employee.css";
-import React, {useEffect, useState} from "react";
-import {FadeIn} from "@/app/components/FadeIn";
+import { PortableText } from '@portabletext/react';
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
-export default function Employee({name, title, image, index, children}) {
+export default function Employee({displayText, image, lqip, index}) {
 
     const [cursorPosition, setCursorPosition] = useState({x: 0, y: 0});
     const [isHovering, setIsHovering] = useState(false);
@@ -69,13 +72,8 @@ export default function Employee({name, title, image, index, children}) {
                      className={`flex items-center image-container py-10 employee-name-div ${getBorderClass()}`}>
                     <div className={'flex items-center employee-name-text'}>
                         <span className="arrow">→</span>
-                        <p className={'text-[16px] md:text-[20px] font-signifier'}>{name}</p>
-                        {title && (
-                            <>
-                                <span>&nbsp;&mdash;&nbsp;</span>
-                                <p className={'text-[16px] md:text-[20px] font-signifierItalic'}>{title}</p>
-                            </>
-                        )}
+                        <div className={'text-[16px] md:text-[20px] font-signifier'}>
+                        <PortableText value={displayText} /></div>
                     </div>
                 </div>
                 {isHovering && (
@@ -93,15 +91,19 @@ export default function Employee({name, title, image, index, children}) {
                             zIndex: 99,
                         }}
                     >
-                        <img
+                        <Image
                             src={image}
                             alt="Cursor Follow"
                             className="absolute w-full h-full pointer-events-none opacity-80"
+                            blurDataURL={lqip}
+                            priority={true}
+                            fill={true}
                         />
-                        <img
-                            src={"/images/employees/headshots-bg.png"}
+                        <Image
+                            src={HeadShotBg}
                             alt="Cursor Follow Background"
                             className="absolute w-full h-full pointer-events-none opacity-20"
+                            fill={true}
                         />
                     </div>
                 )}

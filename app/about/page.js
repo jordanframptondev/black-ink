@@ -1,12 +1,13 @@
 import Careers from "@/app/components/Careers";
-import {Footer} from "@/app/components/Footer";
-import {Header} from "@/app/components/Header";
-import {Info} from "@/app/components/Info";
-import {FullCta} from "@/app/components/server-components/FullCta";
-import {Team} from "@/app/components/Team";
+import { FadeIn } from "@/app/components/FadeIn";
+import { Footer } from "@/app/components/Footer";
+import { Header } from "@/app/components/Header";
+import { Info } from "@/app/components/Info";
+import { FullCta } from "@/app/components/server-components/FullCta";
+import { Team } from "@/app/components/Team";
 import Image from "next/image";
 import AboutPageCTA from '../../public/images/home-cta.png';
-import {FadeIn} from "@/app/components/FadeIn";
+import { getTeam } from "../utils/cms-service";
 
 export default async function About() {
 
@@ -28,6 +29,14 @@ export default async function About() {
             description: `The future of business is being rewritten before our eyes. At Black Ink, we recognize that future-proofing is no longer a nicety, but a necessity. We've made it our mission to help our clients prepare for the unknown, to anticipate the trends that will shape their industries, and to build the resilience and agility needed to thrive in a world that's increasingly complex and uncertain. We're committed to helping our clients stay ahead of the curve, and to emerge stronger, more adaptable, and more resilient in the face of an uncertain future.`,
         },
     ];
+
+    const teamResponse = await getTeam();
+    const team = teamResponse.map(employee => ({
+        _key: employee?._key,
+        displayText: employee?.displayText,
+        image: employee?.image?.asset?.url,
+        lqip: employee?.image?.asset?.metadata?.lqip
+    }));
 
     return (
         <div className={"text-[#EFEEE8] select-none bg-[#3A332E]"}>
@@ -99,7 +108,7 @@ export default async function About() {
                 <Info backgroundColor="#000000" textLight={true} title="ETHOS" sections={sampleSections}/>
             </div>
             <div className={"relative"}>
-                <Team/>
+                <Team team={team} />
             </div>
             <div className={"relative bg-[#EFEEE8]"}>
                 <Careers/>

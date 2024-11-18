@@ -49,3 +49,7 @@ export function getCtaList(title) {
   }
   return client.fetch(`*[_type == 'logoList'${titleParam}]{ title, logos[]{asset->}}`);
 }
+
+export function getTeam() {
+    return client.fetch(`*[_type == 'employeeList'].employees[]{_key, displayText, image{asset->}}`);
+}

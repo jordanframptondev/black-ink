@@ -15,7 +15,7 @@ export function Info({
 }) {
     return (
         <div
-            className="w-screen pt-10 px-10 pb-20"
+            className="w-screen min-h-[50vh] pt-10 px-10 pb-20"
             style={{
                 background: backgroundColor,
                 backgroundImage: backgroundImage
@@ -27,7 +27,7 @@ export function Info({
         >
             <div>
                 <h2
-                    className={`text-[24px] mb-20 lg:mb-12 ${
+                    className={`font-ritma text-[24px] mb-20 lg:mb-12 ${
                         textLight ? "text-white" : "text-black"
                     }`}
                 >

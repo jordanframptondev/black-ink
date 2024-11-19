@@ -51,7 +51,7 @@ export default function Employee({displayText, image, lqip, index}) {
     }, []);
 
     const getBorderClass = () => {
-        if (windowWidth >= 1024) {
+        if (windowWidth >= 1280) {
             return index < 3 ? 'border-y border-y-black' : 'border-b border-b-black';
         } else if (windowWidth >= 768) {
             return index < 2 ? 'border-y border-y-black' : 'border-b border-b-black';

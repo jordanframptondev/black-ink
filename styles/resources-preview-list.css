@@ -1,0 +1,41 @@
+.next-blog-post-link {
+    position: relative;
+    padding-left: 0; /* Start with no padding */
+    overflow: hidden;
+    transition: padding-left 0.3s ease; /* Animate padding change */
+}
+
+.arrow, .arrow-right, .link-text {
+    display: inline-block;
+    transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.arrow {
+    width: 0;
+    transform: translateX(-30px); /* Start off-screen to the left */
+    opacity: 0; /* Initially hidden */
+}
+
+.arrow-right {
+    width: 0;
+    transform: translateX(30px); /* Start off-screen to the left */
+    opacity: 0; /* Initially hidden */
+}
+
+.next-blog-post-link:active {
+    color: dimgray;
+}
+
+.next-blog-post-link:hover .arrow {
+    transform: translateX(40px); /* Slide in from the left */
+    opacity: 1; /* Show on hover */
+}
+
+.next-blog-post-link:hover .arrow-right {
+    transform: translateX(-48px); /* Slide in from the right */
+    opacity: 1; /* Show on hover */
+}
+
+.next-blog-post-link:hover .link-text {
+    transform: translateX(0px); /* Slide text to the right */
+}

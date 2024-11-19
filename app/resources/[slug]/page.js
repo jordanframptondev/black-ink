@@ -29,6 +29,7 @@ export default async function ResourcePage({params: {slug}}) {
 export const blogArticles = [
     {
         slug: "exploring-the-mysteries-of-the-fjords",
+        thumbnail: "/images/blog-1.png",
         title: "Exploring the Mysteries of the Fjords",
         image: "/images/resources.png",
         author: "Alex Norland",
@@ -46,6 +47,7 @@ export const blogArticles = [
     },
     {
         slug: "the-art-of-sustainable-living",
+        thumbnail: "/images/blog-2.png",
         title: "The Art of Sustainable Living",
         image: "/images/resources-2.png",
         author: "Jordan Greene",
@@ -63,6 +65,7 @@ export const blogArticles = [
     },
     {
         slug: "adventures-in-digital-nomadism",
+        thumbnail: "/images/blog-3.png",
         title: "Adventures in Digital Nomadism",
         image: "/images/resources-3.png",
         author: "Casey Morgan",
@@ -80,6 +83,7 @@ export const blogArticles = [
     },
     {
         slug: "harnessing-the-power-of-mindfulness",
+        thumbnail: "/images/blog-1.png",
         title: "Harnessing the Power of Mindfulness",
         image: "/images/resources-4.png",
         author: "Taylor Quinn",
@@ -97,6 +101,7 @@ export const blogArticles = [
     },
     {
         slug: "unveiling-the-secrets-of-ancient-artifacts",
+        thumbnail: "/images/blog-2.png",
         title: "Unveiling the Secrets of Ancient Artifacts",
         image: "/images/resources-5.png",
         author: "Riley Carter",

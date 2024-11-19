@@ -9,7 +9,7 @@ footer * {
     transition: padding-left 0.3s ease; /* Animate padding change */
 }
 
-.arrow, .arrow-right, .link-text {
+.arrow, .link-text {
     display: inline-block;
     transition: transform 0.5s ease, opacity 0.3s ease;
 }
@@ -20,23 +20,12 @@ footer * {
     opacity: 0; /* Initially hidden */
 }
 
-.arrow-right {
-    width: 0;
-    transform: translateX(30px); /* Start off-screen to the left */
-    opacity: 0; /* Initially hidden */
-}
-
 .signup-link:hover {
     /*padding-left: 20px; !* Add padding on hover *!*/
 }
 
 .signup-link:hover .arrow {
     transform: translateX(3px); /* Slide in from the left */
-    opacity: 1; /* Show on hover */
-}
-
-.signup-link:hover .arrow-right {
-    transform: translateX(-20px); /* Slide in from the right */
     opacity: 1; /* Show on hover */
 }
 

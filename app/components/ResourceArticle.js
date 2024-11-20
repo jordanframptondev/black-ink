@@ -6,6 +6,7 @@ import "@/styles/resource.css";
 import { useRouter } from "next/navigation";
 import { urlFor } from "../utils/cms-service";
 import { PortableText } from "@portabletext/react";
+import PostBody from "./PostBody";
 
 export default function ResourceArticle({ article, allArticles }) {
     const router = useRouter();
@@ -88,17 +89,5 @@ export default function ResourceArticle({ article, allArticles }) {
                 </div>
             </div>
         </>
-    );
-}
-
-function PostBody({ text }) {
-    return (
-        <FadeIn>
-            <div className="bg-[#EFEEE8] post-body pt-16 md:pt-0">
-                <div className="mb-6 font-signifier text-xl md:text-2xl whitespace-pre-line">
-                    <PortableText value={text} />
-                </div>
-            </div>
-        </FadeIn>
     );
 }

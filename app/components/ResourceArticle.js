@@ -11,8 +11,6 @@ export default function ResourceArticle({ article, allArticles }) {
     const router = useRouter();
 
     const handleNextArticle = async () => {
-        console.log("All Articles", allArticles);
-        console.log("Blog Article", article);
         const currentIndex = allArticles.findIndex(
             (blogArticle) => blogArticle.slug.current === article.slug.current
         );

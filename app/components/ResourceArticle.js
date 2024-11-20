@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { FadeIn } from "../components/FadeIn";
-// import { blogArticles } from "@/app/resources/[slug]/page";
 import "@/styles/resource.css";
 import { useRouter } from "next/navigation";
 import { urlFor } from "../utils/cms-service";

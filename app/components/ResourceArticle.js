@@ -5,11 +5,20 @@ import { FadeIn } from "../components/FadeIn";
 import "@/styles/resource.css";
 import { useRouter } from "next/navigation";
 import { urlFor } from "../utils/cms-service";
-import { PortableText } from "@portabletext/react";
 import PostBody from "./PostBody";
 
 export default function ResourceArticle({ article, allArticles }) {
     const router = useRouter();
+    let backgroundColor = "#EFEEE8";
+    let textColor = "#000000";
+    if (article?.backgroundColor) {
+        backgroundColor = article.backgroundColor.hex;
+        console.log("BackgroundColor", backgroundColor);
+    }
+    if (article?.textColor) {
+        textColor = article.textColor.hex;
+        console.log("TextColor", textColor);
+    }
 
     const handleNextArticle = async () => {
         const currentIndex = allArticles.findIndex(
@@ -78,9 +87,12 @@ export default function ResourceArticle({ article, allArticles }) {
                 </div>
             </div>
 
-            <div className="flex flex-col md:flex-row bg-[#EFEEE8] p-10">
+            <div
+                className="flex flex-col md:flex-row p-10"
+                style={{ backgroundColor: backgroundColor, color: textColor }}
+            >
                 <div className="w-full md:w-1/3">
-                    <h2 className="font-ritma text-lg md:text-2xl text-black">
+                    <h2 className="font-ritma text-lg md:text-2xl">
                         RESOURCES
                     </h2>
                 </div>

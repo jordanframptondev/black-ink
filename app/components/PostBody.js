@@ -59,10 +59,9 @@ const components = {
 };
 
 export default function PostBody({ text }) {
-    console.log("text", text);
     return (
         <FadeIn>
-            <div className="bg-[#EFEEE8] post-body pt-16 md:pt-0">
+            <div className="post-body pt-16 md:pt-0">
                 <div className="mb-6 font-signifier text-xl md:text-2xl whitespace-pre-line">
                     <PortableText value={text} components={components} />
                 </div>

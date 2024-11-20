@@ -3,11 +3,11 @@
 import "@/styles/resources-preview-list.css";
 import Image from "next/image";
 import Link from "next/link";
-import {useEffect, useState} from 'react';
-import {FadeIn, FadeInStagger} from "./FadeIn";
-import {blogArticles} from "@/app/resources/[slug]/page";
+import { useEffect, useState } from "react";
+import { FadeIn, FadeInStagger } from "./FadeIn";
+import { blogArticles } from "@/app/resources/[slug]/page";
 
-export function ResourcesPreviewList({background}) {
+export function ResourcesPreviewList({ background, onArticle = false }) {
     const [startIndex, setStartIndex] = useState(0);
     const [touchStart, setTouchStart] = useState(null);
     const [touchEnd, setTouchEnd] = useState(null);
@@ -25,24 +25,26 @@ export function ResourcesPreviewList({background}) {
         };
 
         checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
     }, []);
 
     // Calculate the translation percentage based on screen size
     const getTranslateX = () => {
-        return !isDesktop ? `${startIndex * -100}%` : `${startIndex * -33.333}%`;
+        return !isDesktop
+            ? `${startIndex * -100}%`
+            : `${startIndex * -33.333}%`;
     };
 
     const handleNext = () => {
         if (startIndex + (isMobile ? 1 : 3) < recentBlogs.length) {
-            setStartIndex(prev => prev + 1);
+            setStartIndex((prev) => prev + 1);
         }
     };
 
     const handlePrevious = () => {
         if (startIndex > 0) {
-            setStartIndex(prev => prev - 1);
+            setStartIndex((prev) => prev - 1);
         }
     };
 
@@ -78,10 +80,12 @@ export function ResourcesPreviewList({background}) {
 
     return (
         <div
-            style={{backgroundColor: background || "black"}}
+            style={{ backgroundColor: background || "black" }}
             className="xl:w-screen xl:h-screen py-6 lg:py-12 px-10 lg:px-12 flex flex-col"
         >
-            <h2 className="text-white text-xl font-ritma">RESOURCES</h2>
+            <h2 className="text-white text-xl font-ritma">
+                {onArticle ? "MORE RESOURCES" : "RESOURCES"}
+            </h2>
             <div className="w-full max-w-[1830px] mx-auto">
                 <FadeInStagger>
                     <div
@@ -92,14 +96,19 @@ export function ResourcesPreviewList({background}) {
                     >
                         <div
                             className="flex transition-transform duration-500"
-                            style={{transform: `translateX(${getTranslateX()})`}}
+                            style={{
+                                transform: `translateX(${getTranslateX()})`,
+                            }}
                         >
                             {recentBlogs.map((blog) => (
                                 <div
                                     key={blog.title}
                                     className="flex-shrink-0 w-full lg:w-1/3 mt-12 lg:mt-20 pr-2"
                                 >
-                                    <Link href={`/resources/${blog.slug}`} key={blog.slug}>
+                                    <Link
+                                        href={`/resources/${blog.slug}`}
+                                        key={blog.slug}
+                                    >
                                         <div className="flex flex-col items-start">
                                             <div className="mx-auto">
                                                 <FadeIn>
@@ -109,12 +118,14 @@ export function ResourcesPreviewList({background}) {
                                                         alt={blog.title}
                                                         width={617}
                                                         height={600}
-                                                        style={{objectFit: 'contain'}}
+                                                        style={{
+                                                            objectFit:
+                                                                "contain",
+                                                        }}
                                                     />
                                                 </FadeIn>
                                                 <FadeIn>
-                                                    <div
-                                                        className="block text-[#efeee8] text-base sm:text-2xl font-light font-signifier mt-4 pl-1">
+                                                    <div className="block text-[#efeee8] text-base sm:text-2xl font-light font-signifier mt-4 pl-1">
                                                         {blog.title}
                                                     </div>
                                                 </FadeIn>
@@ -149,7 +160,6 @@ export function ResourcesPreviewList({background}) {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 }

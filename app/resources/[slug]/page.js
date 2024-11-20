@@ -18,7 +18,7 @@ export default async function ResourcePage({ params: { slug } }) {
         <div className="relative">
             <Header color="cream" />
             <ResourceArticle article={blogArticle} />
-            <ResourcesPreviewList background="#39332e" />
+            <ResourcesPreviewList background="#39332e" onArticle={true} />
             <div className={"text-[#EFEEE8] select-none"}>
                 <div className={"relative"}>
                     <Footer />

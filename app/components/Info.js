@@ -13,6 +13,10 @@ export function Info({
     sections,
     textLight = true,
 }) {
+    if (sections.length === 0) {
+        return null;
+    }
+
     return (
         <div
             className="w-screen min-h-[50vh] pt-10 px-10 pb-20"

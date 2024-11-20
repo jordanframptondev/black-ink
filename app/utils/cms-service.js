@@ -67,3 +67,9 @@ export function getPostBySlug(slug) {
         slug,
     });
 }
+
+export function getPostList() {
+    return client.fetch(
+        `*[_type == "post"]{title, slug, thumbnailImage{asset->}}`
+    );
+}

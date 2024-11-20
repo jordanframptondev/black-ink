@@ -1,4 +1,4 @@
-import { getPostBySlug } from "@/app/utils/cms-service";
+import { getPostBySlug, getPostList } from "@/app/utils/cms-service";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import ResourceArticle from "../../components/ResourceArticle";
@@ -12,13 +12,18 @@ export async function generateStaticParams() {
 
 export default async function ResourcePage({ params: { slug } }) {
     // const blogArticle = blogArticles.find(article => article.slug === slug);
+    const allArticles = await getPostList();
+    console.log("All Articles", allArticles);
     const blogArticle = await getPostBySlug(slug);
-    console.log("BLog Article", blogArticle);
     return (
         <div className="relative">
             <Header color="cream" />
             <ResourceArticle article={blogArticle} />
-            <ResourcesPreviewList background="#39332e" onArticle={true} />
+            <ResourcesPreviewList
+                background="#39332e"
+                onArticle={true}
+                posts={allArticles}
+            />
             <div className={"text-[#EFEEE8] select-none"}>
                 <div className={"relative"}>
                     <Footer />

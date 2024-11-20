@@ -5,9 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FadeIn, FadeInStagger } from "./FadeIn";
+import { urlFor } from "../utils/cms-service";
 import { blogArticles } from "@/app/resources/[slug]/page";
 
-export function ResourcesPreviewList({ background, onArticle = false }) {
+export function ResourcesPreviewList({ background, posts, onArticle = false }) {
     const [startIndex, setStartIndex] = useState(0);
     const [touchStart, setTouchStart] = useState(null);
     const [touchEnd, setTouchEnd] = useState(null);
@@ -15,7 +16,7 @@ export function ResourcesPreviewList({ background, onArticle = false }) {
     const [isDesktop, setIsDesktop] = useState(false);
 
     //get the most recent dozen blogs
-    const recentBlogs = blogArticles.slice(0, 12);
+    const recentBlogs = posts.slice(0, 12);
 
     // Check if we're on mobile
     useEffect(() => {
@@ -106,7 +107,7 @@ export function ResourcesPreviewList({ background, onArticle = false }) {
                                     className="flex-shrink-0 w-full lg:w-1/3 mt-12 lg:mt-20 pr-2"
                                 >
                                     <Link
-                                        href={`/resources/${blog.slug}`}
+                                        href={`/resources/${blog.slug.current}`}
                                         key={blog.slug}
                                     >
                                         <div className="flex flex-col items-start">
@@ -114,7 +115,9 @@ export function ResourcesPreviewList({ background, onArticle = false }) {
                                                 <FadeIn>
                                                     <Image
                                                         className="w-full"
-                                                        src={blog.thumbnail}
+                                                        src={urlFor(
+                                                            blog.thumbnailImage
+                                                        ).url()}
                                                         alt={blog.title}
                                                         width={617}
                                                         height={600}

@@ -43,17 +43,27 @@ export function getContactQuestions() {
 }
 
 export function getCtaList(title) {
-  let titleParam = '';
-  if (title) {
-    titleParam = ` && title=='${title}'`;
-  }
-  return client.fetch(`*[_type == 'logoList'${titleParam}]{ title, logos[]{asset->}}`);
+    let titleParam = "";
+    if (title) {
+        titleParam = ` && title=='${title}'`;
+    }
+    return client.fetch(
+        `*[_type == 'logoList'${titleParam}]{ title, logos[]{asset->}}`
+    );
 }
 
 export function getTeam() {
-    return client.fetch(`*[_type == 'employeeList'].employees[]{_key, displayText, image{asset->}}`);
+    return client.fetch(
+        `*[_type == 'employeeList'].employees[]{_key, displayText, image{asset->}}`
+    );
 }
 
 export function getQuotes() {
     return client.fetch(`*[_type == 'quote']`);
+}
+
+export function getPostBySlug(slug) {
+    return client.fetch(`*[_type == "post" && slug.current == $slug][0]`, {
+        slug,
+    });
 }

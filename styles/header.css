@@ -66,6 +66,7 @@
 
 .menu {
     position: absolute;
+    background-color: #EFEEE8;
     opacity: 0;
     visibility: hidden;
     transition: opacity 1s ease, visibility 1s ease;

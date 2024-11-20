@@ -65,15 +65,17 @@ export default function Employee({displayText, image, lqip, index}) {
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            onMouseOver={handleMouseEnter}
             style={{position: 'relative', display: 'inline-block'}}
             className={isHovering ? 'cursor-none' : ''}
         >
             <FadeIn>
-                <div key={index} className={`flex items-center image-container py-10 employee-name-div ${getBorderClass()}`}>
+                <div key={index}
+                     className={`flex items-center image-container py-10 employee-name-div ${getBorderClass()}`}>
                     <div className={'flex items-center employee-name-text'}>
                         <span className="arrow">→</span>
                         <div className={'text-[16px] md:text-[20px] font-signifier'}>
-                            <PortableText value={displayText} />
+                            <PortableText value={displayText}/>
                         </div>
                     </div>
                 </div>

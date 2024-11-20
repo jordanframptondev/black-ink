@@ -99,7 +99,7 @@ export function Header({color}) {
                 className={`sticky top-0 z-20 ${isFooterVisible ? 'opacity-0' : 'opacity-100'} transition-all duration-1000 ease-in-out select-none text-black`}>
                 <div className={"absolute top-[30px] flex w-full z-[99]"}>
                     <Link href={"/"} id="black-ink-header-text"
-                        className={`${(color === 'black' && !showMenu) || (showMenu && windowWidth < 768) ? 'text-black' : 'text-[#EFEEE8]'}
+                          className={`${(color === 'black' && !showMenu) || (showMenu && windowWidth < 768) ? 'text-black' : 'text-[#EFEEE8]'}
                     absolute text-[18px] md:text-[24px] font-ritma left-[40px] md:left-[50%] md:-translate-x-1/2 transition-all duration-500 ease-in`}>
                         BLACK INK
                     </Link>
@@ -114,14 +114,13 @@ export function Header({color}) {
                         onClick={handleMenuClick}
                     />
                 </div>
-                <div id="menu-background" className={`circle`}
-                     onClick={handleMenuClick}></div>
+                <div id="menu-background" className={`circle`} onClick={handleMenuClick}/>
                 <div id="menu"
-                     className={`menu flex z-20 min-h-[670px] items-center md:items-start w-screen h-screen text-[28px] md:text-[36px] font-ritma`}
+                     className={`menu flex w-dvw h-dvh text-[28px] md:text-[36px] font-ritma`}
                      onClick={handleMenuClick}
                 >
                     <div
-                        className={"flex flex-col md:mt-12 pl-10 pr-10 md:pl-10 md:pr-0 w-screen md:w-[500px] transition-all duration-1000 ease-in"}>
+                        className={"flex z-20 flex-col mt-32 md:mt-16 pl-10 pr-10 md:pl-10 md:pr-0 w-screen md:w-[500px] transition-all duration-1000 ease-in"}>
                         <Link href={"/"} className={"nav-link border-t border-t-black py-6 cursor-pointer"}>
                             <span className="arrow">→</span> <span className="link-text">HOME</span>
                         </Link>

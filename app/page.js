@@ -7,14 +7,19 @@ import { Info } from "./components/Info";
 import { ResourcesPreviewList } from "./components/ResourcesPreviewList";
 import { FullCta } from "./components/server-components/FullCta";
 import { Testimonials } from "./components/Testimonials";
-import { getCtaList, getInfoData } from "./utils/cms-service";
+import { getCtaList, getInfoData, getPostList } from "./utils/cms-service";
 
 export default async function Home() {
     const ethosData = await getInfoData("Ethos");
     const servicesData = await getInfoData("Services");
     const partnersData = await getInfoData("Partners");
-    const cmsLogosResponse = await getCtaList('Home Page Logos');
-    const logos = cmsLogosResponse[0]?.logos.map(logo => ({url: logo.asset.url, id: logo.asset.assetId, lqip: logo.asset.metadata.lqip}));
+    const cmsLogosResponse = await getCtaList("Home Page Logos");
+    const blogPosts = await getPostList();
+    const logos = cmsLogosResponse[0]?.logos.map((logo) => ({
+        url: logo.asset.url,
+        id: logo.asset.assetId,
+        lqip: logo.asset.metadata.lqip,
+    }));
 
     return (
         <div className="relative">
@@ -57,7 +62,7 @@ export default async function Home() {
                 sections={servicesData}
                 textLight={false}
             />
-            <ResourcesPreviewList />
+            <ResourcesPreviewList posts={blogPosts} />
             <Info
                 backgroundColor="#efeee8"
                 title="PARTNERS"

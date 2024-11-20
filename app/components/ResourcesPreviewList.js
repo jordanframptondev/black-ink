@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FadeIn, FadeInStagger } from "./FadeIn";
 import { urlFor } from "../utils/cms-service";
-import { blogArticles } from "@/app/resources/[slug]/page";
 
 export function ResourcesPreviewList({ background, posts, onArticle = false }) {
     const [startIndex, setStartIndex] = useState(0);

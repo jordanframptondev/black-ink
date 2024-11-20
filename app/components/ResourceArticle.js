@@ -2,27 +2,28 @@
 
 import Image from "next/image";
 import { FadeIn } from "../components/FadeIn";
-import { blogArticles } from "@/app/resources/[slug]/page";
+// import { blogArticles } from "@/app/resources/[slug]/page";
 import "@/styles/resource.css";
-import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { urlFor } from "../utils/cms-service";
 import { PortableText } from "@portabletext/react";
 
-export default function ResourceArticle({ article }) {
+export default function ResourceArticle({ article, allArticles }) {
     const router = useRouter();
 
     const handleNextArticle = async () => {
-        const currentIndex = blogArticles.findIndex(
-            (blogArticle) => blogArticle.slug === article.slug
+        console.log("All Articles", allArticles);
+        console.log("Blog Article", article);
+        const currentIndex = allArticles.findIndex(
+            (blogArticle) => blogArticle.slug.current === article.slug.current
         );
         if (currentIndex === -1) {
             return null; // Return null if the current article is not found
         }
 
         const nextArticle =
-            blogArticles[(currentIndex + 1) % blogArticles.length];
-        await router.push(`/resources/${nextArticle.slug}`);
+            allArticles[(currentIndex + 1) % allArticles.length];
+        await router.push(`/resources/${nextArticle.slug.current}`);
     };
 
     return (

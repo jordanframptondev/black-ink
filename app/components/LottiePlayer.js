@@ -1,3 +1,5 @@
+"use client";
+
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import React from "react";
 
@@ -50,7 +52,7 @@ export function LottiePlayer({ setPlaying }) {
 
   return !animationPlayed ? (
     <DotLottieReact
-      src="/animation.lottie"
+      src="/Ink_Intro.lottie"
       loop={false}
       autoplay={!animationPlayed}
       dotLottieRefCallback={dotLottieRefCallback}

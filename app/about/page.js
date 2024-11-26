@@ -8,7 +8,7 @@ import { Team } from "@/app/components/Team";
 import { PortableText } from '@portabletext/react';
 import Image from "next/image";
 import AboutPageCTA from '../../public/images/home-cta.png';
-import { getQuotes, getTeam } from "../utils/cms-service";
+import { getAboutQuote, getCareersQuote, getTeam } from "../utils/cms-service";
 
 export default async function About() {
 
@@ -38,9 +38,8 @@ export default async function About() {
         image: employee?.image?.asset?.url,
         lqip: employee?.image?.asset?.metadata?.lqip
     }));
-    const getQuotesResponse = await getQuotes();
-    const careersQuote = getQuotesResponse.find(quote => quote.title.includes('quote')).quote;
-    const introQuote = getQuotesResponse.find(quote => quote.title.includes('intro')).quote;
+    const introQuote = (await getAboutQuote())?.[0]?.quote;
+    const careersQuote = (await getCareersQuote())?.[0]?.quote;
     const introQuoteComponents = {
         block: {
             h1: ({children}) => <h1 className="text-[20px] md:text-[36px] font-signifier mb-10">{children}</h1>,

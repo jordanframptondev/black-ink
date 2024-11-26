@@ -13,7 +13,7 @@ function Logos({ logos }) {
           <div className="lg:animate-marquee hover:animate-marquee-pause lg:flex lg:whitespace-nowrap">
             {/* First set of logos */}
             <div className="grid grid-cols-2 gap-x-10 gap-y-20 lg:flex justify-center items-center lg:shrink-0 lg:gap-16">
-              {logos.map((logo) => (
+              {logos?.map((logo) => (
                 <FadeIn key={logo.id}>
                   <div className="flex items-center justify-center">
                     <Image
@@ -29,7 +29,7 @@ function Logos({ logos }) {
             </div>
             {/* Duplicate set of logos for seamless loop */}
             <div className="hidden lg:flex justify-center items-center lg:shrink-0 lg:gap-16 lg:ml-16">
-              {logos.map((logo) => (
+              {logos?.map((logo) => (
                 <FadeIn key={logo.id}>
                   <div className="flex items-center justify-center">
                     <Image
@@ -50,27 +50,6 @@ function Logos({ logos }) {
     </FadeIn>
   );
 }
-
-const testimonials = [
-  {
-    quote:
-      "The Black Ink team understands how businesses work in Centric and has already created the tools that make projects efficient and successful. They are not afraid of hard work and go the extra mile to ensure customer success.",
-    author:
-      "Joe Groves - Senior Vice President of Global Sales Centric Software",
-  },
-  {
-    quote:
-      "The Black Ink team understands how businesses work in Centric and has already created the tools that make projects efficient and successful. They are not afraid of hard work and go the extra mile to ensure customer success.",
-    author:
-      "Joe Groves - Senior Vice President of Global Sales Centric Software",
-  },
-  {
-    quote:
-      "The Black Ink team understands how businesses work in Centric and has already created the tools that make projects efficient and successful. They are not afraid of hard work and go the extra mile to ensure customer success.",
-    author:
-      "Joe Groves - Senior Vice President of Global Sales Centric Software",
-  },
-];
 
 export function Testimonials({ logos }) {
   const [currentIndex, setCurrentIndex] = useState(0);

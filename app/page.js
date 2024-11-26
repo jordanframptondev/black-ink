@@ -7,13 +7,13 @@ import { Info } from "./components/Info";
 import { ResourcesPreviewList } from "./components/ResourcesPreviewList";
 import { FullCta } from "./components/server-components/FullCta";
 import { Testimonials } from "./components/Testimonials";
-import { getCtaList, getInfoData, getPostList } from "./utils/cms-service";
+import { getEthosData, getLogos, getPartnersData, getPostList, getServicesData } from "./utils/cms-service";
 
 export default async function Home() {
-    const ethosData = await getInfoData("Ethos");
-    const servicesData = await getInfoData("Services");
-    const partnersData = await getInfoData("Partners");
-    const cmsLogosResponse = await getCtaList("Home Page Logos");
+    const ethosData = (await getEthosData())?.[0]?.contentList;
+    const servicesData = (await getServicesData())?.[0]?.contentList;
+    const partnersData = (await getPartnersData())?.[0]?.contentList;
+    const cmsLogosResponse = await getLogos();
     const blogPosts = await getPostList();
     const logos = cmsLogosResponse[0]?.logos.map((logo) => ({
         url: logo.asset.url,

@@ -30,6 +30,18 @@ export async function getInfoData(title) {
     return data[0].contentList;
 }
 
+export function getEthosData() {
+    return client.fetch(`*[_type == 'ethos']{contentList[]{title, content, image{asset->}}}`);
+}
+
+export function getServicesData() {
+    return client.fetch(`*[_type == 'services']{contentList[]{title, content, image{asset->}}}`);
+}
+
+export function getPartnersData() {
+    return client.fetch(`*[_type == 'partners']{contentList[]{title, content, image{asset->}}}`);
+}
+
 export function getLastThreePosts() {
     return client.fetch(`*[_type == "post"][0..3] | order(_createdAt asc)`);
 }
@@ -42,14 +54,8 @@ export function getContactQuestions() {
     return client.fetch(`*[_type == 'contactQuestion']`);
 }
 
-export function getCtaList(title) {
-    let titleParam = "";
-    if (title) {
-        titleParam = ` && title=='${title}'`;
-    }
-    return client.fetch(
-        `*[_type == 'logoList'${titleParam}]{ title, logos[]{asset->}}`
-    );
+export function getLogos() {
+    return client.fetch(`*[_type == 'clientLogoCarousel']{logos[]{asset->}}`);
 }
 
 export function getTeam() {
@@ -58,8 +64,12 @@ export function getTeam() {
     );
 }
 
-export function getQuotes() {
-    return client.fetch(`*[_type == 'quote']`);
+export function getAboutQuote() {
+    return client.fetch(`*[_type == 'aboutQuote']`);
+}
+
+export function getCareersQuote() {
+    return client.fetch(`*[_type == 'careersQuote']`);
 }
 
 export function getPostBySlug(slug) {

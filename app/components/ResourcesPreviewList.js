@@ -4,8 +4,8 @@ import "@/styles/resources-preview-list.css";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FadeIn, FadeInStagger } from "./FadeIn";
 import { urlFor } from "../utils/cms-service";
+import { FadeIn, FadeInStagger } from "./FadeIn";
 
 export function ResourcesPreviewList({ background, posts, onArticle = false }) {
     const [startIndex, setStartIndex] = useState(0);
@@ -113,17 +113,12 @@ export function ResourcesPreviewList({ background, posts, onArticle = false }) {
                                             <div className="mx-auto">
                                                 <FadeIn>
                                                     <Image
-                                                        className="w-full"
                                                         src={urlFor(
                                                             blog.thumbnailImage
                                                         ).url()}
                                                         alt={blog.title}
                                                         width={617}
                                                         height={600}
-                                                        style={{
-                                                            objectFit:
-                                                                "contain",
-                                                        }}
                                                     />
                                                 </FadeIn>
                                                 <FadeIn>

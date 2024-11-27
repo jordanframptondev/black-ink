@@ -8,29 +8,10 @@ import { Team } from "@/app/components/Team";
 import { PortableText } from '@portabletext/react';
 import Image from "next/image";
 import AboutPageCTA from '../../public/images/home-cta.png';
-import { getAboutQuote, getCareersQuote, getTeam } from "../utils/cms-service";
+import { getAboutQuote, getCareersQuote, getEthosData, getTeam } from "../utils/cms-service";
 
 export default async function About() {
-
-    const sampleSections = [
-        {
-            title: "People First- Always",
-            description: `At Black Ink, we recognize that every organization is comprised of individuals with unique perspectives, experiences, and motivations. By prioritizing people over process, we foster a collaborative environment that honors the dedication and expertise of our clients' teams and empowers them to unlock their own potential. Through this approach, we uncover solutions that are tailored to the specific needs and aspirations of each organization, rather than imposing generic fixes that neglect the human element.`,
-        },
-        {
-            title: "In | On - The Business",
-            description: `We believe that the most effective solutions are those that are deeply ingrained in the fabric of an organization, rather than superficially imposed from the outside. By immersing ourselves in the inner workings of our clients' businesses, we develop a nuanced understanding of their unique challenges and opportunities, and co-create solutions that are tailored to their specific needs. This inside-out approach enables us to drive meaningful, lasting impact that are intuitive, sustainable, and aligned with the organization's long-term vision.`,
-        },
-        {
-            title: "Short-Term Win / Long-Term Results",
-            description: `Our approach is designed to deliver tangible, near-term benefits that demonstrate the value of our partnership, while simultaneously laying the groundwork for long-term success. By focusing on incremental wins that align with our clients' strategic objectives, we build momentum, establish trust, and create a foundation for sustained growth and transformation. This balanced approach enables our clients to realize immediate returns on their investment, while also positioning themselves for enduring success in an ever-evolving business landscape.`,
-        },
-        {
-            title: "Future Proof",
-            description: `The future of business is being rewritten before our eyes. At Black Ink, we recognize that future-proofing is no longer a nicety, but a necessity. We've made it our mission to help our clients prepare for the unknown, to anticipate the trends that will shape their industries, and to build the resilience and agility needed to thrive in a world that's increasingly complex and uncertain. We're committed to helping our clients stay ahead of the curve, and to emerge stronger, more adaptable, and more resilient in the face of an uncertain future.`,
-        },
-    ];
-
+    const ethosData = (await getEthosData())?.[0]?.contentList;
     const teamResponse = await getTeam();
     const team = teamResponse.map(employee => ({
         _key: employee?._key,
@@ -80,7 +61,7 @@ export default async function About() {
                 </div>
             </div>
             <div className={"relative"}>
-                <Info backgroundColor="#000000" textLight={true} title="ETHOS" sections={sampleSections}/>
+                <Info backgroundColor="#000000" textLight={true} title="ETHOS" sections={ethosData}/>
             </div>
             <div className={"relative"}>
                 <Team team={team} />

@@ -1,5 +1,5 @@
+import { blogArticles } from "@/app/resources/[slug]/page";
 import { redirect } from 'next/navigation';
-import {blogArticles} from "@/app/resources/[slug]/page";
 
 export default function Resources() {
 

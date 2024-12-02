@@ -130,12 +130,8 @@ export function Header({color}) {
                         <Link href={"/about"} className={"nav-link border-t border-t-black py-6 cursor-pointer"}>
                             <span className="arrow">→</span> <span className="link-text">ABOUT</span>
                         </Link>
-                        <Link href={"/resources"} className={"nav-link border-t border-t-black py-6 cursor-pointer"}>
+                        <Link href={"/resources"} className={"nav-link border-y border-y-black py-6 cursor-pointer"}>
                             <span className="arrow">→</span> <span className="link-text">RESOURCES</span>
-                        </Link>
-                        <Link href={"https://www.indeed.com/"} rel="noopener noreferrer" target="_blank"
-                              className={"nav-link border-y border-y-black py-6 cursor-pointer"}>
-                            <span className="arrow">→</span> <span className="link-text">CAREERS</span>
                         </Link>
                     </div>
                 </div>

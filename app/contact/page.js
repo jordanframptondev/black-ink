@@ -40,7 +40,7 @@ export default function Contact() {
 
     return (
         <div className="h-dvh">
-            <Header color={headerColor} />
+            <Header color={headerColor}/>
 
             <div className="absolute h-dvh w-dvw top-0 left-0 bg-[#EFEEE8] md:bg-[#544F3D] -z-50">
                 <Image
@@ -50,6 +50,7 @@ export default function Contact() {
                     sizes="100vw"
                     alt="Black Ink"
                     className="block md:hidden w-full h-full object-cover opacity-30 md:opacity-100"
+                    priority={true}
                 />
                 <Image
                     src={ContactBackgroundLight}
@@ -58,6 +59,7 @@ export default function Contact() {
                     sizes="100vw"
                     alt="Black Ink"
                     className="hidden md:block h-full object-cover opacity-30 md:opacity-100"
+                    priority={true}
                 />
             </div>
 
@@ -77,7 +79,7 @@ export default function Contact() {
                             }`}
                         >
                             {contactQuestions.length > 0 && (
-                                <ContactForm questions={contactQuestions} />
+                                <ContactForm questions={contactQuestions}/>
                             )}
                         </div>
                     </div>
@@ -85,7 +87,7 @@ export default function Contact() {
             </div>
 
             <div className="relative text-white">
-                <Footer />
+                <Footer/>
             </div>
         </div>
     );

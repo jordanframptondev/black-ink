@@ -1,10 +1,8 @@
-import { blogArticles } from "@/app/resources/[slug]/page";
 import { redirect } from 'next/navigation';
+import { getPostList } from "@/app/utils/cms-service";
 
-export default function Resources() {
-
-    const mostRecentBlog = blogArticles[0];
-
-    redirect('/resources/' + mostRecentBlog.slug);
+export default async function Resources() {
+    const allArticles = await getPostList();
+    redirect('/resources/' + allArticles[0].slug.current);
     return null;
 }

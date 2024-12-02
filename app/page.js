@@ -23,13 +23,13 @@ export default async function Home() {
 
     return (
         <div className="relative">
-            <Header color="cream" />
-            <HomeHeroAnimation />
+            <Header color="cream"/>
+            <HomeHeroAnimation/>
             <div className="mt-screen bg-black px-10 pb-10 h-dvh flex flex-col justify-between">
                 <FadeIn viewportMargin="100px 100px 100px">
                     <h3 className="text-center text-[#EFEEE8] text-[20px] md:text-[36px] border-t border-[#EFEEE8] pt-10 font-signifier">
                         There are <i>many futures, </i>
-                        <br className="block md:hidden" />
+                        <br className="block md:hidden"/>
                         Black Ink points you to <i>the right one.</i>
                     </h3>
                 </FadeIn>
@@ -48,7 +48,7 @@ export default async function Home() {
                     sections={ethosData}
                 />
             </div>
-            <Testimonials logos={logos} />
+            <Testimonials logos={logos}/>
             <FullCta
                 overlay="#3A332E"
                 link="/contact"
@@ -61,8 +61,9 @@ export default async function Home() {
                 title="SERVICES"
                 sections={servicesData}
                 textLight={false}
+                minHeight={"100dvh"}
             />
-            <ResourcesPreviewList posts={blogPosts} />
+            <ResourcesPreviewList posts={blogPosts}/>
             <Info
                 backgroundColor="#efeee8"
                 title="PARTNERS"
@@ -70,7 +71,7 @@ export default async function Home() {
                 textLight={false}
             />
             <div className="text-[#EFEEE8]">
-                <Footer />
+                <Footer/>
             </div>
         </div>
     );

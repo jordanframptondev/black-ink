@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { urlFor } from "../utils/cms-service";
 import { FadeIn, FadeInStagger } from "./FadeIn";
 
-export function ResourcesPreviewList({ background, posts, onArticle = false }) {
+export function ResourcesPreviewList({background, posts, onArticle = false}) {
     const [startIndex, setStartIndex] = useState(0);
     const [touchStart, setTouchStart] = useState(null);
     const [touchEnd, setTouchEnd] = useState(null);
@@ -80,7 +80,7 @@ export function ResourcesPreviewList({ background, posts, onArticle = false }) {
 
     return (
         <div
-            style={{ backgroundColor: background || "black" }}
+            style={{backgroundColor: background || "black"}}
             className="xl:w-screen xl:h-screen py-6 lg:py-12 px-10 lg:px-12 flex flex-col"
         >
             <h2 className="text-white text-xl font-ritma">
@@ -122,7 +122,8 @@ export function ResourcesPreviewList({ background, posts, onArticle = false }) {
                                                     />
                                                 </FadeIn>
                                                 <FadeIn>
-                                                    <div className="block text-[#efeee8] text-base sm:text-2xl font-light font-signifier mt-4 pl-1">
+                                                    <div
+                                                        className="block text-[#efeee8] text-base sm:text-2xl font-light font-signifier mt-4 pl-1">
                                                         {blog.title}
                                                     </div>
                                                 </FadeIn>
@@ -141,8 +142,8 @@ export function ResourcesPreviewList({ background, posts, onArticle = false }) {
                                 onClick={handlePrevious}
                                 className="flex items-center font-ritma next-blog-post-link"
                             >
-                                <span className="mr-14">PREVIOUS</span>
-                                <span className="arrow-right">←</span>
+                                <span className="mr-6">PREVIOUS</span>
+                                <span className="resource-arrow-right">←</span>
                             </button>
                         )}
                         {canGoNext && (
@@ -150,7 +151,7 @@ export function ResourcesPreviewList({ background, posts, onArticle = false }) {
                                 onClick={handleNext}
                                 className="flex items-center ml-auto font-ritma next-blog-post-link"
                             >
-                                <span className="arrow">→</span>
+                                <span className="resource-arrow">→</span>
                                 <span className="ml-6">MORE</span>
                             </button>
                         )}

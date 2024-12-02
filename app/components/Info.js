@@ -7,19 +7,20 @@ import { FadeIn, FadeInStagger } from "./FadeIn";
 import { urlFor } from "../utils/cms-service";
 
 export function Info({
-    backgroundColor,
-    backgroundImage,
-    title,
-    sections,
-    textLight = true,
-}) {
+                         backgroundColor,
+                         backgroundImage,
+                         title,
+                         sections,
+                         textLight = true,
+                         minHeight = "50vh"
+                     }) {
     if (sections.length === 0) {
         return null;
     }
 
     return (
         <div
-            className="w-screen min-h-[50vh] pt-10 px-10 pb-20"
+            className="w-screen pt-10 px-10 pb-20"
             style={{
                 background: backgroundColor,
                 backgroundImage: backgroundImage
@@ -27,6 +28,7 @@ export function Info({
                     : "none",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
+                minHeight: minHeight
             }}
         >
             <div>
@@ -56,7 +58,7 @@ export function Info({
     );
 }
 
-function Section({ title, description, image = null, textLight = true }) {
+function Section({title, description, image = null, textLight = true}) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (

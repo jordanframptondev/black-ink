@@ -24,7 +24,7 @@ export default async function Home() {
     return (
         <div className="relative">
             <Header color="cream"/>
-            <HomeHeroAnimation/>
+            <HomeHeroAnimation />
             <div className="mt-screen bg-black px-10 pb-10 h-dvh flex flex-col justify-between">
                 <FadeIn viewportMargin="100px 100px 100px">
                     <h3 className="text-center text-[#EFEEE8] text-xl md:text-4xl border-t border-[#EFEEE8] pt-10 font-signifier">
@@ -57,11 +57,11 @@ export default async function Home() {
             />
             <Info
                 backgroundColor="#efeee8"
-                backgroundImage="/images/services-background.png"
                 title="SERVICES"
                 sections={servicesData}
                 textLight={false}
                 minHeight={"100dvh"}
+                backgroundLottie={"/services_bg.lottie"}
             />
             <ResourcesPreviewList posts={blogPosts}/>
             <Info

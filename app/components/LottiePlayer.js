@@ -3,18 +3,12 @@
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import React from "react";
 
-export function LottiePlayer({ setPlaying }) {
+export function LottiePlayer({ animationPlayed, setAnimationPlayed, setPlaying, src, backgroundColor, loop = false, autoplay = false }) {
   const [dotLottie, setDotLottie] = React.useState(null);
-  const [animationPlayed, setAnimationPlayed] = React.useState(true);
 
   const dotLottieRefCallback = (dotLottie) => {
     setDotLottie(dotLottie);
   };
-
-  React.useEffect(() => {
-    const hasPlayed = localStorage.getItem("animation-played");
-    setAnimationPlayed(Boolean(hasPlayed));
-  }, []);
 
   React.useEffect(() => {
     function isReady() {
@@ -26,13 +20,11 @@ export function LottiePlayer({ setPlaying }) {
 
     function onPlay() {
       setPlaying(true);
-      // TODO: Uncomment when done testing
-      // localStorage.setItem('animation-played', true);
-      // setAnimationPlayed(true);
     }
 
     function onComplete() {
       setPlaying(false);
+      setAnimationPlayed(true);
     }
 
     if (dotLottie) {
@@ -48,15 +40,15 @@ export function LottiePlayer({ setPlaying }) {
         dotLottie.removeEventListener("complete", onComplete);
       }
     };
-  }, [dotLottie, setPlaying]);
+  }, [dotLottie, setAnimationPlayed, setPlaying]);
 
   return !animationPlayed ? (
     <DotLottieReact
-      src="/Ink_Intro.lottie"
-      loop={false}
-      autoplay={!animationPlayed}
+      src={src}
+      loop={loop}
+      autoplay={!animationPlayed || autoplay}
       dotLottieRefCallback={dotLottieRefCallback}
-      backgroundColor="#000000"
+      backgroundColor={backgroundColor}
     />
   ) : null;
 }

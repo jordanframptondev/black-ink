@@ -27,14 +27,14 @@ export default async function Home() {
             <HomeHeroAnimation/>
             <div className="mt-screen bg-black px-10 pb-10 h-dvh flex flex-col justify-between">
                 <FadeIn viewportMargin="100px 100px 100px">
-                    <h3 className="text-center text-[#EFEEE8] text-[20px] md:text-[36px] border-t border-[#EFEEE8] pt-10 font-signifier">
+                    <h3 className="text-center text-[#EFEEE8] text-xl md:text-4xl border-t border-[#EFEEE8] pt-10 font-signifier">
                         There are <i>many futures, </i>
                         <br className="block md:hidden"/>
                         Black Ink points you to <i>the right one.</i>
                     </h3>
                 </FadeIn>
                 <FadeIn viewportMargin="100px 100px 100px">
-                    <h2 className="text-center text-[#EFEEE8] text-[20px] md:text-[36px] font-signifier">
+                    <h2 className="text-center text-[#EFEEE8] text-xl md:text-4xl font-signifier">
                         We facilitate the{" "}
                         <i>selection, design, and implementation</i> of
                         strategic projects.

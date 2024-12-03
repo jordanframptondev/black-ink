@@ -33,7 +33,7 @@ export function Info({
         >
             <div>
                 <h2
-                    className={`font-ritma text-[24px] mb-20 lg:mb-12 ${
+                    className={`font-ritma text-2xl mb-20 lg:mb-12 ${
                         textLight ? "text-white" : "text-black"
                     }`}
                 >

@@ -7,12 +7,12 @@
         transition: padding-left 0.3s ease; /* Animate padding change */
     }
 
-    .arrow, .cta-link-text {
+    .full-cta-arrow, .cta-link-text {
         display: inline-block;
         transition: transform 0.5s ease, opacity 0.3s ease;
     }
 
-    .arrow {
+    .full-cta-arrow {
         width: 0;
         transform: translateX(-10px); /* Start off-screen to the left */
         opacity: 0; /* Initially hidden */
@@ -22,7 +22,7 @@
         /*padding-left: 20px; !* Add padding on hover *!*/
     }
 
-    .cta-link:hover .arrow {
+    .cta-link:hover .full-cta-arrow {
         transform: translateX(0px); /* Slide in from the left */
         opacity: 1; /* Show on hover */
     }

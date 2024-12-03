@@ -10,14 +10,14 @@ export function Footer() {
         <footer id='footer' className={'bg-black w-full h-screen min-h-[668px] text-[#EFEEE8]'}>
             <div className={"flex justify-center w-full h-full"}>
                 <div className={"flex flex-col md:flex-row mx-10 mb-10 w-full"}>
-                    <div className={"flex w-full md:w-1/3 mt-10 text-[18px] md:text-[24px] font-ritma"}>
+                    <div className={"flex w-full md:w-1/3 mt-10 text-lg md:text-2xl font-ritma"}>
                         <FadeIn>
                             <Link href={"/"}>BLACK INK</Link>
                         </FadeIn>
                     </div>
                     <div className={"flex flex-col w-full h-full md:w-2/3"}>
                         <Link href={"/contact"}
-                              className={"flex flex-nowrap signup-link w-full py-10 text-[20px] md:text-[30px] lg:text-[36px] font-signifier border-b cursor-pointer border-white transition-all duration-500 ease-in"}>
+                              className={"flex flex-nowrap signup-link w-full py-10 text-xl md:text-3xl lg:text-4xl font-signifier border-b cursor-pointer border-white transition-all duration-500 ease-in"}>
                             <div className={"md:mr-auto"}>
                                 <span className="arrow">→</span>
                             </div>
@@ -61,7 +61,7 @@ export function Footer() {
                             </div>
                         </div>
                         <div>
-                            <p className={"pt-10 text-center md:text-start text-[16px] md:text-[24px] font-signifierItalic"}>©
+                            <p className={"pt-10 text-center md:text-start text-base md:text-2xl font-signifierItalic"}>©
                                 Black Ink Strategy {currentYear}. All
                                 rights reserved.</p>
                         </div>

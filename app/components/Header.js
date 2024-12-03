@@ -101,7 +101,7 @@ export function Header({color}) {
                     <Link href={"/"} id="black-ink-header-text"
                           className={`${(color === 'black' && !showMenu) || (showMenu && windowWidth < 768) ? 'text-black' : 'text-[#EFEEE8]'}
                           ${showMenu && windowWidth > 768 ? 'hidden' : 'absolute'}
-                    absolute text-[18px] md:text-[24px] font-ritma left-[40px] md:left-[50%] md:-translate-x-1/2 transition-all duration-500 ease-in`}>
+                    absolute text-lg md:text-2xl font-ritma left-[40px] md:left-[50%] md:-translate-x-1/2 transition-all duration-500 ease-in`}>
                         BLACK INK
                     </Link>
                     <Image
@@ -117,7 +117,7 @@ export function Header({color}) {
                 </div>
                 <div id="menu-background" className={`circle`} onClick={handleMenuClick}/>
                 <div id="menu"
-                     className={`menu flex w-dvw h-dvh text-[28px] md:text-[36px] font-ritma`}
+                     className={`menu flex w-dvw h-dvh text-[1.75rem] md:text-4xl font-ritma`}
                      onClick={handleMenuClick}
                 >
                     <div

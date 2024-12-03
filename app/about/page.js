@@ -23,16 +23,16 @@ export default async function About() {
     const careersQuote = (await getCareersQuote())?.[0]?.quote;
     const introQuoteComponents = {
         block: {
-            h1: ({children}) => <h1 className="text-[20px] md:text-[36px] font-signifier mb-10">{children}</h1>,
-            h2: ({children}) => <h2 className="text-[20px] md:text-[36px] font-signifier mb-10">{children}</h2>,
-            h3: ({children}) => <h3 className="text-[16px] md:text-[24px] font-signifier">{children}</h3>,
-            h4: ({children}) => <h4 className="text-[16px] md:text-[24px] font-signifier">{children}</h4>,
-            normal: ({children}) => <p className="text-[16px] md:text-[24px] font-signifier">{children}</p>,
+            h1: ({children}) => <h1 className="text-xl md:text-4xl font-signifier mb-10">{children}</h1>,
+            h2: ({children}) => <h2 className="text-xl md:text-4xl font-signifier mb-10">{children}</h2>,
+            h3: ({children}) => <h3 className="text-base md:text-2xl font-signifier">{children}</h3>,
+            h4: ({children}) => <h4 className="text-base md:text-2xl font-signifier">{children}</h4>,
+            normal: ({children}) => <p className="text-base md:text-2xl font-signifier">{children}</p>,
         }
     }
 
     return (
-        <div className={"text-[#EFEEE8] select-none bg-[#3A332E]"}>
+        <div className={"text-[#EFEEE8] bg-[#3A332E]"}>
             <Header color="cream"/>
             <div className={"fixed flex w-full min-h-dvh"}>
                 <Image
@@ -48,12 +48,13 @@ export default async function About() {
                 <div className={"flex justify-center min-w-screen min-h-[100dvh] bg-[#3A332E]"}>
                     <div className={"flex border-t border-[#EFEEE8] mx-10"}>
                         <div className={"flex flex-col md:flex-row my-10"}>
-                            <div className={"flex w-full mb-[80px] md:mb-0 md:w-1/3 text-[18px] md:text-[24px] font-ritma"}>
+                            <div
+                                className={"flex w-full mb-[80px] md:mb-0 md:w-1/3 text-xl md:text-2xl font-ritma"}>
                                 <h1>ABOUT</h1>
                             </div>
                             <div className={"flex flex-col w-full md:w-2/3"}>
                                 <FadeIn>
-                                    <PortableText value={introQuote} components={introQuoteComponents} />
+                                    <PortableText value={introQuote} components={introQuoteComponents}/>
                                 </FadeIn>
                             </div>
                         </div>
@@ -64,10 +65,10 @@ export default async function About() {
                 <Info backgroundColor="#000000" textLight={true} title="ETHOS" sections={ethosData}/>
             </div>
             <div className={"relative"}>
-                <Team team={team} />
+                <Team team={team}/>
             </div>
             <div className={"relative bg-[#EFEEE8]"}>
-                <Careers quote={careersQuote} />
+                <Careers quote={careersQuote}/>
             </div>
             <div className={"relative"}>
                 <FullCta backgroundImageSrc={AboutPageCTA} link="/contact" displayText="FIND THE PATH TO FUTURE PROOF"

@@ -70,7 +70,7 @@ export default async function Home() {
                 sections={partnersData}
                 textLight={false}
             />
-            <div className="text-[#EFEEE8]">
+            <div>
                 <Footer/>
             </div>
         </div>

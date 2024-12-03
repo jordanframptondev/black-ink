@@ -100,6 +100,7 @@ export function Header({color}) {
                 <div className={"absolute top-[30px] flex w-full z-[99]"}>
                     <Link href={"/"} id="black-ink-header-text"
                           className={`${(color === 'black' && !showMenu) || (showMenu && windowWidth < 768) ? 'text-black' : 'text-[#EFEEE8]'}
+                          ${showMenu && windowWidth > 768 ? 'hidden' : 'absolute'}
                     absolute text-[18px] md:text-[24px] font-ritma left-[40px] md:left-[50%] md:-translate-x-1/2 transition-all duration-500 ease-in`}>
                         BLACK INK
                     </Link>

@@ -35,28 +35,27 @@ export function Footer() {
                             <div className={"flex flex-col w-full items-end md:items-start"}>
                                 <Link href={"/"} className={"footer-link cursor-pointer w-full font-signifier"}>
                                     <span className="footer-arrow">→</span>
-                                    <span className="footer-link-text">HOME</span>
+                                    <span className="footer-link-text">Home</span>
                                 </Link>
                                 <Link href={"/contact"} className={"footer-link cursor-pointer w-full font-signifier"}>
                                     <span className="footer-arrow">→</span>
-                                    <span className="footer-link-text">CONTACT</span>
+                                    <span className="footer-link-text">Contact</span>
                                 </Link>
                                 <Link href={"/about"}
                                       className={"footer-link cursor-pointer w-full font-signifierItalic"}>
                                     <span className="footer-arrow">→</span>
-                                    <span className="footer-link-text">ABOUT</span>
+                                    <span className="footer-link-text">About</span>
                                 </Link>
                                 <Link href={"/resources"}
                                       className={"footer-link cursor-pointer w-full font-signifier"}>
                                     <span className="footer-arrow">→</span>
-                                    <span className="footer-link-text">RESOURCES</span>
+                                    <span className="footer-link-text">Resources</span>
                                 </Link>
                                 <div
                                     className={"credits-container w-full h-7 md:h-8 relative font-signifier cursor-default"}>
                                     <div className="credits-text">Credits</div>
-                                    <div className="new-credits-text whitespace-nowrap overflow-scroll">Branding &
-                                        Design: Tenant | Site Development:
-                                        Moat
+                                    <div className="new-credits-text whitespace-nowrap overflow-scroll">
+                                        Branding & Design: Tenant | Site Development: Moat
                                     </div>
                                 </div>
                             </div>

@@ -5,25 +5,26 @@ import "@/styles/contact.css";
 import ContactFormSection from "./ContactFormSection";
 import ContactInfoSubmit from "./ContactInfoSubmit";
 
-export default function ContactForm({ questions }) {
+export default function ContactForm({questions}) {
     const [openSection, setOpenSection] = useState(-1);
+    const [formDataQuestions, setFormDataQuestions] = useState(questions);
 
     const initialFormData = Array.from(
-        { length: questions.length },
+        {length: questions.length},
         (_, index) => ({
             [index]: undefined,
         })
-    ).reduce((acc, curr) => ({ ...acc, ...curr }), {});
+    ).reduce((acc, curr) => ({...acc, ...curr}), {});
 
     const [formData, setFormData] = useState(initialFormData);
 
     useEffect(() => {
         const initialFormData = Array.from(
-            { length: questions.length },
+            {length: questions.length},
             (_, index) => ({
                 [index]: undefined,
             })
-        ).reduce((acc, curr) => ({ ...acc, ...curr }), {});
+        ).reduce((acc, curr) => ({...acc, ...curr}), {});
         setFormData(initialFormData);
     }, [questions]);
 
@@ -40,10 +41,28 @@ export default function ContactForm({ questions }) {
         return allQuestionsHaveAnswers;
     };
 
-    const submitContact = () => {
-        /**
-         * Add logic here once we get mailchimp or other service
-         */
+    const submitContact = ({name, title, email, phone}) => {
+        const requestData = new FormData();
+        requestData.append("u", "91495a056369a92889975eb2c");
+        requestData.append("id", "b4d550dd12");
+        requestData.append("QUESTIONS", `${questions.map((q, i) => `${q.question}: ${formData[i]}`).join(". ")}`);
+        requestData.append("NAME", name);
+        requestData.append("TITLE", title);
+        requestData.append("EMAIL", email);
+        requestData.append("PHONE", phone);
+
+        fetch("https://blackinkstrategy.us9.list-manage.com/subscribe/post", {
+            method: "POST",
+            body: requestData,
+            mode: "no-cors"
+        })
+            .then(response => {
+                // Since the response type is opaque, you won't be able to access the response data
+                console.log("Request sent successfully");
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
     };
 
     const resetForm = () => {

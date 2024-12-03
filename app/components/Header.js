@@ -96,8 +96,8 @@ export function Header({color}) {
     return (
         <>
             <header
-                className={`sticky top-0 z-20 ${isFooterVisible ? 'opacity-0' : 'opacity-100'} transition-all duration-1000 ease-in-out select-none text-black`}>
-                <div className={"absolute top-[30px] flex w-full z-[99]"}>
+                className={`sticky top-0 z-[99] ${isFooterVisible ? 'opacity-0' : 'opacity-100'} transition-all duration-1000 ease-in-out select-none text-black`}>
+                <div className={"absolute top-[30px] flex w-full z-[100]"}>
                     <Link href={"/"} id="black-ink-header-text"
                           className={`${(color === 'black' && !showMenu) || (showMenu && windowWidth < 768) ? 'text-black' : 'text-[#EFEEE8]'}
                           ${showMenu && windowWidth > 768 ? 'hidden' : 'absolute'}
@@ -117,11 +117,11 @@ export function Header({color}) {
                 </div>
                 <div id="menu-background" className={`circle`} onClick={handleMenuClick}/>
                 <div id="menu"
-                     className={`menu flex w-dvw h-dvh text-[1.75rem] md:text-4xl font-ritma`}
+                     className={`menu z-[99] flex w-dvw h-dvh text-3xl md:text-4xl font-ritma`}
                      onClick={handleMenuClick}
                 >
                     <div
-                        className={"flex z-20 flex-col mt-32 md:mt-16 pl-10 pr-10 md:pl-10 md:pr-0 w-screen md:w-[500px] transition-all duration-1000 ease-in"}>
+                        className={"flex z-[99] flex-col mt-32 md:mt-16 pl-10 pr-10 md:pl-10 md:pr-0 w-screen min-h-fit md:w-[500px] transition-all duration-1000 ease-in"}>
                         <Link href={"/"} className={"nav-link border-t border-t-black py-6 cursor-pointer"}>
                             <span className="arrow">→</span> <span className="link-text">HOME</span>
                         </Link>

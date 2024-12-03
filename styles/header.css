@@ -92,8 +92,9 @@
     visibility: hidden;
 }
 
-body.no-scroll {
-    overflow: hidden;
+.no-scroll {
+    overflow: unset;
+    overflow: hidden !important;
 }
 
 .nav-link {

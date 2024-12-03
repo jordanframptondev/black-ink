@@ -7,7 +7,7 @@ import ContactInfoSubmit from "./ContactInfoSubmit";
 
 export default function ContactForm({questions}) {
     const [openSection, setOpenSection] = useState(-1);
-    const [formDataQuestions, setFormDataQuestions] = useState(questions);
+    const [formSubmitted, setFormSubmitted] = useState(false);
 
     const initialFormData = Array.from(
         {length: questions.length},
@@ -50,7 +50,7 @@ export default function ContactForm({questions}) {
         requestData.append("TITLE", title);
         requestData.append("EMAIL", email);
         requestData.append("PHONE", phone);
-
+        setFormSubmitted(true);
         fetch("https://blackinkstrategy.us9.list-manage.com/subscribe/post", {
             method: "POST",
             body: requestData,
@@ -68,15 +68,27 @@ export default function ContactForm({questions}) {
     const resetForm = () => {
         setOpenSection(-1);
         setFormData(initialFormData);
+        setFormSubmitted(false);
     };
 
     return (
         <div className="w-full">
             <h2 className="text-xl md:text-4xl font-extralight mb-8">
-                <span className="font-signifierItalic">You made it!</span>
-                <span className="font-signifier">
-                    &mdash; answer some simple questions to get in touch
-                </span>
+                {
+                    !formSubmitted &&
+                    <>
+                        <span className="font-signifierItalic">You made it!</span>
+                        <span className="font-signifier">&mdash; answer some simple questions to get in touch</span>
+                    </>
+                }
+                {
+                    formSubmitted &&
+                    <>
+                        <span className="font-signifierItalic">Thanks for reaching out!</span>
+                        <span
+                            className="font-signifier">&nbsp;&nbsp;We&#39;ll review your message and be in touch soon.</span>
+                    </>
+                }
             </h2>
             <Transition
                 show={!shouldShowContactForm()}

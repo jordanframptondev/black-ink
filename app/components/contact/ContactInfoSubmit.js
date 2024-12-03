@@ -51,7 +51,7 @@ const ContactInfoSubmit = forwardRef((props, ref) => {
         const canSubmit = validateInputs();
 
         if (canSubmit) {
-            props.onSubmit({ name, title, email, phone });
+            props.onSubmit({name, title, email, phone});
             setSent(true);
             resetInputs();
         }
@@ -67,33 +67,52 @@ const ContactInfoSubmit = forwardRef((props, ref) => {
         <div ref={ref}>
             <div className="border-t border-black md:border-white w-full mt-8"></div>
             <form
-                className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${sent ? "mt-10" : "mt-0"}`}
                 onSubmit={handleSubmit}
             >
-                <StyledTextInput
-                    label="Name"
-                    required={true}
-                    value={name}
-                    showError={nameError}
-                    onChange={setName}
-                />
-                <StyledTextInput
-                    label="Title"
-                    value={title}
-                    onChange={setTitle}
-                />
-                <StyledTextInput
-                    label="Email"
-                    required={true}
-                    value={email}
-                    showError={emailError}
-                    onChange={setEmail}
-                />
-                <StyledTextInput
-                    label="Phone"
-                    value={phone}
-                    onChange={setPhone}
-                />
+                {!sent && (
+                    <>
+                        <StyledTextInput
+                            label="Name"
+                            required={true}
+                            value={name}
+                            showError={nameError}
+                            onChange={setName}
+                        />
+                        <StyledTextInput
+                            label="Title"
+                            value={title}
+                            onChange={setTitle}
+                        />
+                        <StyledTextInput
+                            label="Email"
+                            required={true}
+                            value={email}
+                            showError={emailError}
+                            onChange={setEmail}
+                        />
+                        <StyledTextInput
+                            label="Phone"
+                            value={phone}
+                            onChange={setPhone}
+                        />
+                    </>
+                )}
+                <div className="flex justify-between md:hidden">
+                    <div
+                        className="font-ritma uppercase cursor-pointer"
+                        onClick={back}
+                    >
+                        &#8592; Go Back
+                    </div>
+                    <div
+                        className="text-right font-ritma uppercase cursor-pointer"
+                        onClick={handleSubmit}
+                        disabled={sent}
+                    >
+                        {sent ? "Sent!" : <>&#8594;&nbsp;Send</>}
+                    </div>
+                </div>
                 <div
                     className="hidden md:block font-ritma uppercase cursor-pointer"
                     onClick={back}
@@ -101,11 +120,11 @@ const ContactInfoSubmit = forwardRef((props, ref) => {
                     &#8592; Go Back
                 </div>
                 <div
-                    className="mt-8 md:mt-0 md:text-right font-ritma uppercase cursor-pointer"
+                    className="hidden md:block text-right font-ritma uppercase cursor-pointer"
                     onClick={handleSubmit}
                     disabled={sent}
                 >
-                    {sent ? "Sent!" : <>&#8594; &nbsp; Send</>}
+                    {sent ? "Sent!" : <>&#8594;&nbsp;Send</>}
                 </div>
             </form>
         </div>

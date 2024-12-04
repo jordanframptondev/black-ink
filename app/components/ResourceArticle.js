@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
-import { FadeIn } from "../components/FadeIn";
 import "@/styles/resource.css";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { FadeIn } from "../components/FadeIn";
 import { urlFor } from "../utils/cms-service";
 import PostBody from "./PostBody";
 
@@ -13,11 +13,9 @@ export default function ResourceArticle({ article, allArticles }) {
     let textColor = "#000000";
     if (article?.backgroundColor) {
         backgroundColor = article.backgroundColor.hex;
-        console.log("BackgroundColor", backgroundColor);
     }
     if (article?.textColor) {
         textColor = article.textColor.hex;
-        console.log("TextColor", textColor);
     }
 
     const handleNextArticle = async () => {

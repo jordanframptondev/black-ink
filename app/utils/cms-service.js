@@ -47,7 +47,7 @@ export function getLastThreePosts() {
 }
 
 export function getTestimonials() {
-    return client.fetch(`*[_type == 'testimonial']`);
+    return client.fetch(`*[_type == 'testimonials']`);
 }
 
 export function getContactQuestions() {

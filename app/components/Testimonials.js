@@ -41,8 +41,8 @@ export function Testimonials({ logos }) {
 
   useEffect(() => {
     getTestimonials().then((data) => {
-      const orderedData = data.sort((a, b) => a.order - b.order);
-      setTestimonials(orderedData);
+      const list = data[0]?.testimonialList;
+      setTestimonials(list);
     });
   }, []);
 
@@ -77,19 +77,19 @@ export function Testimonials({ logos }) {
         <div className="lg:col-span-2 mt-20">
           <FadeIn>
             <div>
-              <p className={`min-h-44 transition-opacity duration-1000 text-xl lg:text-2xl font-signifier ${
+              <p className={`transition-opacity duration-1000 text-xl lg:text-2xl font-signifier ${
                 isTransitioning ? "opacity-0" : "opacity-100"
               }`}>
-                &quot;{testimonials[currentIndex]?.text}&quot;
+                {testimonials[currentIndex]?.text}
               </p>
               <div className="mt-20 lg:flex justify-between">
-                <p className={`transition-opacity duration-1000 text-xl lg:text-2xl font-signifier text-md font-signifierItalic lg:max-w-48 ${
+                <p className={`transition-opacity duration-1000 text-base md:text-xl lg:text-2xl font-signifier text-md font-signifierItalic lg:max-w-96 mb-20 ${
                 isTransitioning ? "opacity-0" : "opacity-100"
               }`}>
                   {testimonials[currentIndex]?.author}
                 </p>
                 {testimonials?.length > 1 && (
-                  <div className="mt-20 pb-[47px] flex items-center font-ritma">
+                  <div className="pb-[47px] flex items-center font-ritma">
                     <button onClick={handlePrevious}>&larr;</button>
                     <p className="mx-4">
                       {currentIndex + 1}/{testimonials?.length}

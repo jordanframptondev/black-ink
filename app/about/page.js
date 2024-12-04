@@ -52,24 +52,32 @@ export default async function About() {
                                 className={"flex w-full mb-[80px] md:mb-0 md:w-1/3 text-xl md:text-2xl font-ritma"}>
                                 <h1>ABOUT</h1>
                             </div>
-                            <div className={"flex flex-col w-full md:w-2/3"}>
-                                <FadeIn>
-                                    <PortableText value={introQuote} components={introQuoteComponents}/>
-                                </FadeIn>
-                            </div>
+                            {introQuote ? (
+                                <div className={"flex flex-col w-full md:w-2/3"}>
+                                    <FadeIn>
+                                        <PortableText value={introQuote} components={introQuoteComponents}/>
+                                    </FadeIn>
+                                </div>
+                            ) : null}
                         </div>
                     </div>
                 </div>
             </div>
-            <div className={"relative"}>
-                <Info backgroundColor="#000000" textLight={true} title="ETHOS" sections={ethosData}/>
-            </div>
-            <div className={"relative"}>
-                <Team team={team}/>
-            </div>
-            <div className={"relative bg-[#EFEEE8]"}>
-                <Careers quote={careersQuote}/>
-            </div>
+            {ethosData ? (
+                <div className={"relative"}>
+                    <Info backgroundColor="#000000" textLight={true} title="ETHOS" sections={ethosData}/>
+                </div>
+            ) : null}
+            {team?.length > 0 ? (
+                <div className={"relative"}>
+                    <Team team={team}/>
+                </div>
+            ) : null}
+            {careersQuote ? (
+                <div className={"relative bg-[#EFEEE8]"}>
+                    <Careers quote={careersQuote}/>
+                </div>
+            ) : null}
             <div className={"relative"}>
                 <FullCta backgroundImageSrc={AboutPageCTA} link="/contact" displayText="FIND THE PATH TO FUTURE PROOF"
                          overlay="#534f3c"/>

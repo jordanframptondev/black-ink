@@ -1,3 +1,6 @@
+import { IntroAnimation } from "@/app/components/IntroAnimation";
+import BlackInkLogo from "@/public/images/black-ink-logo-cream.png";
+import Image from "next/image";
 import HomeCta from "../public/images/home-cta.png";
 import { FadeIn } from "./components/FadeIn";
 import { Footer } from "./components/Footer";
@@ -7,10 +10,6 @@ import { ResourcesPreviewList } from "./components/ResourcesPreviewList";
 import { FullCta } from "./components/server-components/FullCta";
 import { Testimonials } from "./components/Testimonials";
 import { getEthosData, getLogos, getPartnersData, getPostList, getServicesData } from "./utils/cms-service";
-import Image from "next/image";
-import BlackInkLogo from "@/public/images/black-ink-logo-cream.png";
-import React from "react";
-import { IntroAnimation } from "@/app/components/IntroAnimation";
 
 export default async function Home() {
     const ethosData = (await getEthosData())?.[0]?.contentList;
@@ -59,13 +58,13 @@ export default async function Home() {
                         </FadeIn>
                     </div>
                 </div>
-                <div className={"relative"}>
+                {ethosData ? (<div className={"relative"}>
                     <Info
                         backgroundColor="#544F3D"
                         title="ETHOS"
                         sections={ethosData}
                     />
-                </div>
+                </div>) : null}
                 <div className={"relative bg-[#EFEEE8]"}>
                     <Testimonials logos={logos}/>
                 </div>
@@ -75,26 +74,31 @@ export default async function Home() {
                     displayText="FIND THE PATH TO FUTURE PROOF"
                     backgroundImageSrc={HomeCta}
                 />
-                <Info
-                    backgroundColor="#efeee8"
-                    // backgroundAnimation={"/services_bg.json"}
-                    backgroundImage="/images/services-background.png"
-                    title="SERVICES"
-                    sections={servicesData}
-                    textLight={false}
-                    minHeight={"100dvh"}
-                />
-                <div className={"relative bg-black"}>
-                    <ResourcesPreviewList background={"black"} posts={blogPosts}/>
-                </div>
-                <div className={"relative bg-[#EFEEE8]"}>
+                {servicesData ? (
+                    <Info
+                        backgroundColor="#efeee8"
+                        // backgroundAnimation={"/services_bg.json"}
+                        backgroundImage="/images/services-background.png"
+                        title="SERVICES"
+                        sections={servicesData}
+                        textLight={false}
+                        minHeight={"100dvh"}
+                    />) : null}
+                {blogPosts?.length > 0 ? (
+                    <div className={"relative bg-black"}>
+                        <ResourcesPreviewList background={"black"} posts={blogPosts}/>
+                    </div>
+                ) : null}
+                {partnersData ? (
+                    <div className={"relative bg-[#EFEEE8]"}>
                     <Info
                         backgroundColor="#efeee8"
                         title="PARTNERS"
                         sections={partnersData}
                         textLight={false}
-                    />
-                </div>
+                        />
+                    </div>
+                ) : null}
                 <div className="relative bg-black">
                     <Footer/>
                 </div>

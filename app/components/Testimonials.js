@@ -3,49 +3,32 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { getTestimonials } from "../utils/cms-service";
-import { FadeIn, FadeInStagger } from "./FadeIn";
+import { FadeIn } from "./FadeIn";
 
 function Logos({ logos }) {
   return (
     <FadeIn viewportMargin={"0px 0px -75px"}>
       <div className="relative w-full overflow-hidden py-20">
-        <FadeInStagger>
-          <div className="lg:animate-marquee hover:animate-marquee-pause lg:flex lg:whitespace-nowrap">
-            {/* First set of logos */}
-            <div className="grid grid-cols-2 gap-x-10 gap-y-20 lg:flex justify-center items-center lg:shrink-0 lg:gap-16">
+        <div className="inline-flex w-max animate-marquee hover:animate-marquee-pause">
+          {[...Array(4)].map((_, i) => (
+            <div key={`set-${i}`} className="flex items-center gap-16 px-8">
               {logos?.map((logo) => (
-                <FadeIn key={logo.id}>
-                  <div className="flex items-center justify-center">
-                    <Image
-                      src={logo.url}
-                      width={100}
-                      height={75}
-                      alt="Logo"
-                      blurDataURL={logo.lqip}
-                    />
-                  </div>
-                </FadeIn>
+                <div
+                  key={`${logo.id}-${i}`}
+                  className="w-[100px] flex items-center justify-center"
+                >
+                  <Image
+                    src={logo.url}
+                    width={100}
+                    height={75}
+                    alt="Logo"
+                    blurDataURL={logo.lqip}
+                  />
+                </div>
               ))}
             </div>
-            {/* Duplicate set of logos for seamless loop */}
-            <div className="hidden lg:flex justify-center items-center lg:shrink-0 lg:gap-16 lg:ml-16">
-              {logos?.map((logo) => (
-                <FadeIn key={logo.id}>
-                  <div className="flex items-center justify-center">
-                    <Image
-                      src={logo.url}
-                      width={100}
-                      height={75}
-                      alt="Logo"
-                      className=""
-                      blurDataURL={logo.lqip}
-                    />
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </FadeInStagger>
+          ))}
+        </div>
       </div>
     </FadeIn>
   );
@@ -93,16 +76,16 @@ export function Testimonials({ logos }) {
         </div>
         <div className="lg:col-span-2 mt-20">
           <FadeIn>
-            <div
-              className={`transition-opacity duration-1000 ${
+            <div>
+              <p className={`min-h-44 transition-opacity duration-1000 text-xl lg:text-2xl font-signifier ${
                 isTransitioning ? "opacity-0" : "opacity-100"
-              }`}
-            >
-              <p className="text-xl lg:text-2xl font-signifier">
+              }`}>
                 &quot;{testimonials[currentIndex]?.text}&quot;
               </p>
               <div className="mt-20 lg:flex justify-between">
-                <p className="text-md font-signifierItalic lg:max-w-48">
+                <p className={`transition-opacity duration-1000 text-xl lg:text-2xl font-signifier text-md font-signifierItalic lg:max-w-48 ${
+                isTransitioning ? "opacity-0" : "opacity-100"
+              }`}>
                   {testimonials[currentIndex]?.author}
                 </p>
                 {testimonials?.length > 1 && (

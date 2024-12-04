@@ -12,13 +12,13 @@ module.exports = {
         foreground: "var(--foreground)",
       },
       animation: {
-        marquee: 'marquee 25s linear infinite',
-        'marquee-pause': 'marquee 25s linear infinite paused',
+        marquee: 'marquee 40s linear infinite',
+        'marquee-pause': 'marquee 40s linear infinite paused',
       },
       keyframes: {
         marquee: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-99.5%)' },
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-25%)' },
         },
       },
     },

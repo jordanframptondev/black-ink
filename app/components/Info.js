@@ -9,6 +9,7 @@ import Lottie from "react-lottie-player";
 
 export function Info({
                          backgroundColor,
+                         backgroundImage,
                          backgroundAnimation,
                          title,
                          sections,
@@ -24,7 +25,12 @@ export function Info({
             className="relative w-screen pt-10 px-10 pb-20"
             style={{
                 background: backgroundColor,
-                minHeight: minHeight,
+                backgroundImage: backgroundImage
+                    ? `url(${backgroundImage})`
+                    : "none",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                minHeight: minHeight
             }}
         >
             {backgroundAnimation && (
@@ -33,7 +39,7 @@ export function Info({
                             style={{width: '100%', height: '100%', objectFit: 'cover'}}/>
                 </div>
             )}
-            <div className="relative z-10">
+            <div className="relative">
                 <h2
                     className={`font-ritma text-2xl mb-20 lg:mb-12 ${
                         textLight ? "text-white" : "text-black"

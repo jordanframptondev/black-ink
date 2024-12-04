@@ -2,11 +2,11 @@
 
 import { Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/outline";
+import dynamic from 'next/dynamic';
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { FadeIn, FadeInStagger } from "./FadeIn";
 import { urlFor } from "../utils/cms-service";
-import dynamic from 'next/dynamic';
+import { FadeIn, FadeInStagger } from "./FadeIn";
 
 const Lottie = dynamic(() => import('react-lottie-player'), {ssr: false});
 

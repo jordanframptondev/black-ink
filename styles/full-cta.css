@@ -23,7 +23,7 @@
     }
 
     .cta-link:hover .full-cta-arrow {
-        transform: translateX(0px); /* Slide in from the left */
+        transform: translateX(-10px); /* Slide in from the left */
         opacity: 1; /* Show on hover */
     }
 

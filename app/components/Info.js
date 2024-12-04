@@ -5,14 +5,15 @@ import Image from "next/image";
 import { useState } from "react";
 import { FadeIn, FadeInStagger } from "./FadeIn";
 import { urlFor } from "../utils/cms-service";
+import Lottie from "react-lottie-player";
 
 export function Info({
                          backgroundColor,
-                         backgroundImage,
+                         backgroundAnimation,
                          title,
                          sections,
                          textLight = true,
-                         minHeight = "50vh"
+                         minHeight = "50vh",
                      }) {
     if (sections.length === 0) {
         return null;
@@ -20,18 +21,19 @@ export function Info({
 
     return (
         <div
-            className="w-screen pt-10 px-10 pb-20"
+            className="relative w-screen pt-10 px-10 pb-20"
             style={{
                 background: backgroundColor,
-                backgroundImage: backgroundImage
-                    ? `url(${backgroundImage})`
-                    : "none",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                minHeight: minHeight
+                minHeight: minHeight,
             }}
         >
-            <div>
+            {backgroundAnimation && (
+                <div className="absolute top-0 left-0 w-full h-full">
+                    <Lottie loop play path={backgroundAnimation}
+                            style={{width: '100%', height: '100%', objectFit: 'cover'}}/>
+                </div>
+            )}
+            <div className="relative z-10">
                 <h2
                     className={`font-ritma text-2xl mb-20 lg:mb-12 ${
                         textLight ? "text-white" : "text-black"

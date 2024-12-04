@@ -7,12 +7,13 @@ import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 
 export function Header({color}) {
-    const [windowWidth, setWindowWidth] = useState(1000);
+    const [windowWidth, setWindowWidth] = useState(0);
     const [showMenu, setShowMenu] = useState(false);
     const [isFooterVisible, setIsFooterVisible] = useState(false);
     const [inverseMenuIcon, setInverseMenuIcon] = useState(false);
 
     useEffect(() => {
+        setWindowWidth(window.innerWidth);
         const handleResize = () => {
             setWindowWidth(window.innerWidth);
         };

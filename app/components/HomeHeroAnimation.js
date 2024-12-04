@@ -2,12 +2,13 @@
 import BlackInkLogo from "@/public/images/black-ink-logo-cream.png";
 import Image from "next/image";
 import React from "react";
+import "@/styles/home-hero-animation.css";
 
 export function HomeHeroAnimation() {
     const [playing, setPlaying] = React.useState(true);
 
     setTimeout(() => {
-      setPlaying(false);
+        setPlaying(false);
     }, 1000);
 
     React.useEffect(() => {
@@ -26,18 +27,27 @@ export function HomeHeroAnimation() {
 
     return (
         <div className="h-screen w-screen">
+            {/*<div*/}
+            {/*    className={`z-[9999] fixed top-0 left-0 right-0 bottom-0 transition-opacity duration-1000 ease-out ${*/}
+            {/*        playing ? 'opacity-100' : 'opacity-0 pointer-events-none'*/}
+            {/*    }`}*/}
+            {/*>*/}
+            {/*    /!* <LottiePlayer setPlaying={setPlaying}/> *!/*/}
+            {/*    <div style={{backgroundColor: "#310002"}} className="w-full h-full"></div>*/}
+            {/*</div>*/}
+            {/*<div*/}
+            {/*    className={`transition-opacity duration-1  000 ${*/}
+            {/*        playing ? "opacity-0" : "opacity-100"*/}
+            {/*    }`}*/}
+            {/*>*/}
+            {/*    <Hero/>*/}
+            {/*</div>*/}
+
+            {/*REMOVE THIS and uncomment the upper code FOR THE ACTUAL LOTTIE ANIMATION*/}
             <div
-                className={`z-[9999] fixed top-0 left-0 right-0 bottom-0 transition-opacity duration-1000 ${
-                    playing ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                }`}
-            >
-                {/* <LottiePlayer setPlaying={setPlaying}/> */}
-                <div style={{backgroundColor: "#310002"}} className="w-full h-full"></div>
+                className="z-[9999] fixed top-0 left-0 right-0 bottom-0 pixel-dissolve-overlay">
             </div>
             <div
-                className={`transition-opacity duration-1000 ${
-                    playing ? "opacity-0" : "opacity-100"
-                }`}
             >
                 <Hero/>
             </div>

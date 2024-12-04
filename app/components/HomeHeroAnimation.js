@@ -2,10 +2,13 @@
 import BlackInkLogo from "@/public/images/black-ink-logo-cream.png";
 import Image from "next/image";
 import React from "react";
-import { LottiePlayer } from "./LottiePlayer";
 
 export function HomeHeroAnimation() {
     const [playing, setPlaying] = React.useState(true);
+
+    setTimeout(() => {
+      setPlaying(false);
+    }, 1000);
 
     React.useEffect(() => {
         // Add/remove no-scroll class on body when animation is playing
@@ -24,11 +27,12 @@ export function HomeHeroAnimation() {
     return (
         <div className="h-screen w-screen">
             <div
-                className={`z-50 fixed top-0 left-0 right-0 bottom-0 transition-opacity duration-1000 ${
+                className={`z-[9999] fixed top-0 left-0 right-0 bottom-0 transition-opacity duration-1000 ${
                     playing ? 'opacity-100' : 'opacity-0 pointer-events-none'
                 }`}
             >
-                <LottiePlayer setPlaying={setPlaying}/>
+                {/* <LottiePlayer setPlaying={setPlaying}/> */}
+                <div style={{backgroundColor: "#310002"}} className="w-full h-full"></div>
             </div>
             <div
                 className={`transition-opacity duration-1000 ${

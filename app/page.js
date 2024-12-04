@@ -42,7 +42,7 @@ export default async function Home() {
                     </h1>
                 </div>
                 <div className="relative pt-[100dvh]">
-                    <div className="flex flex-col justify-between min-w-screen h-dvh bg-black">
+                    <div className="flex flex-col justify-between min-w-screen h-dvh bg-black px-10">
                         <FadeIn viewportMargin="100px 100px 100px">
                             <h3 className="text-center text-[#EFEEE8] text-xl md:text-4xl pt-10 border-t border-[#EFEEE8] font-signifier">
                                 There are <i>many futures, </i>

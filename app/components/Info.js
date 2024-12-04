@@ -1,4 +1,5 @@
 "use client";
+
 import { Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
@@ -16,6 +17,13 @@ export function Info({
                          textLight = true,
                          minHeight = "50vh",
                      }) {
+
+    const [isClientLoaded, setIsClientLoaded] = useState(false);
+
+    useEffect(() => {
+        setIsClientLoaded(true);
+    }, []);
+
     if (sections.length === 0) {
         return null;
     }
@@ -33,7 +41,7 @@ export function Info({
                 minHeight: minHeight
             }}
         >
-            {backgroundAnimation && (
+            {isClientLoaded && backgroundAnimation && (
                 <div className="absolute top-0 left-0 w-full h-full">
                     <Lottie loop play path={backgroundAnimation}
                             style={{width: '100%', height: '100%', objectFit: 'cover'}}/>

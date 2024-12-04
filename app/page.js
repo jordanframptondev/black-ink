@@ -24,55 +24,57 @@ export default async function Home() {
     return (
         <div className="relative">
             <Header color="cream"/>
-            <HomeHeroAnimation/>
-            <div className="mt-screen bg-black px-10 pb-10 h-dvh flex flex-col justify-between">
-                <FadeIn viewportMargin="100px 100px 100px">
-                    <h3 className="text-center text-[#EFEEE8] text-xl md:text-4xl border-t border-[#EFEEE8] pt-10 font-signifier">
-                        There are <i>many futures, </i>
-                        <br className="block md:hidden"/>
-                        Black Ink points you to <i>the right one.</i>
-                    </h3>
-                </FadeIn>
-                <FadeIn viewportMargin="100px 100px 100px">
-                    <h2 className="text-center text-[#EFEEE8] text-xl md:text-4xl font-signifier">
-                        We facilitate the{" "}
-                        <i>selection, design, and implementation</i> of
-                        strategic projects.
-                    </h2>
-                </FadeIn>
-            </div>
-            <div className={"min-w-[100dvh]"}>
-                <Info
-                    backgroundColor="#544F3D"
-                    title="ETHOS"
-                    sections={ethosData}
+            <div className="relative overflow-x-hidden">
+                <HomeHeroAnimation/>
+                <div className="mt-screen bg-black px-10 pb-10 h-dvh flex flex-col justify-between">
+                    <FadeIn viewportMargin="100px 100px 100px">
+                        <h3 className="text-center text-[#EFEEE8] text-xl md:text-4xl border-t border-[#EFEEE8] pt-10 font-signifier">
+                            There are <i>many futures, </i>
+                            <br className="block md:hidden"/>
+                            Black Ink points you to <i>the right one.</i>
+                        </h3>
+                    </FadeIn>
+                    <FadeIn viewportMargin="100px 100px 100px">
+                        <h2 className="text-center text-[#EFEEE8] text-xl md:text-4xl font-signifier">
+                            We facilitate the{" "}
+                            <i>selection, design, and implementation</i> of
+                            strategic projects.
+                        </h2>
+                    </FadeIn>
+                </div>
+                <div className={"min-w-[100dvh]"}>
+                    <Info
+                        backgroundColor="#544F3D"
+                        title="ETHOS"
+                        sections={ethosData}
+                    />
+                </div>
+                <Testimonials logos={logos}/>
+                <FullCta
+                    overlay="#3A332E"
+                    link="/contact"
+                    displayText="FIND THE PATH TO FUTURE PROOF"
+                    backgroundImageSrc={HomeCta}
                 />
-            </div>
-            <Testimonials logos={logos}/>
-            <FullCta
-                overlay="#3A332E"
-                link="/contact"
-                displayText="FIND THE PATH TO FUTURE PROOF"
-                backgroundImageSrc={HomeCta}
-            />
-            <Info
-                backgroundColor="#efeee8"
-                // backgroundAnimation={"/services_bg.json"}
-                backgroundImage="/images/services-background.png"
-                title="SERVICES"
-                sections={servicesData}
-                textLight={false}
-                minHeight={"100dvh"}
-            />
-            <ResourcesPreviewList posts={blogPosts}/>
-            <Info
-                backgroundColor="#efeee8"
-                title="PARTNERS"
-                sections={partnersData}
-                textLight={false}
-            />
-            <div>
-                <Footer/>
+                <Info
+                    backgroundColor="#efeee8"
+                    // backgroundAnimation={"/services_bg.json"}
+                    backgroundImage="/images/services-background.png"
+                    title="SERVICES"
+                    sections={servicesData}
+                    textLight={false}
+                    minHeight={"100dvh"}
+                />
+                <ResourcesPreviewList posts={blogPosts}/>
+                <Info
+                    backgroundColor="#efeee8"
+                    title="PARTNERS"
+                    sections={partnersData}
+                    textLight={false}
+                />
+                <div>
+                    <Footer/>
+                </div>
             </div>
         </div>
     );

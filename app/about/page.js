@@ -34,7 +34,7 @@ export default async function About() {
     return (
         <div className={"text-[#EFEEE8] bg-[#3A332E]"}>
             <Header color="cream"/>
-            <div className={"fixed flex w-full min-h-dvh"}>
+            <div className="fixed flex w-full min-h-dvh">
                 <Image
                     src="/images/about-bg-dark.png"
                     alt="Background Image"

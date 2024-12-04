@@ -39,7 +39,7 @@ export default function Contact() {
     }, []);
 
     return (
-        <div className="h-dvh">
+        <div>
             <Header color={headerColor}/>
 
             <div className="absolute h-dvh w-dvw top-0 left-0 bg-[#EFEEE8] md:bg-[#544F3D] -z-50">

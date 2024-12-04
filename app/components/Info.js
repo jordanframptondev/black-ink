@@ -6,7 +6,9 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FadeIn, FadeInStagger } from "./FadeIn";
 import { urlFor } from "../utils/cms-service";
-import Lottie from "react-lottie-player";
+import dynamic from 'next/dynamic';
+
+const Lottie = dynamic(() => import('react-lottie-player'), {ssr: false});
 
 export function Info({
                          backgroundColor,

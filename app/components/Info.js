@@ -3,7 +3,7 @@
 import { Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FadeIn, FadeInStagger } from "./FadeIn";
 import { urlFor } from "../utils/cms-service";
 import Lottie from "react-lottie-player";

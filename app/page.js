@@ -57,7 +57,7 @@ export default async function Home() {
             />
             <Info
                 backgroundColor="#efeee8"
-                backgroundImage="/images/services-background.png"
+                backgroundAnimation={"/services_bg.lottie"}
                 title="SERVICES"
                 sections={servicesData}
                 textLight={false}

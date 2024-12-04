@@ -25,7 +25,8 @@ export function HomeHeroAnimation() {
   return (
     <div className="h-screen w-screen">
       <div
-        className={`z-50 fixed top-0 left-0 right-0 bottom-0 transition-opacity duration-1000 ${
+        style={{zIndex: 999}}
+        className={`fixed top-0 left-0 right-0 bottom-0 transition-opacity duration-1000 ${
           playing && !animationPlayed ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
@@ -34,6 +35,7 @@ export function HomeHeroAnimation() {
           src={"/intro.lottie"}
           animationPlayed={animationPlayed}
           setAnimationPlayed={setAnimationPlayed}
+          backgroundColor="#000000"
         />
       </div>
       <div

@@ -1,9 +1,14 @@
 import { FadeIn } from "@/app/components/FadeIn";
 import "@/styles/careers.css";
 import { PortableText } from '@portabletext/react';
-import Link from "next/link";
 
 export default function Careers({quote}) {
+    const quoteComponents = {
+        block: {
+            normal: ({children}) => <p className="min-h-10">{children}</p>,
+        }
+    };
+
     return (
         <div className={"flex flex-col bg-[#EFEEE8] text-black w-full transition-all duration-1000 ease-in"}>
             <div className={"py-10 mx-10 mb-[75px] border-y border-y-black"}>
@@ -14,7 +19,7 @@ export default function Careers({quote}) {
                     <div className={"w-full md:w-2/3"}>
                         <FadeIn>
                             <div className={"text-xl md:text-4xl font-signifier"}>
-                                <PortableText value={quote}/>
+                                <PortableText value={quote} components={quoteComponents} />
                             </div>
                         </FadeIn>
                     </div>

@@ -23,7 +23,7 @@ import React from "react";
 //   | 'render'
 //   | 'ready';
 
-export function LottiePlayer({ setPlaying, src, animationPlayed, setAnimationPlayed }) {
+export function LottiePlayer({ setPlaying, src, animationPlayed, setAnimationPlayed, backgroundColor, loop = false }) {
   const [dotLottie, setDotLottie] = React.useState(null);
 
   const dotLottieRefCallback = (dotLottie) => {
@@ -36,6 +36,10 @@ export function LottiePlayer({ setPlaying, src, animationPlayed, setAnimationPla
         ...dotLottie.layout,
         fit: "cover",
       });
+    }
+
+    function onLoadError(event) {
+      console.error("Lottie load error", event);
     }
 
     function onPlay() {
@@ -51,6 +55,7 @@ export function LottiePlayer({ setPlaying, src, animationPlayed, setAnimationPla
       dotLottie.addEventListener("ready", isReady);
       dotLottie.addEventListener("play", onPlay);
       dotLottie.addEventListener("complete", onComplete);
+      dotLottie.addEventListener('loadError', onLoadError);
     }
 
     return () => {
@@ -65,10 +70,10 @@ export function LottiePlayer({ setPlaying, src, animationPlayed, setAnimationPla
   return (
     <DotLottieReact
       src={src}
-      loop={false}
+      loop={loop}
       autoplay={!animationPlayed}
       dotLottieRefCallback={dotLottieRefCallback}
-      backgroundColor="#000000"
+      backgroundColor={backgroundColor}
     />
   );
 }

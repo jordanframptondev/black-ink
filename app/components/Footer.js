@@ -1,5 +1,5 @@
-import "@/styles/footer.css";
 import { FadeIn } from "@/app/components/FadeIn";
+import "@/styles/footer.css";
 import Link from "next/link";
 
 export function Footer() {
@@ -55,7 +55,7 @@ export function Footer() {
                                     className={"credits-container w-full h-7 md:h-8 relative font-signifier cursor-default"}>
                                     <div className="credits-text">Credits</div>
                                     <div className="new-credits-text whitespace-nowrap overflow-scroll">
-                                        Branding & Design: Tenant | Site Development: Moat
+                                        Branding & Design: Tenant | <a href="https://www.moat.studio/" target="_blank" rel="noopener noreferrer">Site Development: Moat</a>
                                     </div>
                                 </div>
                             </div>

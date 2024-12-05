@@ -26,76 +26,74 @@ export default async function Home() {
 
     return (
         <div className="relative">
-            <div>
-                <Header color="cream"/>
-                <HeroAnimation />
-                <Hero />
-                
-                <div className="relative pt-[100dvh]">
-                    <div className="flex flex-col justify-between min-w-screen h-dvh bg-black px-10">
-                        <FadeIn viewportMargin="100px 100px 100px">
-                            <h3 className="text-center text-[#EFEEE8] text-xl md:text-4xl pt-10 border-t border-[#EFEEE8] font-signifier">
-                                There are <i>many futures, </i>
-                                <br className="block md:hidden"/>
-                                Black Ink points you to <i>the right one.</i>
-                            </h3>
-                        </FadeIn>
-                        <FadeIn viewportMargin="100px 100px 100px">
-                            <h2 className="mt-auto text-center text-[#EFEEE8] text-xl md:text-4xl pb-10 font-signifier">
-                                We facilitate the{" "}
-                                <i>selection, design, and implementation</i> of
-                                strategic projects.
-                            </h2>
-                        </FadeIn>
-                    </div>
+            <Header color="cream"/>
+            <HeroAnimation />
+            <Hero />
+            
+            <div className="relative pt-[100dvh]">
+                <div className="flex flex-col justify-between min-w-screen h-dvh bg-black px-10">
+                    <FadeIn viewportMargin="100px 100px 100px">
+                        <h3 className="text-center text-[#EFEEE8] text-xl md:text-4xl pt-10 border-t border-[#EFEEE8] font-signifier">
+                            There are <i>many futures, </i>
+                            <br className="block md:hidden"/>
+                            Black Ink points you to <i>the right one.</i>
+                        </h3>
+                    </FadeIn>
+                    <FadeIn viewportMargin="100px 100px 100px">
+                        <h2 className="mt-auto text-center text-[#EFEEE8] text-xl md:text-4xl pb-10 font-signifier">
+                            We facilitate the{" "}
+                            <i>selection, design, and implementation</i> of
+                            strategic projects.
+                        </h2>
+                    </FadeIn>
                 </div>
-                {ethosData ? (<div className={"relative"}>
-                    <Info
-                        backgroundColor="#544F3D"
-                        title="ETHOS"
-                        sections={ethosData}
-                    />
-                </div>) : null}
-                {(testimonials?.length > 0 || logos?.length > 0) ? (
-                    <div className={"relative bg-[#EFEEE8] pt-10 px-10"}>
-                        {testimonials?.length > 0 && <Testimonials testimonials={testimonials}/>}
-                        {logos?.length > 0 && <Logos logos={logos} />}
-                    </div>
-                ) : null}
-                <FullCta
-                    overlay="#3A332E"
-                    link="/contact"
-                    displayText="FIND THE PATH TO FUTURE PROOF"
-                    backgroundImageSrc={HomeCta}
+            </div>
+            {ethosData ? (<div className={"relative"}>
+                <Info
+                    backgroundColor="#544F3D"
+                    title="ETHOS"
+                    sections={ethosData}
                 />
-                {servicesData ? (
-                    <Info
-                        backgroundColor="#efeee8"
-                        backgroundAnimation={"/services_bg.json"}
-                        title="SERVICES"
-                        sections={servicesData}
-                        textLight={false}
-                        minHeight={"100dvh"}
-                    />
-                    ) : null}
-                {blogPosts?.length > 0 ? (
-                    <div className={"relative bg-black"}>
-                        <ResourcesPreviewList background={"black"} posts={blogPosts}/>
-                    </div>
-                ) : null}
-                {partnersData ? (
-                    <div className={"relative bg-[#EFEEE8]"}>
-                    <Info
-                        backgroundColor="#efeee8"
-                        title="PARTNERS"
-                        sections={partnersData}
-                        textLight={false}
-                        />
-                    </div>
-                ) : null}
-                <div className="relative bg-black">
-                    <Footer/>
+            </div>) : null}
+            {(testimonials?.length > 0 || logos?.length > 0) ? (
+                <div className={"relative bg-[#EFEEE8] pt-10 px-10"}>
+                    {testimonials?.length > 0 && <Testimonials testimonials={testimonials}/>}
+                    {logos?.length > 0 && <Logos logos={logos} />}
                 </div>
+            ) : null}
+            <FullCta
+                overlay="#3A332E"
+                link="/contact"
+                displayText="FIND THE PATH TO FUTURE PROOF"
+                backgroundImageSrc={HomeCta}
+            />
+            {servicesData ? (
+                <Info
+                    backgroundColor="#efeee8"
+                    backgroundAnimation={"/services_bg.json"}
+                    title="SERVICES"
+                    sections={servicesData}
+                    textLight={false}
+                    minHeight={"100dvh"}
+                />
+                ) : null}
+            {blogPosts?.length > 0 ? (
+                <div className={"relative bg-black"}>
+                    <ResourcesPreviewList background={"black"} posts={blogPosts}/>
+                </div>
+            ) : null}
+            {partnersData ? (
+                <div className={"relative bg-[#EFEEE8]"}>
+                <Info
+                    backgroundColor="#efeee8"
+                    title="PARTNERS"
+                    sections={partnersData}
+                    textLight={false}
+                    />
+                </div>
+            ) : null}
+            <div className="relative bg-black">
+                <Footer/>
             </div>
         </div>
     );

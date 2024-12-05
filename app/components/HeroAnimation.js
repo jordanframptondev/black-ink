@@ -1,19 +1,28 @@
 "use client";
-import BlackInkLogo from "@/public/images/black-ink-logo-cream.png";
+
 import animationData from '@/public/Ink_Intro.json';
-import Image from "next/image";
+import dynamic from 'next/dynamic';
 import React from "react";
-import Lottie from 'react-lottie-player';
+
+const Lottie = dynamic(() => import('react-lottie-player'), {ssr: false});
 
 export function HeroAnimation() {
     const [playing, setPlaying] = React.useState(true);
     const [animationPlayed, setAnimationPlayed] = React.useState(false);
-
+    
     function onComplete() {
-        console.log('complete');
         setPlaying(false);
         setAnimationPlayed(true);
+        sessionStorage.setItem('animationPlayed', 'true');
     }
+
+    React.useEffect(() => {
+        const hasPlayed = sessionStorage.getItem('animationPlayed') === 'true';
+        if (hasPlayed) {
+            setPlaying(false);
+            setAnimationPlayed(true);
+        }
+    }, []);
 
     React.useEffect(() => {
         // Add/remove no-scroll class on body when animation is playing
@@ -36,7 +45,7 @@ export function HeroAnimation() {
                         playing && !animationPlayed ? 'opacity-100' : 'opacity-0 pointer-events-none'
                     }`}
                 >
-                    {!animationPlayed && <Lottie play loop={false} animationData={animationData} onLoad={() => console.log('load')} onComplete={onComplete} />}
+                    <Lottie play loop={false} animationData={animationData} onComplete={onComplete} style={{width: '100vw', height: '100vh', objectFit: 'cover'}} />
                 </div>
         </div>
     );

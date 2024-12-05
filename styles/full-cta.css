@@ -1,3 +1,7 @@
+.cta-link-text {
+    margin-left: 10px;
+}
+
 @media (min-width: 640px) {
     .cta-link {
         position: relative;
@@ -10,6 +14,10 @@
     .full-cta-arrow, .cta-link-text {
         display: inline-block;
         transition: transform 0.5s ease, opacity 0.3s ease;
+    }
+
+    .cta-link-text {
+        margin-left: 0;
     }
 
     .full-cta-arrow {

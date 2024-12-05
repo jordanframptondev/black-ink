@@ -36,6 +36,6 @@
     }
 
     .cta-link:hover .cta-link-text {
-        transform: translateX(20px); /* Slide text to the right */
+        transform: translateX(30px); /* Slide text to the right */
     }
 }

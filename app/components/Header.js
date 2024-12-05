@@ -118,7 +118,7 @@ export function Header({color}) {
                 </div>
                 <div id="menu-background" className={`circle`} onClick={handleMenuClick}/>
                 <div id="menu"
-                     className={`menu z-[99] flex w-dvw h-dvh text-3xl md:text-4xl font-ritma`}
+                     className={`menu z-[99] flex w-dvw h-screen text-3xl md:text-4xl font-ritma`}
                      onClick={handleMenuClick}
                 >
                     <div

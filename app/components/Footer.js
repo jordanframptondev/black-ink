@@ -32,30 +32,35 @@ export function Footer() {
                         </Link>
                         <div
                             className={"flex flex-col md:flex-row mt-auto text-lg md:text-2xl border-y border-white py-[40px] md:py-[60px] justify-end md:justify-start"}>
-                            <div className={"flex flex-col w-full items-end md:items-start"}>
-                                <Link href={"/"} className={"footer-link cursor-pointer w-full font-signifier"}>
+                            <div className={"flex flex-col w-full items-end md:items-start font-signifier"}>
+                                <Link href={"/"} className={"footer-link cursor-pointer w-full "}>
                                     <span className="footer-arrow">→</span>
                                     <span className="footer-link-text">Home</span>
                                 </Link>
-                                <Link href={"/contact"} className={"footer-link cursor-pointer w-full font-signifier"}>
+                                <Link href={"/contact"} className={"footer-link cursor-pointer w-full"}>
                                     <span className="footer-arrow">→</span>
                                     <span className="footer-link-text">Contact</span>
                                 </Link>
                                 <Link href={"/about"}
-                                      className={"footer-link cursor-pointer w-full font-signifierItalic"}>
+                                      className={"footer-link cursor-pointer w-full"}>
                                     <span className="footer-arrow">→</span>
                                     <span className="footer-link-text">About</span>
                                 </Link>
                                 <Link href={"/resources"}
-                                      className={"footer-link cursor-pointer w-full font-signifier"}>
+                                      className={"footer-link cursor-pointer w-full"}>
                                     <span className="footer-arrow">→</span>
                                     <span className="footer-link-text">Resources</span>
                                 </Link>
                                 <div
-                                    className={"credits-container w-full h-7 md:h-8 relative font-signifier cursor-default"}>
+                                    className={"credits-container w-full h-7 md:h-8 relative cursor-default"}>
                                     <div className="credits-text">Credits</div>
                                     <div className="new-credits-text whitespace-nowrap overflow-scroll">
-                                        Branding & Design: Tenant | Site Development: Moat
+                                        <a href={"https://tenant.studio"} target={"_blank"}
+                                           className="inline cursor-pointer text-white bg-transparent p-0 m-0 border-0 hover:underline">Branding
+                                            & Design: Tenant</a>&nbsp;|&nbsp;
+                                        <a href={"https://moat.studio"} target={"_blank"}
+                                           className="inline cursor-pointer text-white bg-transparent p-0 m-0 border-0 hover:underline">Site
+                                            Development: Moat</a>
                                     </div>
                                 </div>
                             </div>

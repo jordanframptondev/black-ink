@@ -21,9 +21,18 @@ export function Info({
                      }) {
 
     const [isClientLoaded, setIsClientLoaded] = useState(false);
+    const [isDesktop, setIsDesktop] = useState(false);
 
     useEffect(() => {
         setIsClientLoaded(true);
+        const checkDesktop = () => {
+            setIsDesktop(window.innerWidth >= 1024); // lg breakpoint in Tailwind
+        };
+        
+        checkDesktop();
+        window.addEventListener('resize', checkDesktop);
+        
+        return () => window.removeEventListener('resize', checkDesktop);
     }, []);
 
     if (sections.length === 0) {
@@ -35,7 +44,7 @@ export function Info({
             className="relative w-screen pt-10 px-10 pb-20"
             style={{
                 background: backgroundColor,
-                backgroundImage: backgroundImage
+                backgroundImage: !isDesktop && backgroundImage
                     ? `url(${backgroundImage})`
                     : "none",
                 backgroundSize: "cover",
@@ -43,7 +52,7 @@ export function Info({
                 minHeight: minHeight
             }}
         >
-            {isClientLoaded && backgroundAnimation && (
+            {isClientLoaded && backgroundAnimation && isDesktop && (
                 <div className="absolute top-0 left-0 w-full h-full">
                     <Lottie loop play path={backgroundAnimation}
                             style={{width: '100%', height: '100%', objectFit: 'cover'}}/>

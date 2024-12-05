@@ -34,7 +34,7 @@ export default async function About() {
     return (
         <div className={"text-[#EFEEE8] bg-[#3A332E]"}>
             <Header color="cream"/>
-            <div className="fixed flex w-full min-h-dvh">
+            <div className="fixed flex w-full min-h-screen">
                 <Image
                     src="/images/about-bg-dark.png"
                     alt="Background Image"
@@ -44,8 +44,8 @@ export default async function About() {
                     priority={true}
                 />
             </div>
-            <div className={"relative pt-[100dvh]"}>
-                <div className={"flex justify-center min-w-screen min-h-[100dvh] bg-[#3A332E]"}>
+            <div className={"relative pt-[100vh]"}>
+                <div className={"flex justify-center min-w-screen min-h-screen bg-[#3A332E]"}>
                     <div className={"flex border-t border-[#EFEEE8] mx-10"}>
                         <div className={"flex flex-col md:flex-row my-10"}>
                             <div

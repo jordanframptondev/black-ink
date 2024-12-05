@@ -123,7 +123,7 @@ export function ResourcesPreviewList({background, posts, onArticle = false}) {
                                                 </FadeIn>
                                                 <FadeIn>
                                                     <div
-                                                        className="block text-[#efeee8] text-base sm:text-2xl font-light font-signifier mt-4 pl-1">
+                                                        className="block text-[#efeee8] text-base sm:text-lg font-light font-signifier mt-4 pl-1">
                                                         {blog.title}
                                                     </div>
                                                 </FadeIn>

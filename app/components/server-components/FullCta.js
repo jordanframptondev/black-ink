@@ -5,7 +5,7 @@ import { FadeIn } from '../FadeIn';
 
 export async function FullCta({backgroundImageSrc, overlay, displayText, link}) {
     return (
-        <div className="relative flex items-center justify-center bg-black w-screen min-h-dvh">
+        <div className="relative flex items-center justify-center bg-black w-screen min-h-screen">
             <Image src={backgroundImageSrc} fill quality={100} placeholder="blur" sizes="100vw" alt="Black Ink" style={{
                 objectFit: 'cover',
             }}/>

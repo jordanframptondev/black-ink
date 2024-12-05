@@ -7,7 +7,7 @@ import { FadeIn } from "../components/FadeIn";
 import { urlFor } from "../utils/cms-service";
 import PostBody from "./PostBody";
 
-export default function ResourceArticle({ article, allArticles }) {
+export default function ResourceArticle({article, allArticles}) {
     const router = useRouter();
     let backgroundColor = "#EFEEE8";
     let textColor = "#000000";
@@ -33,7 +33,7 @@ export default function ResourceArticle({ article, allArticles }) {
 
     return (
         <>
-            <div className={`h-dvh bg-[#544F3D] px-10 pb-10`}>
+            <div className={`h-screen bg-[#544F3D] px-10 pb-10`}>
                 <div className="flex h-full md:pt-[140px]">
                     <div className="hidden md:block md:w-1/3"></div>
                     <div className="w-full md:w-2/3 transition-all duration-500 ease-in">
@@ -57,7 +57,7 @@ export default function ResourceArticle({ article, allArticles }) {
                                             alt={article?.title}
                                             width={1220}
                                             height={610}
-                                            className="w-full h-full md:h-[55dvh] object-cover"
+                                            className="w-full h-full md:h-[55vh] object-cover"
                                         />
                                     </div>
                                 </FadeIn>
@@ -87,7 +87,7 @@ export default function ResourceArticle({ article, allArticles }) {
 
             <div
                 className="flex flex-col md:flex-row p-10"
-                style={{ backgroundColor: backgroundColor, color: textColor }}
+                style={{backgroundColor: backgroundColor, color: textColor}}
             >
                 <div className="w-full md:w-1/3">
                     <h2 className="font-ritma text-lg md:text-2xl">
@@ -95,7 +95,7 @@ export default function ResourceArticle({ article, allArticles }) {
                     </h2>
                 </div>
                 <div className="w-full md:w-2/3">
-                    <PostBody text={article?.body} />
+                    <PostBody text={article?.body}/>
                 </div>
             </div>
         </>

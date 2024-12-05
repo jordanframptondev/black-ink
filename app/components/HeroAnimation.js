@@ -1,6 +1,7 @@
 "use client";
 
 import animationData from '@/public/Ink_Intro.json';
+import "@/styles/intro-animation.css";
 import dynamic from 'next/dynamic';
 import React from "react";
 
@@ -9,7 +10,6 @@ const Lottie = dynamic(() => import('react-lottie-player'), {ssr: false});
 export function HeroAnimation() {
     const [playing, setPlaying] = React.useState(true);
     const [animationPlayed, setAnimationPlayed] = React.useState(false);
-    const [styles, setStyles] = React.useState({});
     
     function onComplete() {
         setPlaying(false);
@@ -25,38 +25,6 @@ export function HeroAnimation() {
             setPlaying(false);
             setAnimationPlayed(true);
         }
-
-        const checkScreenSize = () => {
-            if (window.innerWidth < 768) {
-                setStyles({
-                    width: '320%',
-                    marginLeft: '-110%'
-                });
-            } else if (window.innerWidth >= 768 && window.innerWidth <= 1024) {
-                setStyles({
-                    width: '200%',
-                    marginLeft: '-50%'
-                });
-            } else {
-                setStyles({
-                    width: '100vw', 
-                    height: '100vh', 
-                    objectFit: 'cover',
-                    position: 'fixed',
-                    top: 0,
-                    left: 0
-                });
-            }
-        };
-
-        // Initial check
-        checkScreenSize();
-
-        // Add resize listener
-        window.addEventListener('resize', checkScreenSize);
-
-        // Cleanup
-        return () => window.removeEventListener('resize', checkScreenSize);
     }, []);
 
     React.useEffect(() => {
@@ -75,21 +43,26 @@ export function HeroAnimation() {
 
     return (
         !animationPlayed ?
-        <div className={"h-screen w-screen"}>
             <div
-                className={`z-[9999] fixed top-0 left-0 right-0 bottom-0 transition-opacity duration-1000 ease-out ${
+            id="hero-animation"
+                className={`z-[9999] relative transition-opacity duration-1000 ease-out ${
                     playing && !animationPlayed ? 'opacity-100' : 'opacity-0 pointer-events-none'
                 }`}
             >
                 <Lottie 
                     play 
-                    loop={false} 
+                    loop={true} 
                     animationData={animationData} 
                     onComplete={onComplete}
-                    style={styles}
+                    style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        right: 0
+                    }}
                 />
             </div>
-        </div> : null
+        : null
     );
 }
 

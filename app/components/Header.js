@@ -78,14 +78,22 @@ export function Header({color}) {
         const menuState = !showMenu;
         setShowMenu(menuState);
         if (menuState) {
-            document.body.classList.add("no-scroll");
+            document.documentElement.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+            
             document.getElementById("menu-background").classList.remove("reverse");
             document.getElementById("menu-background").classList.add("animate");
             document.getElementById("menu").classList.remove("hide");
             document.getElementById("logo").classList.add("show");
             document.getElementById("menu").classList.add("show");
         } else {
-            document.body.classList.remove("no-scroll");
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+            
             document.getElementById("menu-background").classList.remove("animate");
             document.getElementById("menu-background").classList.add("reverse");
             document.getElementById("logo").classList.remove("show");

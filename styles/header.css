@@ -65,19 +65,25 @@
 }
 
 .menu {
-    position: absolute;
-    background-color: #EFEEE8;
-    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #EFEEE8;
     visibility: hidden;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateX(100%);
     transition: opacity 1s ease, visibility 1s ease;
     transition-delay: 0s;
     cursor: url('/cursor-x-small.png'), auto;
 }
 
 .menu.show {
-    opacity: 1;
     visibility: visible;
-    transition-delay: .5s;
+    opacity: 1;
+    transform: translateX(0);
 }
 
 @media (min-width: 1024px) {

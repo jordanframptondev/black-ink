@@ -6,10 +6,11 @@ import { FadeIn } from "./components/FadeIn";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Info } from "./components/Info";
+import { Logos } from "./components/Logos";
 import { ResourcesPreviewList } from "./components/ResourcesPreviewList";
 import { FullCta } from "./components/server-components/FullCta";
 import { Testimonials } from "./components/Testimonials";
-import { getEthosData, getLogos, getPartnersData, getPostList, getServicesData } from "./utils/cms-service";
+import { getEthosData, getLogos, getPartnersData, getPostList, getServicesData, getTestimonials } from "./utils/cms-service";
 
 export default async function Home() {
     const ethosData = (await getEthosData())?.[0]?.contentList;
@@ -17,6 +18,7 @@ export default async function Home() {
     const partnersData = (await getPartnersData())?.[0]?.contentList;
     const cmsLogosResponse = await getLogos();
     const blogPosts = await getPostList();
+    const testimonials = (await getTestimonials())?.[0]?.testimonialList;
     const logos = cmsLogosResponse[0]?.logos.map((logo) => ({
         url: logo.asset.url,
         id: logo.asset.assetId,
@@ -65,9 +67,12 @@ export default async function Home() {
                         sections={ethosData}
                     />
                 </div>) : null}
-                <div className={"relative bg-[#EFEEE8]"}>
-                    <Testimonials logos={logos}/>
-                </div>
+                {(testimonials?.length > 0 || logos?.length > 0) ? (
+                    <div className={"relative bg-[#EFEEE8] pt-10 px-10"}>
+                        {testimonials?.length > 0 && <Testimonials testimonials={testimonials}/>}
+                        {logos?.length > 0 && <Logos logos={logos} />}
+                    </div>
+                ) : null}
                 <FullCta
                     overlay="#3A332E"
                     link="/contact"
@@ -77,8 +82,7 @@ export default async function Home() {
                 {servicesData ? (
                     <Info
                         backgroundColor="#efeee8"
-                        // backgroundAnimation={"/services_bg.json"}
-                        backgroundImage="/images/services-background.png"
+                        backgroundAnimation={"/services_bg.json"}
                         title="SERVICES"
                         sections={servicesData}
                         textLight={false}

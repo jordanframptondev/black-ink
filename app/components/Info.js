@@ -2,23 +2,22 @@
 
 import { Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/outline";
+import dynamic from 'next/dynamic';
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { FadeIn, FadeInStagger } from "./FadeIn";
 import { urlFor } from "../utils/cms-service";
-import dynamic from 'next/dynamic';
+import { FadeIn, FadeInStagger } from "./FadeIn";
 
 const Lottie = dynamic(() => import('react-lottie-player'), {ssr: false});
 
 export function Info({
-                         backgroundColor,
-                         backgroundImage,
-                         backgroundAnimation,
-                         title,
-                         sections,
-                         textLight = true,
-                         minHeight = "50vh",
-                     }) {
+    backgroundColor,
+    backgroundAnimation,
+    title,
+    sections,
+    textLight = true,
+    minHeight = "50vh",
+}) {
 
     const [isClientLoaded, setIsClientLoaded] = useState(false);
 
@@ -35,18 +34,13 @@ export function Info({
             className="relative w-screen pt-10 px-10 pb-20"
             style={{
                 background: backgroundColor,
-                backgroundImage: backgroundImage
-                    ? `url(${backgroundImage})`
-                    : "none",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
                 minHeight: minHeight
             }}
         >
             {isClientLoaded && backgroundAnimation && (
                 <div className="absolute top-0 left-0 w-full h-full">
                     <Lottie loop play path={backgroundAnimation}
-                            style={{width: '100%', height: '100%', objectFit: 'cover'}}/>
+                            style={{width: '130%'}}/>
                 </div>
             )}
             <div className="relative">

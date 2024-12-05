@@ -9,6 +9,7 @@ const Lottie = dynamic(() => import('react-lottie-player'), {ssr: false});
 export function HeroAnimation() {
     const [playing, setPlaying] = React.useState(true);
     const [animationPlayed, setAnimationPlayed] = React.useState(false);
+    const [styles, setStyles] = React.useState({});
     
     function onComplete() {
         setPlaying(false);
@@ -24,6 +25,38 @@ export function HeroAnimation() {
             setPlaying(false);
             setAnimationPlayed(true);
         }
+
+        const checkScreenSize = () => {
+            if (window.innerWidth < 768) {
+                setStyles({
+                    width: '320%',
+                    marginLeft: '-110%'
+                });
+            } else if (window.innerWidth >= 768 && window.innerWidth <= 1024) {
+                setStyles({
+                    width: '200%',
+                    marginLeft: '-50%'
+                });
+            } else {
+                setStyles({
+                    width: '100vw', 
+                    height: '100vh', 
+                    objectFit: 'cover',
+                    position: 'fixed',
+                    top: 0,
+                    left: 0
+                });
+            }
+        };
+
+        // Initial check
+        checkScreenSize();
+
+        // Add resize listener
+        window.addEventListener('resize', checkScreenSize);
+
+        // Cleanup
+        return () => window.removeEventListener('resize', checkScreenSize);
     }, []);
 
     React.useEffect(() => {
@@ -52,15 +85,8 @@ export function HeroAnimation() {
                     play 
                     loop={false} 
                     animationData={animationData} 
-                    onComplete={onComplete} 
-                    style={{
-                        width: '100dvw', 
-                        height: '100dvh', 
-                        objectFit: 'cover',
-                        position: 'fixed',
-                        top: 0,
-                        left: 0
-                    }} 
+                    onComplete={onComplete}
+                    style={styles}
                 />
             </div>
         </div> : null

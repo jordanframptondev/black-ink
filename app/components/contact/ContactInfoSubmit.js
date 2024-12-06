@@ -106,7 +106,7 @@ const ContactInfoSubmit = forwardRef((props, ref) => {
                         &#8592; Go Back
                     </div>
                     <div
-                        className="text-right font-ritma uppercase cursor-pointer"
+                        className={`text-right font-ritma uppercase ${sent ? "cursor-default" : "cursor-pointer"}`}
                         onClick={handleSubmit}
                         disabled={sent}
                     >

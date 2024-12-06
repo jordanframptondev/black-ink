@@ -1,5 +1,6 @@
 import "./globals.css";
 import localFont from "next/font/local";
+import { ResourcesProvider } from './context/ResourcesContext';
 
 const ritma = localFont({
     src: "../public/fonts/ritma-medium.woff",
@@ -23,7 +24,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${ritma.variable} ${signifier.variable} ${signifierItalic.variable} !overflow-x-hidden tracking-wider`}
       >
-        {children}
+        <ResourcesProvider>
+          {children}
+        </ResourcesProvider>
       </body>
     </html>
   );

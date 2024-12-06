@@ -14,6 +14,7 @@ module.exports = {
       animation: {
         marquee: 'marquee 40s linear infinite',
         'marquee-pause': 'marquee 40s linear infinite paused',
+        'bounce-slow': 'bounce 2s infinite',
       },
       keyframes: {
         marquee: {

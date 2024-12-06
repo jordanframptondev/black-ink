@@ -5,12 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
+import { useResources } from "../context/ResourcesContext";
 
 export function Header({color}) {
     const [windowWidth, setWindowWidth] = useState(0);
     const [showMenu, setShowMenu] = useState(false);
     const [isFooterVisible, setIsFooterVisible] = useState(false);
     const [inverseMenuIcon, setInverseMenuIcon] = useState(false);
+    const { hasResources } = useResources();
 
     useEffect(() => {
         setWindowWidth(window.innerWidth);
@@ -126,14 +128,16 @@ export function Header({color}) {
                         <Link href={"/"} className={"nav-link border-t border-t-black py-6 cursor-pointer"}>
                             <span className="arrow">→</span> <span className="link-text">HOME</span>
                         </Link>
-                        <Link href={"/contact"} className={"nav-link border-y border-t-black py-6 cursor-pointer"}>
-                            <span className="arrow">→</span> <span className="link-text">CONTACT</span>
-                        </Link>
                         <Link href={"/about"} className={"nav-link border-t border-t-black py-6 cursor-pointer"}>
                             <span className="arrow">→</span> <span className="link-text">ABOUT</span>
                         </Link>
-                        <Link href={"/resources"} className={"nav-link border-y border-y-black py-6 cursor-pointer"}>
-                            <span className="arrow">→</span> <span className="link-text">RESOURCES</span>
+                        {hasResources && (
+                            <Link href={"/resources"} className={"nav-link border-y border-t-black py-6 cursor-pointer"}>
+                                <span className="arrow">→</span> <span className="link-text">RESOURCES</span>
+                            </Link>
+                        )}
+                        <Link href={"/contact"} className={"nav-link border-y border-y-black py-6 cursor-pointer"}>
+                            <span className="arrow">→</span> <span className="link-text">CONTACT</span>
                         </Link>
                     </div>
                 </div>

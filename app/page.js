@@ -11,6 +11,7 @@ import { ResourcesPreviewList } from "./components/ResourcesPreviewList";
 import { FullCta } from "./components/server-components/FullCta";
 import { Testimonials } from "./components/Testimonials";
 import { getEthosData, getLogos, getPartnersData, getPostList, getServicesData, getTestimonials } from "./utils/cms-service";
+import { ChevronDownIcon } from '@heroicons/react/24/outline';
 
 export default async function Home() {
     const ethosData = (await getEthosData())?.[0]?.contentList;
@@ -30,7 +31,7 @@ export default async function Home() {
             <IntroAnimation/>
             <div>
                 <Header color="cream"/>
-                <div className="fixed flex w-full min-h-screen">
+                <div className="fixed flex w-full min-h-screen flex-col">
                     <Image
                         src={BlackInkLogo}
                         width={150}
@@ -41,6 +42,7 @@ export default async function Home() {
                     <h1 className="text-white text-lg lg:text-2xl white font-ritma uppercase pb-11 mt-auto mx-auto">
                         into the black
                     </h1>
+                    <ChevronDownIcon className="w-6 h-6 text-white mx-auto mb-8 animate-bounce-slow" />
                 </div>
                 <div className="relative pt-[100vh]">
                     <div className="flex flex-col justify-between min-w-screen h-screen bg-black px-10">

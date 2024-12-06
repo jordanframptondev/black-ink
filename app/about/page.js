@@ -5,6 +5,7 @@ import { Header } from "@/app/components/Header";
 import { Info } from "@/app/components/Info";
 import { FullCta } from "@/app/components/server-components/FullCta";
 import { Team } from "@/app/components/Team";
+import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import { PortableText } from '@portabletext/react';
 import Image from "next/image";
 import AboutPageCTA from '../../public/images/home-cta.png';
@@ -34,7 +35,7 @@ export default async function About() {
     return (
         <div className={"text-[#EFEEE8] bg-[#3A332E]"}>
             <Header color="cream"/>
-            <div className="fixed flex w-full min-h-screen">
+            <div className="fixed flex w-full min-h-screen flex flex-col justify-end">
                 <Image
                     src="/images/about-bg-dark.png"
                     alt="Background Image"
@@ -43,6 +44,7 @@ export default async function About() {
                     className={"mt-auto w-full min-h-[550px] object-cover object-[35%] mb-[25px] md:mb-[150px]"}
                     priority={true}
                 />
+                <ChevronDownIcon className="z-[99] w-6 h-6 text-white mx-auto mb-8 animate-bounce-slow" />
             </div>
             <div className={"relative pt-[100vh]"}>
                 <div className={"flex justify-center min-w-screen min-h-screen bg-[#3A332E]"}>

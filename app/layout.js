@@ -18,6 +18,14 @@ const signifierItalic = localFont({
 });
 //todo: setup metadata on all pages for nice document tab titles, SEO, etc.
 
+export const metadata = {
+  title: {
+    default: 'Black Ink',
+    template: '%s | Black Ink'
+  },
+  description: 'We facilitate the selection, design, and implementation of strategic projects.',
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">

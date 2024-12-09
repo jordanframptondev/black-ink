@@ -13,6 +13,10 @@ import { SubHero } from "./components/SubHero";
 import { Testimonials } from "./components/Testimonials";
 import { getEthosData, getLogos, getPartnersData, getPostList, getServicesData, getTestimonials } from "./utils/cms-service";
 
+export const metadata = {
+  title: 'Home'
+};
+
 export default async function Home() {
     const ethosData = (await getEthosData())?.[0]?.contentList;
     const servicesData = (await getServicesData())?.[0]?.contentList;

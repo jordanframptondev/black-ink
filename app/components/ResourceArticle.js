@@ -94,7 +94,7 @@ export default function ResourceArticle({article, allArticles}) {
                         RESOURCES
                     </h2>
                 </div>
-                <div className="w-full md:w-2/3">
+                <div className="w-full md:w-2/3 min-h-screen">
                     <PostBody text={article?.body}/>
                 </div>
             </div>

@@ -4,18 +4,25 @@ import { FadeIn } from "@/app/components/FadeIn";
 import "@/styles/footer.css";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-export function Footer() {
+export function Footer({multiFixedElements = true}) {
     const [isAtBottom, setIsAtBottom] = useState(false);
     const currentYear = new Date().getFullYear();
 
     useEffect(() => {
         const checkIfAtBottom = () => {
-            setIsAtBottom(window.scrollY + window.innerHeight >= document.body.scrollHeight);
+            if (!multiFixedElements) {
+                setIsAtBottom(true);
+                return;
+            }
+
+            console.log("HI", window.scrollY, window.innerHeight, document.body.scrollHeight)
+
+            setIsAtBottom(window.scrollY + window.innerHeight * 2 >= document.body.scrollHeight);
         };
         checkIfAtBottom();
         window.addEventListener('scroll', checkIfAtBottom);
         return () => window.removeEventListener('scroll', checkIfAtBottom);
-    }, []);
+    }, [multiFixedElements]);
 
     return (
         <footer className={`fixed bottom-0 bg-black w-full h-screen min-h-[668px] text-[#EFEEE8] ${isAtBottom ? '' : '-z-50'}`}>

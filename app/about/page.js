@@ -11,6 +11,10 @@ import Image from "next/image";
 import AboutPageCTA from '../../public/images/home-cta.png';
 import { getAboutQuote, getCareersQuote, getEthosData, getTeam } from "../utils/cms-service";
 
+export const metadata = {
+  title: 'About'
+};
+
 export default async function About() {
     const ethosData = (await getEthosData())?.[0]?.contentList;
     const teamResponse = await getTeam();
@@ -80,12 +84,12 @@ export default async function About() {
                     <Careers quote={careersQuote}/>
                 </div>
             ) : null}
-            <div className={"relative"}>
+            <div className={"relative z-50"}>
                 <FullCta backgroundImageSrc={AboutPageCTA} link="/contact" displayText="FIND THE PATH TO FUTURE PROOF"
                          overlay="#534f3c"/>
             </div>
-            <div className={"relative"}>
-                <Footer/>
+            <div id="footer" className={"relative text-white bg-black h-screen"}>
+                <Footer />
             </div>
         </div>
     );

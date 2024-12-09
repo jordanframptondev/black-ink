@@ -1,48 +1,30 @@
-"use client";
-
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import ContactBackgroundLight from "../../public/images/Group-4530-Light.png";
 import ContactBackground from "../../public/images/group-4530.png";
-import { Footer } from "../components/Footer";
-import { Header } from "../components/Header";
 import ContactForm from "../components/contact/ContactForm";
+import ContactHeader from "../components/ContactHeader";
+import { Footer } from "../components/Footer";
 import { getContactQuestions } from "../utils/cms-service";
 
-export default function Contact() {
-    const [headerColor, setHeaderColor] = useState("cream");
-    const [contactQuestions, setContactQuestions] = useState([]);
-    useEffect(() => {
-        const handleResize = () => {
-            setHeaderColor(window.innerWidth >= 768 ? "cream" : "black");
-        };
+export const metadata = {
+    title: 'Contact'
+};
 
-        getContactQuestions().then((questions) => {
-            const orderedQuestions = questions
-                .map((q) => {
-                    return {
-                        question: q.question,
-                        answers: q.answerOptions,
-                        order: q.order,
-                    };
-                })
-                .sort((a, b) => a.order - b.order);
-            setContactQuestions(orderedQuestions);
-        });
-
-        handleResize(); // Set initial color
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
+export default async function Contact() {
+    const contactQuestions = (await getContactQuestions())
+    ?.map(q => ({
+        question: q.question,
+        answers: q.answerOptions,
+        order: q.order,
+    }))
+    .sort((a, b) => a.order - b.order);
+    
 
     return (
         <div>
-            <Header color={headerColor}/>
+            <ContactHeader />
 
-            <div className="absolute h-screen w-dvw top-0 left-0 bg-[#EFEEE8] md:bg-[#544F3D] -z-50">
+            <div className="absolute h-screen w-dvw top-0 left-0 bg-[#EFEEE8] md:bg-[#544F3D] z-50">
                 <Image
                     src={ContactBackground}
                     quality={100}
@@ -63,7 +45,7 @@ export default function Contact() {
                 />
             </div>
 
-            <div className="h-screen px-10 pb-10 text-black md:text-[#EFEEE8]">
+            <div className="h-screen px-10 pb-10 text-black md:text-[#EFEEE8] relative z-50">
                 <div className="flex flex-col md:flex-row pt-[140px]">
                     <div className="hidden md:block md:w-1/3 md:max-w-[400px]">
                         <h2 className="text-white font-ritma text-2xl">CONTACT</h2>
@@ -86,8 +68,8 @@ export default function Contact() {
                 </div>
             </div>
 
-            <div className="relative text-white">
-                <Footer/>
+            <div id="footer" className="relative text-white bg-black h-screen">
+                <Footer multiFixedElements={false} />
             </div>
         </div>
     );

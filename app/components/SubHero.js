@@ -28,7 +28,6 @@ export function SubHero() {
     const handleScroll = event => {
       if (componentRef.current) {
         const rect = componentRef.current.getBoundingClientRect();
-        console.log("SCROLL", window.scrollY);
         const currentScrollY = window.scrollY;
         const isScrollingUp = currentScrollY < lastScrollY.current;
         if (isScrollingUp && isFixed && ((!isMobile && window.scrollY < 922) || (isMobile && window.scrollY < 740))) {

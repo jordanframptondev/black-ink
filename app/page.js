@@ -78,14 +78,12 @@ export default async function Home() {
                 </div>
             ) : null}
             {partnersData ? (
-                <div className={"relative bg-[#EFEEE8]"}>
-                    <Info
-                        backgroundColor="#efeee8"
-                        title="PARTNERS"
-                        sections={partnersData}
-                        textLight={false}
-                    />
-                </div>
+                <Info
+                    backgroundColor="#efeee8"
+                    title="PARTNERS"
+                    sections={partnersData}
+                    textLight={false}
+                />
             ) : null}
             <div className="relative bg-black">
                 <Footer/>

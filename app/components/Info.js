@@ -38,7 +38,7 @@ export function Info({
             }}
         >
             {isClientLoaded && backgroundAnimation && (
-                <div className="absolute top-0 left-0 w-full h-full overflow-x-hidden">
+                <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
                     <Lottie loop play path={backgroundAnimation}
                             style={{width: '130%'}}/>
                 </div>

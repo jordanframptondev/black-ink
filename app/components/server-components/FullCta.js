@@ -15,8 +15,10 @@ export async function FullCta({backgroundImageSrc, overlay, displayText, link}) 
                 <Link href={link}
                       className="relative px-[90px] md:px-0 z-50 text-lg md:text-2xl text-white font-ritma cta-link w-full active:text-neutral-400">
                     <FadeIn>
-                        <span className="full-cta-arrow">→</span>
-                        <span className="cta-link-text">{displayText}</span>
+                        <div className="flex items-center">
+                            <span className="full-cta-arrow">→</span>
+                            <span className="cta-link-text">{displayText}</span>
+                        </div>
                     </FadeIn>
                 </Link>
             </div>

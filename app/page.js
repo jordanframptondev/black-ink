@@ -30,7 +30,7 @@ export default async function Home() {
         <div className="">
             <IntroAnimation/>
             <Header color="cream"/>
-            <div className="fixed top-0 flex w-full min-h-screen flex-col">
+            <div className="fixed top-0 flex w-full min-h-screen flex-col bg-black">
                 <Image
                     src={BlackInkLogo}
                     width={150}
@@ -44,6 +44,7 @@ export default async function Home() {
                 <ChevronDownIcon className="w-6 h-6 text-white mx-auto mb-8 animate-bounce-slow" />
             </div>
             <SubHero />
+            <div className="relative z-50">
             {ethosData ? (<div className={"relative mt-[200vh]"}>
                 <Info
                     backgroundColor="#544F3D"
@@ -85,7 +86,8 @@ export default async function Home() {
                     textLight={false}
                 />
             ) : null}
-            <div className="relative bg-black">
+            </div>
+            <div id="footer" className="relative bg-black h-screen">
                 <Footer/>
             </div>
         </div>

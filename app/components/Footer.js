@@ -1,13 +1,24 @@
-import "@/styles/footer.css";
+"use client";
+
 import { FadeIn } from "@/app/components/FadeIn";
+import "@/styles/footer.css";
 import Link from "next/link";
-
+import { useEffect, useState } from "react";
 export function Footer() {
-
+    const [isAtBottom, setIsAtBottom] = useState(false);
     const currentYear = new Date().getFullYear();
 
+    useEffect(() => {
+        const checkIfAtBottom = () => {
+            setIsAtBottom(window.scrollY + window.innerHeight >= document.body.scrollHeight);
+        };
+        checkIfAtBottom();
+        window.addEventListener('scroll', checkIfAtBottom);
+        return () => window.removeEventListener('scroll', checkIfAtBottom);
+    }, []);
+
     return (
-        <footer id='footer' className={'bg-black w-full h-screen min-h-[668px] text-[#EFEEE8]'}>
+        <footer className={`fixed bottom-0 bg-black w-full h-screen min-h-[668px] text-[#EFEEE8] ${isAtBottom ? '' : '-z-50'}`}>
             <div className={"flex justify-center w-full h-full"}>
                 <div className={"flex flex-col md:flex-row mx-10 mb-10 w-full"}>
                     <div className={"flex w-full md:w-1/3 mt-10 text-lg md:text-2xl font-ritma"}>

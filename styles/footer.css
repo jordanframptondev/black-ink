@@ -20,8 +20,10 @@ footer * {
     opacity: 0; /* Initially hidden */
 }
 
-.signup-link:hover {
-    /*padding-left: 20px; !* Add padding on hover *!*/
+.signup-link:hover input, .signup-link input:hover, .signup-link > input:focus, .signup-link > input:active {
+    transition: all 2000ms ease-in-out;
+    width: 100%;
+    border-bottom: 1px solid white;
 }
 
 .signup-link:hover .arrow {

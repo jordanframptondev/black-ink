@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 export function Footer({multiFixedElements = true}) {
     const [isAtBottom, setIsAtBottom] = useState(false);
     const currentYear = new Date().getFullYear();
+    const [subscribed, setSubscribed] = useState(false);
 
     useEffect(() => {
         const checkIfAtBottom = () => {
@@ -24,6 +25,11 @@ export function Footer({multiFixedElements = true}) {
         return () => window.removeEventListener('scroll', checkIfAtBottom);
     }, [multiFixedElements]);
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setSubscribed(true);
+    }
+
     return (
         <footer className={`fixed bottom-0 bg-black w-full h-screen min-h-[668px] text-[#EFEEE8] ${isAtBottom ? '' : '-z-50'}`}>
             <div className={"flex justify-center w-full h-full"}>
@@ -34,20 +40,15 @@ export function Footer({multiFixedElements = true}) {
                         </FadeIn>
                     </div>
                     <div className={"flex flex-col w-full h-full md:w-2/3"}>
-                        <Link href={"/contact"}
-                              className={"flex flex-nowrap signup-link w-full py-10 text-xl md:text-3xl lg:text-4xl font-signifier border-b cursor-pointer border-white transition-all duration-500 ease-in"}>
-                            <div className={"md:mr-auto"}>
-                                <span className="arrow">→</span>
-                            </div>
-                            <div className="w-1/2 min-w-fit pr-[50px] whitespace-nowrap link-text">
+                        <form action="/" onSubmit={handleSubmit} className={"flex flex-nowrap signup-link w-full py-10 text-xl md:text-3xl lg:text-4xl font-signifier border-b cursor-pointer border-white"}>
+                            {!subscribed && <input type="text" placeholder="Email" className="p-2 w-0 text-xl font-signifier whitespace-nowrap bg-black placeholder:text-black hover:placeholder:text-white" />}
+                            {!subscribed && <button type="submit" className="md:mr-auto min-w-fit pr-[50px] whitespace-nowrap bg-black ml-4">&rarr;</button>}
+                            <div className="w-1/2 min-w-fit pr-[50px] whitespace-nowrap">
                                 <FadeIn>
-                                <span>
-                                          Sign up for strategic insights
-
-                                </span>
+                                    <span className="text-2xl font-signifier">{subscribed ? "Thanks for subscribing!" : "Sign up for strategic insights"}</span>
                                 </FadeIn>
                             </div>
-                        </Link>
+                        </form>
                         <div
                             className={"flex flex-col md:flex-row mt-auto text-lg md:text-2xl border-y border-white py-[40px] md:py-[60px] justify-end md:justify-start"}>
                             <div className={"flex flex-col w-full items-end md:items-start font-signifier"}>

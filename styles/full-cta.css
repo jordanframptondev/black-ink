@@ -1,8 +1,4 @@
-.cta-link-text {
-    margin-left: 10px;
-}
-
-@media (min-width: 640px) {
+@media (min-width: 768px) {
     .cta-link {
         position: relative;
         display: inline-block;

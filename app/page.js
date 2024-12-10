@@ -39,7 +39,7 @@ export default async function Home() {
             <Hero/>
             <SubHero/>
             <div className="relative z-50">
-                <div className="sticky top-[250px] bg-black">
+                <div className="sticky top-[250px] bg-black -z-10">
                     <FadeIn viewportMargin="100px 100px 100px">
                         <h2 className="mt-auto text-center text-[#EFEEE8] text-xl md:text-4xl pb-10 font-signifier">
                             We facilitate the{" "}

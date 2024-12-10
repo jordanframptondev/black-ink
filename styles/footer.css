@@ -20,10 +20,11 @@ footer * {
     opacity: 0; /* Initially hidden */
 }
 
-.signup-link:hover input, .signup-link input:hover, .signup-link > input:focus, .signup-link > input:active {
+.signup-link:hover input, .signup-link input:hover, .signup-link > input:focus, .signup-link > input:active, .signup-link > input:focus-visible {
     transition: all 2000ms ease-in-out;
     width: 100%;
-    border-bottom: 1px solid white;
+    border: none;
+    outline: none;
 }
 
 .signup-link:hover .arrow {

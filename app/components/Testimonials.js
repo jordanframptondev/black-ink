@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { getTestimonials } from "../utils/cms-service";
+import { useState } from "react";
 import { FadeIn } from "./FadeIn";
 
 export function Testimonials({ testimonials }) {
@@ -38,13 +37,13 @@ export function Testimonials({ testimonials }) {
       <div className="lg:col-span-2 mt-20">
         <FadeIn>
           <div>
-            <p className={`transition-opacity duration-1000 text-xl lg:text-2xl font-signifier ${
+            <p className={`transition-opacity duration-1000 text-xl lg:text-4xl font-signifier ${
               isTransitioning ? "opacity-0" : "opacity-100"
             }`}>
               {testimonials[currentIndex]?.text}
             </p>
             <div className="mt-20 lg:flex justify-between">
-              <p className={`transition-opacity duration-1000 text-base md:text-xl lg:text-2xl font-signifier text-md font-signifierItalic lg:max-w-96 mb-20 ${
+              <p className={`transition-opacity duration-1000 text-base md:text-xl lg:text-2xl font-signifier text-md font-signifierItalic lg:max-w-lg mb-20 ${
               isTransitioning ? "opacity-0" : "opacity-100"
             }`}>
                 {testimonials[currentIndex]?.author}

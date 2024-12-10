@@ -82,23 +82,23 @@ export function Footer({multiFixedElements = true}) {
                             className={"flex flex-col lg:flex-row mt-auto text-lg lg:text-2xl border-y border-white py-[40px] lg:py-[60px] justify-end lg:justify-start text-right lg:text-left"}>
                             <div className={"flex flex-col w-full items-end lg:items-start font-signifier"}>
                                 <Link href={"/"} className={"footer-link cursor-pointer w-full "}>
-                                    <span className="footer-arrow">→</span>
+                                    <span className="footer-arrow hidden lg:inline">→</span>
                                     <span className="footer-link-text">Home</span>
                                 </Link>
                                 <Link href={"/about"}
                                       className={"footer-link cursor-pointer w-full"}>
-                                    <span className="footer-arrow">→</span>
+                                    <span className="footer-arrow hidden lg:inline">→</span>
                                     <span className="footer-link-text">About</span>
                                 </Link>
                                 {hasResources && (
                                     <Link href={"/resources"}
                                           className={"footer-link cursor-pointer w-full"}>
-                                        <span className="footer-arrow">→</span>
+                                        <span className="footer-arrow hidden lg:inline">→</span>
                                         <span className="footer-link-text">Resources</span>
                                     </Link>
                                 )}
                                 <Link href={"/contact"} className={"footer-link cursor-pointer w-full"}>
-                                    <span className="footer-arrow">→</span>
+                                    <span className="footer-arrow hidden lg:inline">→</span>
                                     <span className="footer-link-text">Contact</span>
                                 </Link>
                                 <div

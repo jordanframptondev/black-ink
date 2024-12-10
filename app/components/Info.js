@@ -38,10 +38,11 @@ export function Info({
                 <div className="hidden lg:block absolute top-0 left-0 w-full h-full overflow-hidden">
                     <video
                         src={backgroundAnimation}
+                        className="w-full h-full object-cover"
                         autoPlay
                         muted
                         loop
-                        className="w-full h-full object-cover"
+                        playsInline
                     />
                 </div>
             )}

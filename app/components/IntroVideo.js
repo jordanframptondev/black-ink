@@ -68,7 +68,7 @@ export default function IntroVideo() {
             className="videoContainer"
             style={{display: 'none'}}
         >
-            <video ref={videoRef} className="video" src="/intro.mp4" muted/>
+            <video ref={videoRef} className="video" src="/intro.mp4" playsInline muted/>
         </div>
     );
 }

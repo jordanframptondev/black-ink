@@ -1,10 +1,13 @@
 "use client";
 
-import BlackInkLogo from "@/public/images/black-ink-logo-cream.png";
 import { ArrowDownIcon } from "@heroicons/react/24/solid";
-import Image from "next/image";
-
+import { useEffect } from "react";
 export function Hero() {
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }, [])
+
     const handleScrollToSubHero = () => {
         const subHeroElement = document.querySelector("#sub-hero");
         if (subHeroElement) {
@@ -13,13 +16,6 @@ export function Hero() {
     };
     return (
         <div className="fixed top-0 flex w-full min-h-screen flex-col bg-black">
-            {/*<Image*/}
-            {/*  src={BlackInkLogo}*/}
-            {/*  width={150}*/}
-            {/*  height={150}*/}
-            {/*  alt="Black Ink"*/}
-            {/*  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-20"*/}
-            {/*/>*/}
             <h1 className="text-white text-lg lg:text-2xl white font-ritma uppercase pb-11 mt-auto mx-auto">
                 into the black
             </h1>

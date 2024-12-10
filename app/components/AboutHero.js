@@ -2,8 +2,14 @@
 
 import { ArrowDownIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
+import { useEffect } from "react";
 
 export function AboutHero() {
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [])
+
   const handleScrollToSubHero = () => {
     const subHeroElement = document.querySelector("#sub-hero");
     if (subHeroElement) {

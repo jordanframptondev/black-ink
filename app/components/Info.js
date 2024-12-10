@@ -93,7 +93,7 @@ function Section({title, description, image = null, textLight = true}) {
                         onClick={() => setIsOpen(!isOpen)}
                     >
                         <span
-                            className={`text-xl lg:text-base leading-7 font-signifier ${
+                            className={`w-5/6 text-xl lg:text-base leading-7 font-signifier ${
                                 textLight ? "text-[#EFEEE8]" : "text-black"
                             }`}
                         >
@@ -119,7 +119,7 @@ function Section({title, description, image = null, textLight = true}) {
                         leaveFrom="opacity-100 max-h-[500px]"
                         leaveTo="opacity-0 max-h-0"
                     >
-                        <div className="lg:flex justify-between pt-10 lg:pl-4">
+                        <div className="lg:flex justify-between pt-10 lg:pt-0 lg:pl-4">
                             <div className={`${image ? "lg:w-1/2" : "w-full"}`}>
                                 <p
                                     className={`text-base leading-7 font-signifier ${

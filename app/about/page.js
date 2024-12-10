@@ -39,28 +39,11 @@ export default async function About() {
             <Header color="cream"/>
             <AboutHero />
             <AboutSubHero introQuote={introQuote} introQuoteComponents={introQuoteComponents} />
-            <div id="div-3">
-                {ethosData ? (
-                    <div className={"relative"}>
-                        <Info backgroundColor="#000000" textLight={true} title="ETHOS" sections={ethosData}/>
-                    </div>
-                ) : null}
-                {team?.length > 0 ? (
-                    <div className={"relative"}>
-                        <Team team={team}/>
-                    </div>
-                ) : null}
-                {careersQuote ? (
-                    <div className={"relative bg-[#EFEEE8]"}>
-                        <Careers quote={careersQuote}/>
-                    </div>
-                ) : null}
-                <div className={"relative z-50"}>
-                    <FullCta backgroundImageSrc={AboutPageCTA} link="/contact"
-                             displayText="FIND THE PATH TO FUTURE PROOF"
-                             overlay="#534f3c"/>
+            {ethosData ? (
+                <div className={"relative"}>
+                    <Info backgroundColor="#000000" textLight={true} title="ETHOS" sections={ethosData}/>
                 </div>
-            </div>
+            ) : null}
             {team?.length > 0 ? (
                 <div className={"relative"}>
                     <Team team={team}/>
@@ -72,8 +55,9 @@ export default async function About() {
                 </div>
             ) : null}
             <div className={"relative z-50"}>
-                <FullCta backgroundImageSrc={AboutPageCTA} link="/contact" displayText="FIND THE PATH TO FUTURE PROOF"
-                        overlay="#534f3c"/>
+                <FullCta backgroundImageSrc={AboutPageCTA} link="/contact"
+                            displayText="FIND THE PATH TO FUTURE PROOF"
+                            overlay="#534f3c"/>
             </div>
             <div id="footer" className={"relative text-white bg-black h-screen"}>
                 <Footer/>

@@ -19,10 +19,6 @@ import {
 } from "./utils/cms-service";
 import { FadeIn } from "@/app/components/FadeIn";
 
-export const metadata = {
-    title: 'Home'
-};
-
 export default async function Home() {
     const ethosData = (await getEthosData())?.[0]?.contentList;
     const servicesData = (await getServicesData())?.[0]?.contentList;

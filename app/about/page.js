@@ -1,13 +1,12 @@
 import Careers from "@/app/components/Careers";
-import { FadeIn } from "@/app/components/FadeIn";
 import { Footer } from "@/app/components/Footer";
 import { Header } from "@/app/components/Header";
 import { Info } from "@/app/components/Info";
 import { FullCta } from "@/app/components/server-components/FullCta";
 import { Team } from "@/app/components/Team";
-import { PortableText } from '@portabletext/react';
 import AboutPageCTA from '../../public/images/home-cta.png';
 import { AboutHero } from "../components/AboutHero";
+import { AboutSubHero } from "../components/AboutSubHero";
 import { getAboutQuote, getCareersQuote, getEthosData, getTeam } from "../utils/cms-service";
 
 export const metadata = {
@@ -39,25 +38,7 @@ export default async function About() {
         <div className={"text-[#EFEEE8] bg-[#3A332E]"}>
             <Header color="cream"/>
             <AboutHero />
-            <div id="sub-hero" className={"pt-[100px] relative mt-[100vh]"}>
-                <div className={"flex justify-center min-w-screen h-screen bg-[#3A332E]"}>
-                    <div className={"flex border-t border-[#EFEEE8] mx-10"}>
-                        <div className={"flex flex-col md:flex-row my-10"}>
-                            <div
-                                className={"flex w-full mb-[80px] md:mb-0 md:w-1/3 text-xl md:text-2xl font-ritma"}>
-                                <h1>ABOUT</h1>
-                            </div>
-                            {introQuote ? (
-                                <div className={"flex flex-col w-full md:w-2/3"}>
-                                    <FadeIn>
-                                        <PortableText value={introQuote} components={introQuoteComponents}/>
-                                    </FadeIn>
-                                </div>
-                            ) : null}
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <AboutSubHero introQuote={introQuote} introQuoteComponents={introQuoteComponents} />
             <div id="div-3">
                 {ethosData ? (
                     <div className={"relative"}>

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import ContactBackgroundLight from "../../public/images/Group-4530-Light.png";
-import ContactBackground from "../../public/images/group-4530.png";
+import ContactBackgroundLight from "../../public/images/contact_form_light_bg.png";
+import ContactBackground from "../../public/images/contact_form_dark_bg.png";
 import ContactForm from "../components/contact/ContactForm";
 import ContactHeader from "../components/ContactHeader";
 import { Footer } from "../components/Footer";
@@ -12,17 +12,17 @@ export const metadata = {
 
 export default async function Contact() {
     const contactQuestions = (await getContactQuestions())
-    ?.map(q => ({
-        question: q.question,
-        answers: q.answerOptions,
-        order: q.order,
-    }))
-    .sort((a, b) => a.order - b.order);
-    
+        ?.map(q => ({
+            question: q.question,
+            answers: q.answerOptions,
+            order: q.order,
+        }))
+        .sort((a, b) => a.order - b.order);
+
 
     return (
         <div>
-            <ContactHeader />
+            <ContactHeader/>
 
             <div className="absolute h-screen w-dvw top-0 left-0 bg-[#EFEEE8] md:bg-[#544F3D] z-50">
                 <Image
@@ -69,7 +69,7 @@ export default async function Contact() {
             </div>
 
             <div id="footer" className="relative text-white bg-black h-screen">
-                <Footer multiFixedElements={false} />
+                <Footer multiFixedElements={false}/>
             </div>
         </div>
     );

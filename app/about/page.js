@@ -12,7 +12,7 @@ import AboutPageCTA from '../../public/images/home-cta.png';
 import { getAboutQuote, getCareersQuote, getEthosData, getTeam } from "../utils/cms-service";
 
 export const metadata = {
-  title: 'About'
+    title: 'About'
 };
 
 export default async function About() {
@@ -39,7 +39,8 @@ export default async function About() {
     return (
         <div className={"text-[#EFEEE8] bg-[#3A332E]"}>
             <Header color="cream"/>
-            <div className="fixed flex w-full min-h-screen flex flex-col justify-end">
+            <div id="div-1"
+                 className="fixed flex w-full min-h-screen flex flex-col justify-end">
                 <Image
                     src="/images/about-bg-dark.png"
                     alt="Background Image"
@@ -48,9 +49,9 @@ export default async function About() {
                     className={"mt-auto w-full min-h-[550px] object-cover object-[35%] mb-[25px] md:mb-[150px]"}
                     priority={true}
                 />
-                <ChevronDownIcon className="z-[99] w-6 h-6 text-white mx-auto mb-8 animate-bounce-slow" />
+                <ChevronDownIcon className="z-[99] w-6 h-6 text-white mx-auto mb-8 animate-bounce-slow"/>
             </div>
-            <div className={"relative pt-[100vh]"}>
+            <div id="div-2" className={"relative pt-[100vh]"}>
                 <div className={"flex justify-center min-w-screen min-h-screen bg-[#3A332E]"}>
                     <div className={"flex border-t border-[#EFEEE8] mx-10"}>
                         <div className={"flex flex-col md:flex-row my-10"}>
@@ -69,27 +70,30 @@ export default async function About() {
                     </div>
                 </div>
             </div>
-            {ethosData ? (
-                <div className={"relative"}>
-                    <Info backgroundColor="#000000" textLight={true} title="ETHOS" sections={ethosData}/>
+            <div id="div-3">
+                {ethosData ? (
+                    <div className={"relative"}>
+                        <Info backgroundColor="#000000" textLight={true} title="ETHOS" sections={ethosData}/>
+                    </div>
+                ) : null}
+                {team?.length > 0 ? (
+                    <div className={"relative"}>
+                        <Team team={team}/>
+                    </div>
+                ) : null}
+                {careersQuote ? (
+                    <div className={"relative bg-[#EFEEE8]"}>
+                        <Careers quote={careersQuote}/>
+                    </div>
+                ) : null}
+                <div className={"relative z-50"}>
+                    <FullCta backgroundImageSrc={AboutPageCTA} link="/contact"
+                             displayText="FIND THE PATH TO FUTURE PROOF"
+                             overlay="#534f3c"/>
                 </div>
-            ) : null}
-            {team?.length > 0 ? (
-                <div className={"relative"}>
-                    <Team team={team}/>
-                </div>
-            ) : null}
-            {careersQuote ? (
-                <div className={"relative bg-[#EFEEE8]"}>
-                    <Careers quote={careersQuote}/>
-                </div>
-            ) : null}
-            <div className={"relative z-50"}>
-                <FullCta backgroundImageSrc={AboutPageCTA} link="/contact" displayText="FIND THE PATH TO FUTURE PROOF"
-                         overlay="#534f3c"/>
             </div>
             <div id="footer" className={"relative text-white bg-black h-screen"}>
-                <Footer />
+                <Footer/>
             </div>
         </div>
     );

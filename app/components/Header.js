@@ -12,7 +12,7 @@ export function Header({color}) {
     const [showMenu, setShowMenu] = useState(false);
     const [isFooterVisible, setIsFooterVisible] = useState(false);
     const [inverseMenuIcon, setInverseMenuIcon] = useState(false);
-    const { hasResources } = useResources();
+    const {hasResources} = useResources();
 
     useEffect(() => {
         setWindowWidth(window.innerWidth);
@@ -31,9 +31,9 @@ export function Header({color}) {
         const footer = document.getElementById("footer");
         const observer = new IntersectionObserver(
             ([entry]) => {
-                setIsFooterVisible(entry.isIntersecting && entry.intersectionRatio >= 0.5);
+                setIsFooterVisible(entry.isIntersecting && entry.intersectionRatio >= .9);
             },
-            {threshold: [0.5]}
+            {threshold: [0.9]}
         );
 
         if (footer) {
@@ -132,7 +132,8 @@ export function Header({color}) {
                             <span className="arrow">→</span> <span className="link-text">ABOUT</span>
                         </Link>
                         {hasResources && (
-                            <Link href={"/resources"} className={"nav-link border-y border-t-black py-6 cursor-pointer"}>
+                            <Link href={"/resources"}
+                                  className={"nav-link border-y border-t-black py-6 cursor-pointer"}>
                                 <span className="arrow">→</span> <span className="link-text">RESOURCES</span>
                             </Link>
                         )}

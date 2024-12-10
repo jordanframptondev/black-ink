@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowDownIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
 export function AboutHero() {
@@ -22,13 +23,7 @@ export function AboutHero() {
         }
         priority={true}
       />
-      <span
-        type="button"
-        onClick={handleScrollToSubHero}
-        className="text-2xl relative p-1.5 text-white block mx-auto mb-8 animate-bounce-slow opacity-50 hover:cursor-pointer hover:opacity-100"
-      >
-        &darr;
-      </span>
+      <ArrowDownIcon onClick={handleScrollToSubHero} className="text-2xl w-6 h-6 text-white mx-auto mb-8 animate-bounce-slow opacity-50 hover:cursor-pointer hover:opacity-100" />
     </div>
   );
 }

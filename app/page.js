@@ -42,7 +42,7 @@ export default async function Home() {
             <Hero />
             <SubHero />
             <div className="relative z-50">
-                {ethosData ? (<div className={"relative mt-[200vh]"}>
+                {ethosData ? (<div className="relative">
                     <Info
                         backgroundColor="#544F3D"
                         title="ETHOS"

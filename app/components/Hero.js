@@ -1,6 +1,7 @@
 "use client";
 
 import BlackInkLogo from "@/public/images/black-ink-logo-cream.png";
+import { ArrowDownIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
 export function Hero() {
@@ -23,10 +24,7 @@ export function Hero() {
         into the black
       </h1>
 
-      <span
-        onClick={handleScrollToSubHero}
-        className="text-2xl w-6 h-6 text-white mx-auto mb-8 animate-bounce-slow opacity-50 hover:cursor-pointer hover:opacity-100"
-      >&darr;</span>
+      <ArrowDownIcon onClick={handleScrollToSubHero} className="text-2xl w-6 h-6 text-white mx-auto mb-8 animate-bounce-slow opacity-50 hover:cursor-pointer hover:opacity-100" />
     </div>
   );
 }

@@ -57,7 +57,7 @@ export function Header({color}) {
             const header = document.getElementById('black-ink-header-text');
             const bgColor = getBackgroundColorUnderHeader();
             const textColor = window.getComputedStyle(header).color;
-            if (bgColor === textColor || (bgColor === 'rgba(0, 0, 0, 0)' && window.scrollY > 2000)) {
+            if (bgColor === textColor || (bgColor === 'rgba(0, 0, 0, 0)' && window.scrollY > 3000)) {
                 header.classList.add('invert-text');
                 setInverseMenuIcon(true);
             } else {

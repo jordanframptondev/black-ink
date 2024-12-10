@@ -1,60 +1,19 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { FadeIn } from "./FadeIn";
 
 export function SubHero() {
   const componentRef = useRef(null);
-  const [isFixed, setIsFixed] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const lastScrollY = useRef(0);
-
-  useEffect(() => {
-    // Check if mobile on mount and window resize
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768); // 768px is typical tablet breakpoint
-    };
-
-    // Initial check
-    checkMobile();
-
-    // Add resize listener
-    window.addEventListener('resize', checkMobile);
-
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = event => {
-      if (componentRef.current) {
-        const rect = componentRef.current.getBoundingClientRect();
-        const currentScrollY = window.scrollY;
-        const isScrollingUp = currentScrollY < lastScrollY.current;
-        if (isScrollingUp && isFixed && ((!isMobile && window.scrollY < 922) || (isMobile && window.scrollY < 740))) {
-          setIsFixed(false);
-        } else if (!isScrollingUp && ((!isMobile && rect.top <= 100) || (isMobile && rect.top <= 70))) {
-          setIsFixed(true);
-        }
-
-        lastScrollY.current = currentScrollY;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isFixed, isMobile]);
 
   return (
     <div
       id="sub-hero"
-      className={`${isFixed ? "fixed h-100vh" : "relative mt-[100vh]"} ${isMobile ? 'top-[70px]' : 'top-[100px] w-full'}`}
+      className="pt-[100px] sticky top-0 mt-[100vh] h-screen"
       ref={componentRef}
     >
       <div 
-        className="flex flex-col justify-between min-w-screen bg-black px-10"
-        style={{ 
-          height: `calc(100vh - ${isMobile ? '70px' : '100px'})`
-        }}
+        className="flex flex-col justify-between min-w-screen bg-black px-10 h-full"
       >
         <FadeIn viewportMargin="100px 100px 100px">
           <h3 className="text-center text-[#EFEEE8] text-xl md:text-4xl pt-10 border-t border-[#EFEEE8] font-signifier">

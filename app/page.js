@@ -17,6 +17,7 @@ import {
     getServicesData,
     getTestimonials
 } from "./utils/cms-service";
+import { FadeIn } from "@/app/components/FadeIn";
 
 export const metadata = {
     title: 'Home'
@@ -39,9 +40,18 @@ export default async function Home() {
         <div className="">
             <IntroVideo/>
             <Header color="cream"/>
-            <Hero />
-            <SubHero />
+            <Hero/>
+            <SubHero/>
             <div className="relative z-50">
+                <div className="sticky top-[250px] bg-black">
+                    <FadeIn viewportMargin="100px 100px 100px">
+                        <h2 className="mt-auto text-center text-[#EFEEE8] text-xl md:text-4xl pb-10 font-signifier">
+                            We facilitate the{" "}
+                            <span className="font-signifierItalic">selection, design, and implementation</span>{" "}of
+                            strategic projects.
+                        </h2>
+                    </FadeIn>
+                </div>
                 {ethosData ? (<div className="relative">
                     <Info
                         backgroundColor="#544F3D"

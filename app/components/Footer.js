@@ -4,6 +4,7 @@ import { FadeIn } from "@/app/components/FadeIn";
 import "@/styles/footer.css";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+
 export function Footer({multiFixedElements = true}) {
     const [isAtBottom, setIsAtBottom] = useState(false);
     const currentYear = new Date().getFullYear();
@@ -29,7 +30,8 @@ export function Footer({multiFixedElements = true}) {
     }
 
     return (
-        <footer className={`fixed bottom-0 bg-black w-full h-screen min-h-[668px] text-[#EFEEE8] ${isAtBottom ? '' : '-z-50'}`}>
+        <footer
+            className={`fixed bottom-0 bg-black w-full h-screen min-h-[668px] text-[#EFEEE8] ${isAtBottom ? '' : '-z-50'}`}>
             <div className={"flex justify-center w-full h-full"}>
                 <div className={"flex flex-col md:flex-row mx-10 mb-10 w-full"}>
                     <div className={"flex w-full md:w-1/3 mt-10 text-lg md:text-2xl font-ritma"}>
@@ -43,7 +45,8 @@ export function Footer({multiFixedElements = true}) {
                             {!subscribed && <button type="submit" className="md:mr-auto min-w-fit pr-[50px] whitespace-nowrap bg-black ml-4">&rarr;</button>}
                             <div className="w-1/2 min-w-fit pr-[50px] whitespace-nowrap">
                                 <FadeIn>
-                                    <span className="text-2xl font-signifier">{subscribed ? "Thanks for subscribing!" : "Sign up for strategic insights"}</span>
+                                    <span
+                                        className="text-2xl font-signifier">{subscribed ? "Thanks for subscribing!" : "Sign up for strategic insights"}</span>
                                 </FadeIn>
                             </div>
                         </form>

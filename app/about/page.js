@@ -11,7 +11,7 @@ import { AboutHero } from "../components/AboutHero";
 import { getAboutQuote, getCareersQuote, getEthosData, getTeam } from "../utils/cms-service";
 
 export const metadata = {
-  title: 'About'
+    title: 'About'
 };
 
 export default async function About() {
@@ -58,11 +58,28 @@ export default async function About() {
                     </div>
                 </div>
             </div>
-            {ethosData ? (
-                <div className={"relative"}>
-                    <Info backgroundColor="#000000" textLight={true} title="ETHOS" sections={ethosData}/>
+            <div id="div-3">
+                {ethosData ? (
+                    <div className={"relative"}>
+                        <Info backgroundColor="#000000" textLight={true} title="ETHOS" sections={ethosData}/>
+                    </div>
+                ) : null}
+                {team?.length > 0 ? (
+                    <div className={"relative"}>
+                        <Team team={team}/>
+                    </div>
+                ) : null}
+                {careersQuote ? (
+                    <div className={"relative bg-[#EFEEE8]"}>
+                        <Careers quote={careersQuote}/>
+                    </div>
+                ) : null}
+                <div className={"relative z-50"}>
+                    <FullCta backgroundImageSrc={AboutPageCTA} link="/contact"
+                             displayText="FIND THE PATH TO FUTURE PROOF"
+                             overlay="#534f3c"/>
                 </div>
-            ) : null}
+            </div>
             {team?.length > 0 ? (
                 <div className={"relative"}>
                     <Team team={team}/>
@@ -78,7 +95,7 @@ export default async function About() {
                         overlay="#534f3c"/>
             </div>
             <div id="footer" className={"relative text-white bg-black h-screen"}>
-                <Footer />
+                <Footer/>
             </div>
         </div>
     );

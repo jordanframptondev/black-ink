@@ -5,9 +5,14 @@ import { PortableText } from '@portabletext/react';
 export default function Careers({quote}) {
     const quoteComponents = {
         block: {
-            normal: ({children}) => <p className="min-h-10">{children}</p>,
+            h1: ({children}) => <h1 className="text-xl md:text-4xl font-signifier min-h-10">{children}</h1>,
+            h2: ({children}) => <h2 className="text-xl md:text-4xl font-signifier min-h-10">{children}</h2>,
+            h3: ({children}) => <h3 className="text-lg md:text-2xl font-signifier min-h-10">{children}</h3>,
+            h4: ({children}) => <h4 className="text-lg md:text-2xl font-signifier min-h-10">{children}</h4>,
+            normal: ({children}) => <p className="text-base md:text-2xl font-signifier min-h-10">{children}</p>,
         }
     };
+
 
     return (
         <div className={"flex flex-col bg-[#EFEEE8] text-black w-full transition-all duration-1000 ease-in"}>
@@ -18,8 +23,8 @@ export default function Careers({quote}) {
                     </div>
                     <div className={"w-full md:w-2/3"}>
                         <FadeIn>
-                            <div className={"text-xl md:text-4xl font-signifier"}>
-                                <PortableText value={quote} components={quoteComponents} />
+                            <div className={"font-signifier"}>
+                                <PortableText value={quote} components={quoteComponents}/>
                             </div>
                         </FadeIn>
                     </div>

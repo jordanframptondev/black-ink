@@ -5,10 +5,9 @@ import { Header } from "@/app/components/Header";
 import { Info } from "@/app/components/Info";
 import { FullCta } from "@/app/components/server-components/FullCta";
 import { Team } from "@/app/components/Team";
-import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import { PortableText } from '@portabletext/react';
-import Image from "next/image";
 import AboutPageCTA from '../../public/images/home-cta.png';
+import { AboutHero } from "../components/AboutHero";
 import { getAboutQuote, getCareersQuote, getEthosData, getTeam } from "../utils/cms-service";
 
 export const metadata = {
@@ -39,19 +38,9 @@ export default async function About() {
     return (
         <div className={"text-[#EFEEE8] bg-[#3A332E]"}>
             <Header color="cream"/>
-            <div className="fixed flex w-full min-h-screen flex flex-col justify-end">
-                <Image
-                    src="/images/about-bg-dark.png"
-                    alt="Background Image"
-                    width={1920}
-                    height={1080}
-                    className={"mt-auto w-full min-h-[550px] object-cover object-[35%] mb-[25px] md:mb-[150px]"}
-                    priority={true}
-                />
-                <ChevronDownIcon className="z-[99] w-6 h-6 text-white mx-auto mb-8 animate-bounce-slow" />
-            </div>
-            <div className={"relative pt-[100vh]"}>
-                <div className={"flex justify-center min-w-screen min-h-screen bg-[#3A332E]"}>
+            <AboutHero />
+            <div id="sub-hero" className={"pt-[100px] relative mt-[100vh]"}>
+                <div className={"flex justify-center min-w-screen h-screen bg-[#3A332E]"}>
                     <div className={"flex border-t border-[#EFEEE8] mx-10"}>
                         <div className={"flex flex-col md:flex-row my-10"}>
                             <div
@@ -86,7 +75,7 @@ export default async function About() {
             ) : null}
             <div className={"relative z-50"}>
                 <FullCta backgroundImageSrc={AboutPageCTA} link="/contact" displayText="FIND THE PATH TO FUTURE PROOF"
-                         overlay="#534f3c"/>
+                        overlay="#534f3c"/>
             </div>
             <div id="footer" className={"relative text-white bg-black h-screen"}>
                 <Footer />

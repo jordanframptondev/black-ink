@@ -1,8 +1,5 @@
 import { IntroAnimation } from "@/app/components/IntroAnimation";
-import BlackInkLogo from "@/public/images/black-ink-logo-cream.png";
 import HomeCta from "@/public/images/home-cta.png";
-import { ChevronDownIcon } from "@heroicons/react/24/solid";
-import Image from "next/image";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Info } from "./components/Info";
@@ -11,6 +8,7 @@ import { ResourcesPreviewList } from "./components/ResourcesPreviewList";
 import { FullCta } from "./components/server-components/FullCta";
 import { SubHero } from "./components/SubHero";
 import { Testimonials } from "./components/Testimonials";
+import { Hero } from "./components/Hero";
 import { getEthosData, getLogos, getPartnersData, getPostList, getServicesData, getTestimonials } from "./utils/cms-service";
 
 export const metadata = {
@@ -34,19 +32,7 @@ export default async function Home() {
         <div className="">
             <IntroAnimation/>
             <Header color="cream"/>
-            <div className="fixed top-0 flex w-full min-h-screen flex-col bg-black">
-                <Image
-                    src={BlackInkLogo}
-                    width={150}
-                    height={150}
-                    alt="Black Ink"
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-20"
-                />
-                <h1 className="text-white text-lg lg:text-2xl white font-ritma uppercase pb-11 mt-auto mx-auto">
-                    into the black
-                </h1>
-                <ChevronDownIcon className="w-6 h-6 text-white mx-auto mb-8 animate-bounce-slow" />
-            </div>
+            <Hero />
             <SubHero />
             <div className="relative z-50">
             {ethosData ? (<div className={"relative mt-[200vh]"}>

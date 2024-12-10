@@ -46,6 +46,7 @@ export function SubHero() {
 
   return (
     <div
+      id="sub-hero"
       className={`${isFixed ? "fixed h-100vh" : "relative mt-[100vh]"} ${isMobile ? 'top-[70px]' : 'top-[100px] w-full'}`}
       ref={componentRef}
     >

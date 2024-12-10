@@ -6,6 +6,7 @@ import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useResources } from "../context/ResourcesContext";
+
 export function Footer({multiFixedElements = true}) {
     const [isAtBottom, setIsAtBottom] = useState(false);
     const currentYear = new Date().getFullYear();
@@ -38,33 +39,34 @@ export function Footer({multiFixedElements = true}) {
 
     return (
         <footer
-            className={`p-10 fixed bottom-0 bg-black w-full h-screen min-h-[668px] text-[#EFEEE8] ${isAtBottom ? '' : '-z-50'}`}>
+            className={`px-10 pb-10 fixed bottom-0 bg-black w-full h-screen min-h-[668px] text-[#EFEEE8] ${isAtBottom ? '' : '-z-50'}`}>
             <div className={"flex justify-center w-full h-full"}>
-                <div className={"flex flex-col lg:flex-row mx-10 mb-10 w-full"}>
+                <div className={"flex flex-col lg:flex-row w-full"}>
                     <div className={"flex w-full lg:w-1/3 mt-10 text-lg lg:text-2xl font-ritma"}>
                         <FadeIn>
                             <Link href={"/"}>BLACK INK</Link>
                         </FadeIn>
                     </div>
                     <div className={"flex flex-col w-full h-full lg:w-2/3"}>
-                        <form action="/" onSubmit={handleSubmit} className={"lg:flex flex-nowrap w-full pt-10 lg:py-10 text-xl lg:text-3xl lg:text-4xl font-signifier lg:border-b lg:border-white"}>
+                        <form action="/" onSubmit={handleSubmit}
+                              className={"lg:flex flex-nowrap w-full pt-10 lg:py-10 text-xl lg:text-3xl lg:text-4xl font-signifier lg:border-b lg:border-white"}>
                             {isClient && (
                                 <div className="flex signup-link cursor-pointer lg:w-1/2">
-                                    <input 
-                                        type="email" 
-                                        placeholder="Email" 
-                                        required 
+                                    <input
+                                        type="email"
+                                        placeholder="Email"
+                                        required
                                         className={`block border-0 py-2 pr-2 w-full lg:w-0 text-xl font-signifier whitespace-nowrap bg-black placeholder:text-black placeholder:text-white lg:hover:placeholder:text-white ${
                                             subscribed ? 'hidden' : ''
-                                        }`} 
+                                        }`}
                                     />
-                                    <button 
-                                        type="submit" 
+                                    <button
+                                        type="submit"
                                         className={`lg:mr-auto min-w-fit lg:pr-[50px] whitespace-nowrap bg-black lg:ml-4 ${
                                             subscribed ? 'hidden' : ''
                                         }`}
                                     >
-                                        <ArrowRightIcon className="w-6 h-6 text-white" />
+                                        <ArrowRightIcon className="w-6 h-6 text-white"/>
                                     </button>
                                 </div>
                             )}
@@ -90,7 +92,7 @@ export function Footer({multiFixedElements = true}) {
                                 </Link>
                                 {hasResources && (
                                     <Link href={"/resources"}
-                                        className={"footer-link cursor-pointer w-full"}>
+                                          className={"footer-link cursor-pointer w-full"}>
                                         <span className="footer-arrow">→</span>
                                         <span className="footer-link-text">Resources</span>
                                     </Link>
